@@ -1,5 +1,5 @@
 /**
- * 홈커밍 초대장 — 참석 여부 응답 수집용 Google Apps Script
+ * 페르시아어·이란학과 창립 50주년 홈커밍데이 — 참석 여부 응답 수집용 Google Apps Script
  *
  * ▣ 설정 방법 (5분)
  * 1. Google 드라이브에서 새 스프레드시트를 만듭니다. (예: "홈커밍 참석 응답")
@@ -12,15 +12,16 @@
  * 5. 발급된 "웹 앱 URL"(https://script.google.com/macros/s/.../exec)을 복사해
  *    index.html 의 CONFIG.rsvpEndpoint 에 붙여넣습니다.
  *
- * 응답은 스프레드시트의 "참석응답" 시트에 한 줄씩 쌓입니다.
+ * 응답은 스프레드시트의 "50주년 참석응답" 시트에 한 줄씩 쌓입니다.
  * 관리자는 이 스프레드시트를 열어 확인·필터·엑셀 다운로드할 수 있습니다.
  * (스프레드시트 공유 설정은 관리자만 볼 수 있게 유지하세요.)
  *
  * 코드를 수정한 경우 [배포] → [배포 관리] → 수정(연필) → 버전 "새 버전" 으로 다시 배포해야 반영됩니다.
  */
 
-const SHEET_NAME = '참석응답';
-const HEADERS = ['제출시각', '참석여부', '성명', '학번', '소속', '연락처', '이메일', '기기정보'];
+const SHEET_NAME = '50주년 참석응답';
+const HEADERS = ['제출시각', '참석여부', '성명', '학번', '연락처', '후리스사이즈', '기기정보'];
+const SIZES = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
 
 // 새 응답이 올 때마다 메일로 알림을 받으려면 주소를 넣으세요. (비우면 알림 없음)
 const NOTIFY_EMAIL = '';
@@ -31,12 +32,12 @@ function doPost(e) {
     lock.waitLock(10000);
     const d = JSON.parse(e.postData.contents);
 
-    const required = ['attend', 'name', 'year', 'org', 'phone', 'email'];
+    const required = ['attend', 'name', 'year', 'phone'];
     for (const k of required) {
       if (!d[k] || String(d[k]).trim() === '') return json({ ok: false, error: 'missing_' + k });
     }
     if (['참석', '불참'].indexOf(d.attend) < 0) return json({ ok: false, error: 'bad_attend' });
-    if (!/^\S+@\S+\.\S+$/.test(d.email)) return json({ ok: false, error: 'bad_email' });
+    if (d.attend === '참석' && SIZES.indexOf(d.size) < 0) return json({ ok: false, error: 'bad_size' });
 
     const sheet = getSheet();
     // 수식 주입 방지: = + - @ 로 시작하면 앞에 ' 를 붙임
@@ -46,12 +47,12 @@ function doPost(e) {
     };
     sheet.appendRow([
       new Date(), clean(d.attend), clean(d.name), clean(d.year) + '학번',
-      clean(d.org), "'" + String(d.phone).slice(0, 20), clean(d.email), clean(d.userAgent),
+      "'" + String(d.phone).slice(0, 20), d.attend === '참석' ? clean(d.size) : '', clean(d.userAgent),
     ]);
 
     if (NOTIFY_EMAIL) {
-      MailApp.sendEmail(NOTIFY_EMAIL, `[홈커밍] ${d.name}님 ${d.attend} 응답`,
-        `${d.name} (${d.year}학번 / ${d.org})\n${d.attend}\n${d.phone} / ${d.email}`);
+      MailApp.sendEmail(NOTIFY_EMAIL, `[50주년 홈커밍] ${d.name}님 ${d.attend} 응답`,
+        `${d.name} (${d.year}학번)\n${d.attend}${d.size ? ' / 후리스 ' + d.size : ''}\n${d.phone}`);
     }
     return json({ ok: true });
   } catch (err) {

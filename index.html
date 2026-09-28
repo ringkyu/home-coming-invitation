@@ -3,28 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>홈커밍 데이 초대장</title>
-<meta property="og:title" content="홈커밍 데이에 초대합니다">
-<meta property="og:description" content="2026년 11월 14일 토요일 오후 6시">
+<title>페르시아어·이란학과 창립 50주년 홈커밍데이</title>
+<meta name="description" content="한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에 동문 여러분을 모십니다.">
+<meta property="og:title" content="페르시아어·이란학과 창립 50주년 홈커밍데이">
+<meta property="og:description" content="한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에 동문 여러분을 모십니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f7f3ec;
-    --paper: #fffdf9;
-    --ink: #3a332c;
-    --muted: #8c8278;
-    --line: #e6ddd0;
-    --accent: #9c6b4e;
-    --accent-soft: #efe2d6;
+    --bg: #f6f2ea;
+    --paper: #fffdf8;
+    --ink: #2b2a33;
+    --muted: #7f7a72;
+    --line: #e3dccf;
+    --accent: #1f4e79;        /* 라피스 블루 */
+    --accent-deep: #14324f;
+    --accent-soft: #e4ebf2;
+    --gold: #b8914f;
+    --gold-soft: #f3eadb;
     --sun: #c0584a;
-    --sat: #4a6fa5;
+    --sat: #3f6ea5;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
   body {
-    background: #e9e3da;
+    background: #e7e2d8;
     color: var(--ink);
     font-family: 'Gowun Batang', serif;
     line-height: 1.8;
@@ -39,59 +43,63 @@
     position: relative;
   }
   section { padding: 72px 28px; text-align: center; }
+  section.alt { background: var(--paper); }
   .eng {
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: .28em;
-    color: var(--accent);
+    color: var(--gold);
     font-size: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 8px;
   }
-  .divider { width: 1px; height: 40px; background: var(--line); margin: 0 auto; }
+  .sec-title { font-size: 20px; font-weight: 700; margin-bottom: 28px; }
+  .lead { font-size: 15px; line-height: 2; }
+  .note {
+    background: var(--gold-soft); border-radius: 10px; padding: 14px 16px;
+    font-size: 13.5px; line-height: 1.8; text-align: left; margin-top: 20px;
+  }
+  .note b { color: var(--accent-deep); }
 
   /* ---------- 등장 애니메이션 ---------- */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
   .reveal.on { opacity: 1; transform: none; }
 
-  /* ---------- 꽃잎 ---------- */
-  #petals { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
-  .petal {
-    position: absolute; top: -20px; width: 10px; height: 8px;
-    background: #e8b8a8; border-radius: 80% 0 80% 0; opacity: .7;
-    animation: fall linear forwards;
+  /* ---------- 1·2. 헤드라인 + 키비주얼 ---------- */
+  .cover { padding: 56px 24px 64px; }
+  .cover .headline { font-size: 15px; line-height: 1.9; margin-bottom: 28px; }
+  .cover .headline strong { display: block; font-size: 19px; color: var(--accent-deep); }
+  .kv {
+    position: relative; aspect-ratio: 3 / 4; border-radius: 6px; overflow: hidden;
+    box-shadow: 0 12px 32px rgba(20,50,79,.22);
+    background: var(--accent-deep);
+    color: #fff;
   }
-  @keyframes fall {
-    to { transform: translate(var(--dx), 110vh) rotate(540deg); opacity: 0; }
+  .kv img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .kv .pattern { position: absolute; inset: 0; opacity: .16; }
+  .kv .frame { position: absolute; inset: 14px; border: 1px solid rgba(214,182,122,.55); border-radius: 3px; }
+  .kv .inner {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 28px;
   }
+  .kv .univ { font-size: 12px; letter-spacing: .18em; color: #d9bf8c; }
+  .kv .fifty {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 108px; line-height: 1;
+    color: #e6cc95; margin: 10px 0 0;
+    text-shadow: 0 2px 18px rgba(0,0,0,.25);
+  }
+  .kv .th { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: .5em; color: #e6cc95; margin-left: .5em; }
+  .kv .dept { font-size: 20px; margin-top: 18px; }
+  .kv .hc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #f1e3c4; }
+  .kv .rule { width: 40px; height: 1px; background: #d9bf8c; margin: 20px auto; }
+  .kv .dt { font-size: 15px; letter-spacing: .04em; }
+  .kv .pl { font-size: 13px; color: rgba(255,255,255,.78); }
 
-  /* ---------- 커버 ---------- */
-  .cover { padding: 56px 28px 64px; }
-  .cover .names {
-    display: flex; justify-content: space-between; align-items: baseline;
-    font-size: 17px; margin-bottom: 36px; padding: 0 4px;
-  }
-  .cover .names .and { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--muted); }
-  .cover .photo {
-    aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden;
-    box-shadow: 0 10px 30px rgba(60,40,20,.12);
-    background: linear-gradient(160deg, #d9c3ae, #a88a70 60%, #6f5846);
-    display: flex; align-items: center; justify-content: center; position: relative;
-  }
-  .cover .photo img { width: 100%; height: 100%; object-fit: cover; }
-  .cover .photo .ph {
-    color: rgba(255,255,255,.9); font-family: 'Cormorant Garamond', serif;
-    font-size: 44px; line-height: 1.1; letter-spacing: .05em;
-  }
-  .cover .photo .ph small { display: block; font-size: 15px; letter-spacing: .4em; margin-top: 14px; }
-  .cover .when { margin-top: 36px; font-size: 18px; letter-spacing: .06em; }
-  .cover .where { color: var(--muted); font-size: 14px; }
-
-  /* ---------- 인사말 ---------- */
-  .greeting p { font-size: 15px; line-height: 2.2; }
-  .greeting p + p { margin-top: 28px; }
-  .greeting .sign { margin-top: 40px; color: var(--muted); font-size: 14px; }
+  /* ---------- 3. 인사말 ---------- */
+  .greeting p { font-size: 15px; line-height: 2.1; }
+  .greeting p + p { margin-top: 24px; }
+  .greeting .sign { margin-top: 36px; font-size: 14px; color: var(--muted); }
+  .greeting .sign b { color: var(--ink); font-size: 16px; margin-left: 6px; }
 
   /* ---------- 캘린더 ---------- */
-  .calendar-sec { background: var(--paper); }
   .date-big { font-size: 17px; }
   .date-eng { font-family: 'Cormorant Garamond', serif; color: var(--muted); font-size: 15px; margin-bottom: 28px; }
   .cal { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 6px; }
@@ -105,49 +113,109 @@
   .countdown .box { min-width: 58px; }
   .countdown .num {
     background: var(--accent-soft); border-radius: 8px; font-size: 22px; padding: 6px 0;
-    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--accent-deep);
   }
   .countdown .lbl { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .15em; color: var(--muted); margin-top: 6px; }
   .countdown .colon { font-size: 22px; padding-top: 6px; color: var(--muted); }
   .dday-msg { margin-top: 24px; font-size: 15px; }
   .dday-msg b { color: var(--accent); }
 
-  /* ---------- 주최 ---------- */
-  .hosts .row { display: flex; justify-content: center; gap: 12px; align-items: baseline; font-size: 15px; }
-  .hosts .row + .row { margin-top: 10px; }
-  .hosts .role { color: var(--muted); font-size: 13px; min-width: 64px; text-align: right; }
-  .hosts .who { min-width: 140px; text-align: left; }
+  /* ---------- 4. 식순 타임라인 ---------- */
+  .timeline { list-style: none; text-align: left; position: relative; margin: 0 auto; max-width: 320px; }
+  .timeline::before { content: ''; position: absolute; left: 62px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+  .timeline li { display: grid; grid-template-columns: 52px 1fr; gap: 22px; padding: 10px 0; position: relative; }
+  .timeline li::before {
+    content: ''; position: absolute; left: 58px; top: 19px; width: 9px; height: 9px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--gold);
+  }
+  .timeline li.key::before { background: var(--gold); }
+  .timeline .t { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; color: var(--accent); text-align: right; }
+  .timeline .w { font-size: 15px; }
+  .timeline .w small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+
+  /* ---------- 버튼 ---------- */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
     border: 1px solid var(--line); background: var(--paper); color: var(--ink);
     font-family: inherit; font-size: 14px; padding: 12px 22px; border-radius: 999px; cursor: pointer;
-    text-decoration: none; transition: background .2s;
+    text-decoration: none; transition: background .2s, opacity .2s;
   }
   .btn:active { background: var(--accent-soft); }
-  .btn.full { width: 100%; border-radius: 10px; }
+  .btn.full { width: 100%; border-radius: 10px; padding: 14px 22px; }
   .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .hosts .btn { margin-top: 32px; }
+  .btn.primary:active { background: var(--accent-deep); }
+  .btn.kakao { background: #fee500; border-color: #fee500; color: #191919; }
+  .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
 
-  /* ---------- 갤러리 ---------- */
-  .gallery-sec { background: var(--paper); padding-left: 16px; padding-right: 16px; }
+  /* ---------- RSVP ---------- */
+  .rsvp-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .rsvp-sec .btn.full { margin-top: 24px; }
+
+  /* ---------- 5. 후리스 ---------- */
+  .fleece-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .fleece-imgs figure { margin: 0; }
+  .fleece-imgs .img {
+    aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fleece-imgs img { width: 100%; height: 100%; object-fit: cover; }
+  .fleece-imgs figcaption { font-family: 'Cormorant Garamond', serif; letter-spacing: .2em; font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .fleece-desc { font-size: 14px; margin: 20px 0 24px; }
+  .size-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .size-table th, .size-table td { border-bottom: 1px solid var(--line); padding: 9px 2px; }
+  .size-table thead th { color: var(--accent-deep); font-weight: 700; border-bottom: 1.5px solid var(--accent); }
+  .size-table tbody th { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 15px; }
+  .size-table td { font-variant-numeric: tabular-nums; }
+  .size-cap { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: left; }
+
+  /* ---------- 6. 발전기금 ---------- */
+  .fund-card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: left;
+    margin-top: 24px;
+  }
+  .fund-card .acct { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .fund-card .acct small { display: block; color: var(--muted); font-size: 12.5px; }
+  .fund-card .acct .num { font-size: 15px; font-variant-numeric: tabular-nums; }
+  .fund-card .btn { padding: 7px 14px; font-size: 12.5px; flex-shrink: 0; }
+  .fund-sec .btn.full { margin-top: 12px; }
+
+  /* ---------- 7. 카카오톡 채널 ---------- */
+  .kakao-card {
+    display: flex; align-items: center; gap: 14px; text-align: left;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 18px;
+    margin-bottom: 14px;
+  }
+  .kakao-card .logo {
+    width: 48px; height: 48px; border-radius: 14px; background: #fee500; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .kakao-card b { display: block; font-size: 15px; }
+  .kakao-card span { font-size: 13px; color: var(--muted); }
+
+  /* ---------- 8. 갤러리 ---------- */
+  .gallery-sec { padding-left: 16px; padding-right: 16px; }
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
   .gallery .g {
-    aspect-ratio: 1; border-radius: 2px; overflow: hidden; cursor: pointer;
+    aspect-ratio: 1; border-radius: 2px; overflow: hidden; cursor: pointer; position: relative;
     display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.85);
     font-family: 'Cormorant Garamond', serif; font-size: 20px;
   }
-  .gallery .g img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery .g img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.15); }
+  .gallery .g .cap {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 6px 5px; font-size: 11px;
+    font-family: 'Gowun Batang', serif; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.55));
+  }
   .gallery .g.hidden { display: none; }
   .more-btn { margin-top: 20px; }
 
   .lightbox {
-    position: fixed; inset: 0; background: rgba(20,16,12,.94); z-index: 50;
+    position: fixed; inset: 0; background: rgba(12,16,22,.95); z-index: 50;
     display: none; align-items: center; justify-content: center; flex-direction: column;
   }
   .lightbox.open { display: flex; }
   .lightbox .stage { width: 100%; max-width: 430px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
   .lightbox .stage > * { width: 100%; height: 100%; object-fit: contain; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 40px; }
-  .lightbox .count { color: #ccc; font-size: 13px; margin-top: 14px; font-family: 'Cormorant Garamond', serif; letter-spacing: .1em; }
+  .lightbox .count { color: #ccc; font-size: 13px; margin-top: 14px; }
   .lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 28px; padding: 16px; cursor: pointer; }
   .lightbox .close { top: 8px; right: 8px; }
   .lightbox .prev { left: 0; top: 50%; transform: translateY(-50%); }
@@ -156,43 +224,20 @@
   /* ---------- 오시는 길 ---------- */
   .place-name { font-size: 17px; }
   .place-addr { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  .map {
-    width: 100%; aspect-ratio: 4/3; border: 0; border-radius: 8px; background: var(--accent-soft);
-  }
+  .map { width: 100%; aspect-ratio: 4/3; border: 0; border-radius: 8px; background: var(--accent-soft); }
   .map-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
   .map-links .btn { padding: 10px 0; border-radius: 8px; font-size: 13px; }
   .transport { text-align: left; margin-top: 36px; }
-  .transport dt { font-family: 'Cormorant Garamond', serif; letter-spacing: .15em; color: var(--accent); font-size: 15px; margin-top: 20px; }
+  .transport dt { font-family: 'Cormorant Garamond', serif; letter-spacing: .15em; color: var(--gold); font-size: 15px; margin-top: 20px; }
   .transport dd { font-size: 14px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
 
-  /* ---------- 아코디언 ---------- */
-  .acc { text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); margin-top: 12px; overflow: hidden; }
-  .acc summary { list-style: none; padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; font-size: 15px; }
-  .acc summary::-webkit-details-marker { display: none; }
-  .acc summary::after { content: '⌄'; color: var(--muted); transition: transform .3s; }
-  .acc[open] summary::after { transform: rotate(180deg); }
-  .acc .body { padding: 0 20px 16px; font-size: 14px; }
-  .acc .acct { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); gap: 10px; }
-  .acc .acct small { color: var(--muted); display: block; }
-  .acc .acct .btn { padding: 6px 14px; font-size: 12px; flex-shrink: 0; }
+  /* ---------- 공유 ---------- */
+  .share { display: grid; gap: 10px; }
+  footer { text-align: center; padding: 24px 0 48px; font-size: 12px; color: var(--muted); }
 
-  /* ---------- 방명록 ---------- */
-  .guestbook { background: var(--paper); }
-  .msg { text-align: left; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; background: var(--bg); margin-bottom: 10px; }
-  .msg p { font-size: 14px; white-space: pre-wrap; }
-  .msg .meta { display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: var(--muted); }
-  .gb-form { display: grid; gap: 8px; margin-top: 20px; }
-  .gb-form input, .gb-form textarea {
-    font-family: inherit; font-size: 14px; border: 1px solid var(--line); border-radius: 8px;
-    padding: 12px 14px; background: var(--bg); color: var(--ink); width: 100%;
-  }
-  .gb-form textarea { min-height: 90px; resize: vertical; }
-
-  /* ---------- 참석 여부 (RSVP) ---------- */
-  .rsvp-sec p { font-size: 15px; line-height: 2; margin-bottom: 28px; }
-  .rsvp-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  /* ---------- 모달 ---------- */
   .modal {
-    position: fixed; inset: 0; z-index: 70; background: rgba(30,24,18,.5);
+    position: fixed; inset: 0; z-index: 70; background: rgba(15,22,32,.55);
     display: none; align-items: flex-end; justify-content: center;
   }
   .modal.open { display: flex; }
@@ -202,12 +247,13 @@
     animation: up .35s ease;
   }
   @keyframes up { from { transform: translateY(100%); } }
-  .sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
   .sheet-head h3 { font-size: 18px; font-weight: 700; }
   .sheet-head button { background: none; border: 0; font-size: 22px; color: var(--muted); cursor: pointer; padding: 4px 8px; }
+  .sheet-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
   .field { margin-bottom: 16px; text-align: left; }
-  .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-  .field label b { color: var(--sun); font-weight: 400; }
+  .field > label, .field > .lbl { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .field b.req { color: var(--sun); font-weight: 400; }
   .field input, .field select {
     width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
     border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--bg);
@@ -220,14 +266,16 @@
   }
   .field input:focus, .field select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
   .field input:user-invalid { border-color: var(--sun); }
-  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .seg { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); gap: 6px; }
   .seg input { position: absolute; opacity: 0; pointer-events: none; }
   .seg label {
-    display: block; text-align: center; margin: 0; padding: 12px 0; font-size: 15px; color: var(--ink);
+    display: block; text-align: center; margin: 0; padding: 11px 0; font-size: 14px; color: var(--ink);
     border: 1px solid var(--line); border-radius: 8px; background: var(--bg); cursor: pointer;
   }
   .seg input:checked + label { background: var(--accent); border-color: var(--accent); color: #fff; }
   .seg input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .field .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .field .hint a { color: var(--accent); }
   .consent { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--muted); text-align: left; margin: 4px 0 18px; }
   .consent input { margin-top: 5px; accent-color: var(--accent); }
   .hp { position: absolute; left: -9999px; }
@@ -236,55 +284,36 @@
   .done .ic { font-size: 40px; }
   .done p { margin: 12px 0 24px; font-size: 15px; line-height: 1.9; }
 
-  /* ---------- 공유 ---------- */
-  .share { display: grid; gap: 10px; }
-  footer { text-align: center; padding: 24px 0 48px; font-size: 12px; color: var(--muted); font-family: 'Cormorant Garamond', serif; letter-spacing: .15em; }
-
-  /* ---------- 토스트 / BGM ---------- */
   .toast {
     position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%) translateY(20px);
-    background: rgba(40,32,24,.88); color: #fff; font-size: 13px; padding: 10px 18px;
-    border-radius: 999px; opacity: 0; transition: .3s; z-index: 60; pointer-events: none; white-space: nowrap;
+    background: rgba(20,30,45,.9); color: #fff; font-size: 13px; padding: 10px 18px;
+    border-radius: 999px; opacity: 0; transition: .3s; z-index: 80; pointer-events: none; white-space: nowrap;
   }
   .toast.show { opacity: 1; transform: translateX(-50%); }
-  .bgm {
-    position: fixed; top: 14px; right: max(14px, calc(50% - 215px + 14px)); z-index: 40;
-    width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(58,51,44,.85); color: #fff;
-    font-size: 16px; cursor: pointer; display: none;
-  }
-  .bgm.show { display: block; }
-  .bgm.playing { animation: spin 4s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
 
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    #petals { display: none; }
   }
 </style>
 </head>
 <body>
-<div id="petals"></div>
-<button class="bgm" id="bgmBtn" aria-label="배경음악">♪</button>
-<audio id="bgm" loop></audio>
-
 <main class="wrap">
-  <!-- 커버 -->
+  <!-- 1·2. 헤드라인 + 키비주얼 -->
   <section class="cover">
-    <div class="names reveal"><span id="c-left"></span><span class="and">and</span><span id="c-right"></span></div>
-    <div class="photo reveal" id="c-photo"></div>
-    <div class="when reveal" id="c-when"></div>
-    <div class="where reveal" id="c-where"></div>
+    <p class="headline reveal" id="headline"></p>
+    <div class="kv reveal" id="kv"></div>
   </section>
 
-  <!-- 인사말 -->
-  <section class="greeting">
-    <div class="eng reveal">INVITATION</div>
+  <!-- 3. 동문회장 인사말 -->
+  <section class="greeting alt">
+    <div class="eng reveal">GREETING</div>
+    <div class="sec-title reveal">동문회장 인사말</div>
     <div id="greeting"></div>
     <div class="sign reveal" id="sign"></div>
   </section>
 
-  <!-- 날짜 -->
-  <section class="calendar-sec">
+  <!-- 캘린더 · D-day -->
+  <section>
     <div class="eng reveal">THE DAY</div>
     <div class="date-big reveal" id="date-ko"></div>
     <div class="date-eng reveal" id="date-en"></div>
@@ -293,16 +322,52 @@
     <div class="dday-msg reveal" id="dday-msg"></div>
   </section>
 
-  <!-- 주최 -->
-  <section class="hosts">
-    <div class="eng reveal">HOSTED BY</div>
-    <div id="hosts"></div>
-    <a class="btn reveal" id="contactBtn">📞 문의하기</a>
+  <!-- 4. 식순 + 참석 여부 -->
+  <section class="alt rsvp-sec">
+    <div class="eng reveal">PROGRAM</div>
+    <div class="sec-title reveal">행사 식순</div>
+    <ol class="timeline reveal" id="timeline"></ol>
+    <div class="note reveal" id="dinnerNote"></div>
+    <button class="btn full primary reveal" id="rsvpOpen">참석 여부 응답하기</button>
+    <div class="deadline reveal" id="rsvpDeadline"></div>
   </section>
 
-  <!-- 갤러리 -->
-  <section class="gallery-sec">
-    <div class="eng reveal">GALLERY</div>
+  <!-- 5. 후리스 -->
+  <section id="fleece">
+    <div class="eng reveal">GIFT</div>
+    <div class="sec-title reveal">기념 후리스 안내</div>
+    <div class="fleece-imgs reveal" id="fleeceImgs"></div>
+    <p class="fleece-desc reveal" id="fleeceDesc"></p>
+    <table class="size-table reveal" id="sizeTable"></table>
+    <p class="size-cap reveal" id="sizeCap"></p>
+  </section>
+
+  <!-- 6. 발전기금 -->
+  <section class="alt fund-sec">
+    <div class="eng reveal">FUND</div>
+    <div class="sec-title reveal">발전기금 안내</div>
+    <div class="lead reveal" id="fundText"></div>
+    <div class="fund-card reveal" id="fundCard"></div>
+    <a class="btn full primary reveal" id="fundLink" target="_blank" rel="noopener">발전기금 약정하기</a>
+  </section>
+
+  <!-- 7. 카카오톡 채널 -->
+  <section>
+    <div class="eng reveal">CHANNEL</div>
+    <div class="sec-title reveal">동문회 카카오톡 채널</div>
+    <div class="kakao-card reveal">
+      <div class="logo" aria-hidden="true">
+        <svg width="28" height="26" viewBox="0 0 28 26"><path fill="#3a1d1d" d="M14 0C6.3 0 0 4.9 0 11c0 3.9 2.6 7.3 6.5 9.3L5 26l6.3-4.2c.9.1 1.8.2 2.7.2 7.7 0 14-4.9 14-11S21.7 0 14 0z"/></svg>
+      </div>
+      <div><b id="kakaoName"></b><span id="kakaoDesc"></span></div>
+    </div>
+    <a class="btn full kakao reveal" id="kakaoLink" target="_blank" rel="noopener">채널 추가하기</a>
+  </section>
+
+  <!-- 8. 추억의 앨범 -->
+  <section class="gallery-sec alt">
+    <div class="eng reveal">MEMORIES</div>
+    <div class="sec-title reveal">추억의 앨범</div>
     <div class="gallery reveal" id="gallery"></div>
     <button class="btn more-btn" id="moreBtn">더 보기</button>
   </section>
@@ -310,6 +375,7 @@
   <!-- 오시는 길 -->
   <section class="location">
     <div class="eng reveal">LOCATION</div>
+    <div class="sec-title reveal">오시는 길</div>
     <div class="place-name reveal" id="place-name"></div>
     <div class="place-addr reveal" id="place-addr"></div>
     <iframe class="map reveal" id="map" loading="lazy" title="지도"></iframe>
@@ -321,33 +387,8 @@
     <dl class="transport reveal" id="transport"></dl>
   </section>
 
-  <!-- 회비 / 안내 -->
-  <section class="info" style="padding-top:0">
-    <div class="eng reveal">NOTICE</div>
-    <div id="accordions"></div>
-  </section>
-
-  <!-- 참석 여부 -->
-  <section class="rsvp-sec">
-    <div class="eng reveal">RSVP</div>
-    <p class="reveal">원활한 행사 준비를 위해<br>참석 여부를 알려주세요.</p>
-    <button class="btn full primary reveal" id="rsvpOpen">참석 여부 전달하기</button>
-    <div class="deadline reveal" id="rsvpDeadline"></div>
-  </section>
-
-  <!-- 방명록 -->
-  <section class="guestbook">
-    <div class="eng reveal">MESSAGE</div>
-    <div id="messages"></div>
-    <form class="gb-form reveal" id="gbForm">
-      <input id="gbName" placeholder="이름 (예: 23기 홍길동)" maxlength="20" required>
-      <textarea id="gbText" placeholder="반가운 한마디를 남겨주세요" maxlength="300" required></textarea>
-      <button class="btn full primary" type="submit">메시지 남기기</button>
-    </form>
-  </section>
-
   <!-- 공유 -->
-  <section>
+  <section class="alt" style="padding-top:48px;padding-bottom:48px">
     <div class="share">
       <button class="btn full" id="shareBtn">초대장 공유하기</button>
       <button class="btn full" id="copyBtn">초대장 주소 복사하기</button>
@@ -363,39 +404,38 @@
   <div class="count" id="lbCount"></div>
   <button class="next" aria-label="다음">›</button>
 </div>
+
 <div class="modal" id="rsvpModal" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle">
   <div class="sheet">
     <div class="sheet-head">
-      <h3 id="rsvpTitle">참석 여부 전달</h3>
+      <h3 id="rsvpTitle">참석 여부 응답</h3>
       <button type="button" id="rsvpClose" aria-label="닫기">✕</button>
     </div>
+    <p class="sheet-sub">코스 만찬 준비를 위해 꼭 응답 부탁드립니다.</p>
     <form id="rsvpForm" novalidate>
       <div class="field">
-        <label>참석 여부 <b>*</b></label>
+        <span class="lbl">참석 여부 <b class="req">*</b></span>
         <div class="seg">
-          <div><input type="radio" name="attend" id="at-y" value="참석" checked><label for="at-y">참석할게요</label></div>
-          <div><input type="radio" name="attend" id="at-n" value="불참"><label for="at-n">어려워요</label></div>
+          <div><input type="radio" name="attend" id="at-y" value="참석" checked><label for="at-y">참석합니다</label></div>
+          <div><input type="radio" name="attend" id="at-n" value="불참"><label for="at-n">불참합니다</label></div>
         </div>
       </div>
       <div class="field">
-        <label for="rv-name">성명 <b>*</b></label>
+        <label for="rv-name">성명 <b class="req">*</b></label>
         <input id="rv-name" name="name" required maxlength="30" autocomplete="name">
       </div>
       <div class="field">
-        <label for="rv-year">학번 <b>*</b></label>
+        <label for="rv-year">학번 <b class="req">*</b></label>
         <select id="rv-year" name="year" required></select>
       </div>
       <div class="field">
-        <label for="rv-org">소속 <b>*</b></label>
-        <input id="rv-org" name="org" required maxlength="50" placeholder="회사 / 학교 / 기관명" autocomplete="organization">
-      </div>
-      <div class="field">
-        <label for="rv-phone">연락처 <b>*</b></label>
+        <label for="rv-phone">연락처 <b class="req">*</b></label>
         <input id="rv-phone" name="phone" type="tel" inputmode="numeric" required maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?\d{3,4}-?\d{4}">
       </div>
-      <div class="field">
-        <label for="rv-email">이메일 <b>*</b></label>
-        <input id="rv-email" name="email" type="email" required maxlength="80" placeholder="example@email.com" autocomplete="email">
+      <div class="field" id="sizeField">
+        <span class="lbl">기념 후리스 사이즈 <b class="req">*</b></span>
+        <div class="seg" id="sizeSeg"></div>
+        <p class="hint"><a href="#fleece" id="sizeGuideLink">사이즈 안내 보기</a></p>
       </div>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="consent">
@@ -417,87 +457,147 @@
 <script>
 /* =========================================================
    ✏️  여기 내용만 바꾸면 초대장이 완성됩니다
+   ○○ 표시는 아직 확정되지 않은 값입니다.
    ========================================================= */
 const CONFIG = {
-  title: '홈커밍 데이',
-  coverLeft: '○○고등학교',
-  coverRight: '홈커밍 데이',
-  coverPhoto: '',                 // 예: 'images/cover.jpg' (비우면 기본 그라데이션)
-  date: '2026-11-14T18:00:00',    // 행사 시작 시각
-  placeName: '○○호텔 2F 그랜드볼룸',
-  address: '서울 중구 세종대로 110',
-  mapQuery: '서울시청',            // 지도 검색어 (장소명 또는 주소)
+  // 1. 헤드라인
+  univ: '한국외국어대학교',
+  dept: '페르시아어·이란학과',
+  anniversary: 50,
+  headline: '한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에\n동문 여러분을 모십니다.',
 
+  // 2. 키비주얼 — 디자인된 이미지가 있으면 경로를 넣으세요 (비우면 기본 디자인)
+  keyVisual: '',                    // 예: 'images/keyvisual.jpg'
+  date: '2026-11-14T18:00:00',      // 행사 시작 시각
+  placeName: '○○호텔 ○층 ○○홀',
+  address: '서울 ○○구 ○○로 00',
+  mapQuery: '서울시청',              // 지도 검색어 (장소명 또는 주소)
+
+  // 3. 동문회장 인사말
   greeting: [
-    '교복을 입고 함께 웃던 그 시절,\n같은 교정을 걸었던 우리가\n다시 한자리에 모이려 합니다.',
-    '바쁜 일상 속 잠시 쉬어가며\n그리운 얼굴들과\n반가운 인사를 나누었으면 합니다.',
-    '오랜만에 만나는 자리,\n꼭 함께해 주세요.'
+    '존경하는 은사님, 그리고 사랑하는 동문 여러분.\n우리 페르시아어·이란학과가\n어느덧 창립 50주년을 맞이하였습니다.',
+    '낯선 문자와 씨름하던 강의실,\n함께 노래하던 축제의 밤,\n멀리 이란 땅에서 보낸 연수의 날들까지—\n우리의 반세기는 한 사람 한 사람의\n이야기로 채워져 왔습니다.',
+    '지난 50년을 함께 돌아보고,\n다가올 50년을 함께 약속하는 자리에\n동문 여러분을 정중히 초대합니다.\n반가운 얼굴로 뵙기를 고대하겠습니다.',
   ],
-  sign: '○○고등학교 총동문회 드림',
+  signRole: '페르시아어·이란학과 총동문회장',
+  signName: '○○○',
 
-  hosts: [
-    { role: '주최', who: '○○고 총동문회' },
-    { role: '준비위원장', who: '홍길동 (23기)' },
-    { role: '총무', who: '김철수 (25기)' },
+  // 4. 식순 (key: true 는 강조 표시)
+  program: [
+    { t: '17:30', w: '등록 및 기념품 수령', d: '후리스는 등록 데스크에서 받아가세요' },
+    { t: '18:00', w: '개회 및 내빈 소개', key: true },
+    { t: '18:15', w: '동문회장 인사 · 축사', d: '은사님 말씀' },
+    { t: '18:40', w: '50년의 발자취', d: '추억 영상 상영 · 공로패 전달' },
+    { t: '19:00', w: '연회식 코스 만찬', key: true, d: '기수별 테이블' },
+    { t: '20:30', w: '단체 사진 및 폐회' },
   ],
-  contactPhone: '010-0000-0000',
+  dinnerNote: '<b>연회식 코스 만찬</b>으로 진행되어 <b>사전 인원 파악이 꼭 필요합니다.</b><br>참석 여부와 후리스 사이즈를 기한 내 알려주세요.',
 
-  gallery: [],   // 예: ['images/1.jpg', 'images/2.jpg', ...] (비우면 샘플 타일 12개)
+  // 참석 응답 — Google Apps Script 웹 앱 URL (rsvp/Code.gs)
+  rsvpEndpoint: 'https://script.google.com/macros/s/AKfycbx-flpJonWOsKOGqiFE1lfXarZMO22EtuqP__03UG85k-3QP7ujqwivN0jkTklZql6a/exec',
+  rsvpDeadline: '2026-10-31',       // 응답 마감일 (비우면 표시 안 함)
+  rsvpYearFrom: 1977,               // 학번 선택 시작 연도 (1회 입학 연도)
+  rsvpConsent: '참석 확인 및 기념품 준비를 위해 성명·학번·연락처를 수집하며, 행사 종료 후 3개월 내 파기합니다. 이에 동의합니다.',
+
+  // 5. 후리스
+  fleeceImages: [                   // 예: { src: 'images/fleece-front.jpg', cap: 'FRONT' }
+    { src: '', cap: 'FRONT' },
+    { src: '', cap: 'BACK' },
+  ],
+  fleeceDesc: '창립 50주년을 기념해 학과 엠블럼을 수놓은\n후리스 집업을 참석 동문 모두에게 드립니다.',
+  sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+  sizeColumns: ['사이즈', '가슴단면', '총장', '소매길이', '권장 키'],
+  sizeRows: [                       // 단위 cm — 업체 실측표로 교체하세요
+    ['S',   '54', '66', '60', '~165'],
+    ['M',   '57', '69', '62', '165~172'],
+    ['L',   '60', '72', '64', '172~178'],
+    ['XL',  '63', '75', '66', '178~183'],
+    ['2XL', '66', '78', '68', '183~188'],
+    ['3XL', '69', '81', '70', '188~'],
+  ],
+  sizeCaption: '* 단위 cm, 측정 방법에 따라 1~2cm 오차가 있을 수 있습니다. 넉넉한 오버핏이라 평소 사이즈를 권장합니다.',
+
+  // 6. 발전기금
+  fundText: '후배들이 더 넓은 세상을 만날 수 있도록\n장학금과 학과 발전에 쓰일\n발전기금 모금에 마음을 모아주세요.',
+  fundAccounts: [
+    { bank: '○○은행', num: '000-000000-00000', name: '예금주 ○○○ (총동문회)' },
+  ],
+  fundLink: '',                     // 온라인 약정 페이지 URL (비우면 버튼 비활성)
+
+  // 7. 카카오톡 채널
+  kakaoName: '한국외대 페르시아어·이란학과 동문회',
+  kakaoDesc: '행사 소식과 동문 소식을 가장 빠르게 받아보세요',
+  kakaoLink: '',                    // 예: 'https://pf.kakao.com/_xxxxxx' (비우면 버튼 비활성)
+
+  // 8. 추억의 앨범 — 예: ['images/1985.jpg', { src: 'images/1990.jpg', cap: '1990 축제' }]
+  gallery: [],
 
   transport: [
-    { t: 'SUBWAY', d: '1·2호선 시청역 5번 출구 도보 3분' },
-    { t: 'BUS',    d: '간선 401, 402, 472 · 지선 1711' },
-    { t: 'PARKING', d: '건물 지하주차장 3시간 무료 (프런트 등록)' },
+    { t: 'SUBWAY', d: '○호선 ○○역 ○번 출구 도보 5분' },
+    { t: 'BUS',    d: '○○○, ○○○ 번' },
+    { t: 'PARKING', d: '건물 지하주차장 이용 (주차 지원 여부 확인 중)' },
   ],
-
-  notices: [
-    { title: '회비 안내', html: '1인 50,000원 (식사 및 기념품 포함)' },
-    { title: '회비 입금 계좌', accounts: [
-        { bank: '국민은행', num: '000000-00-000000', name: '총무 김철수' },
-    ]},
-    { title: '프로그램', html: '18:00 입장 및 등록<br>18:30 개회 · 은사님 인사<br>19:00 만찬 및 기수별 테이블<br>20:30 경품 추첨 · 단체 사진' },
-    { title: '드레스 코드', html: '편한 복장 환영! 학교 로고가 들어간 옷이면 더 좋아요 😊' },
-  ],
-
-  bgm: '',   // 예: 'music/bgm.mp3' (비우면 버튼 숨김)
-
-  // 참석 여부 응답 — Google Apps Script 웹 앱 URL (설정 방법은 rsvp/Code.gs 상단 참고)
-  // 비워두면 테스트 모드: 제출해도 저장되지 않습니다.
-  rsvpEndpoint: 'https://script.google.com/macros/s/AKfycbx-flpJonWOsKOGqiFE1lfXarZMO22EtuqP__03UG85k-3QP7ujqwivN0jkTklZql6a/exec',
-  rsvpDeadline: '2026-11-07',   // 응답 마감일 (비우면 표시 안 함)
-  rsvpYearFrom: 1970,           // 학번 선택 시작 연도
-  rsvpConsent: '참석 확인 및 행사 안내를 위해 성명·학번·소속·연락처·이메일을 수집하며, 행사 종료 후 3개월 내 파기합니다. 이에 동의합니다.',
 };
 /* ========================================================= */
 
 const $ = s => document.querySelector(s);
 const pad = n => String(n).padStart(2, '0');
-const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const br = s => esc(s).replace(/\n/g, '<br>');
 const when = new Date(CONFIG.date);
 const DAYS_KO = ['일','월','화','수','목','금','토'];
 const DAYS_EN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const h = when.getHours(), ampmKo = h < 12 ? '오전' : '오후', h12 = h % 12 || 12;
 const timeKo = `${ampmKo} ${h12}시${when.getMinutes() ? ' ' + when.getMinutes() + '분' : ''}`;
+const EVENT = '홈커밍데이';
 
 function toast(msg) {
   const t = $('#toast'); t.textContent = msg; t.classList.add('show');
   clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 1800);
 }
+function setLink(el, url) {
+  if (url) el.href = url;
+  else { el.removeAttribute('href'); el.setAttribute('aria-disabled', 'true'); el.textContent += ' (준비 중)'; }
+}
 
-/* 커버 */
-document.title = `${CONFIG.title}에 초대합니다`;
-$('#c-left').textContent = CONFIG.coverLeft;
-$('#c-right').textContent = CONFIG.coverRight;
-$('#c-photo').innerHTML = CONFIG.coverPhoto
-  ? `<img src="${CONFIG.coverPhoto}" alt="">`
-  : `<div class="ph">Home<br>Coming<small>${when.getFullYear()}</small></div>`;
-$('#c-when').textContent = `${when.getFullYear()}. ${pad(when.getMonth()+1)}. ${pad(when.getDate())}. ${DAYS_KO[when.getDay()]} ${timeKo}`;
-$('#c-where').textContent = CONFIG.placeName;
+/* 1·2. 헤드라인 + 키비주얼 */
+(() => {
+  const [first, ...rest] = CONFIG.headline.split('\n');
+  $('#headline').innerHTML = `<strong>${esc(first)}</strong>${br(rest.join('\n'))}`;
+  const dateTxt = `${when.getFullYear()}. ${pad(when.getMonth()+1)}. ${pad(when.getDate())}. ${DAYS_KO[when.getDay()]} ${timeKo}`;
+  if (CONFIG.keyVisual) {
+    $('#kv').innerHTML = `<img src="${esc(CONFIG.keyVisual)}" alt="${esc(CONFIG.dept)} 창립 ${CONFIG.anniversary}주년 홈커밍데이 · ${dateTxt} · ${esc(CONFIG.placeName)}">`;
+    return;
+  }
+  // 페르시아 타일풍 8각 별 패턴
+  const star = 'M20 2 L25 15 L38 20 L25 25 L20 38 L15 25 L2 20 L15 15 Z';
+  $('#kv').innerHTML = `
+    <svg class="pattern" width="100%" height="100%" aria-hidden="true">
+      <defs><pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="${star}" fill="none" stroke="#e6cc95" stroke-width="1"/>
+        <rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)" fill="none" stroke="#e6cc95" stroke-width=".7"/>
+        <circle cx="0" cy="0" r="3" fill="#e6cc95"/><circle cx="40" cy="0" r="3" fill="#e6cc95"/>
+        <circle cx="0" cy="40" r="3" fill="#e6cc95"/><circle cx="40" cy="40" r="3" fill="#e6cc95"/>
+      </pattern></defs>
+      <rect width="100%" height="100%" fill="url(#tile)"/>
+    </svg>
+    <div class="frame"></div>
+    <div class="inner">
+      <div class="univ">${esc(CONFIG.univ)}</div>
+      <div class="fifty">${CONFIG.anniversary}</div>
+      <div class="th">TH ANNIVERSARY</div>
+      <div class="dept">${esc(CONFIG.dept)}</div>
+      <div class="hc">Homecoming Day</div>
+      <div class="rule"></div>
+      <div class="dt">${dateTxt}</div>
+      <div class="pl">${esc(CONFIG.placeName)}</div>
+    </div>`;
+})();
 
-/* 인사말 */
-$('#greeting').innerHTML = CONFIG.greeting.map(p => `<p class="reveal">${esc(p).replace(/\n/g,'<br>')}</p>`).join('');
-$('#sign').textContent = CONFIG.sign;
+/* 3. 인사말 */
+$('#greeting').innerHTML = CONFIG.greeting.map(p => `<p class="reveal">${br(p)}</p>`).join('');
+$('#sign').innerHTML = `${esc(CONFIG.signRole)}<b>${esc(CONFIG.signName)}</b>`;
 
 /* 캘린더 */
 $('#date-ko').textContent = `${when.getFullYear()}년 ${when.getMonth()+1}월 ${when.getDate()}일 ${DAYS_KO[when.getDay()]}요일 | ${timeKo}`;
@@ -522,23 +622,47 @@ function tick() {
   const box = (n, l) => `<div class="box"><div class="num">${n}</div><div class="lbl">${l}</div></div>`;
   $('#countdown').innerHTML = box(d,'DAYS') + '<div class="colon">:</div>' + box(pad(hh),'HOURS') + '<div class="colon">:</div>' + box(pad(mm),'MIN') + '<div class="colon">:</div>' + box(pad(ss),'SEC');
   $('#dday-msg').innerHTML = diff > 0
-    ? `${CONFIG.title}까지 <b>${d + 1}일</b> 남았습니다`
-    : `${CONFIG.title}가 <b>${d}일</b> 지났습니다`;
+    ? `창립 ${CONFIG.anniversary}주년 ${EVENT}까지 <b>${d + 1}일</b> 남았습니다`
+    : `창립 ${CONFIG.anniversary}주년 ${EVENT}가 <b>${d}일</b> 지났습니다`;
 }
 tick(); setInterval(tick, 1000);
 
-/* 주최 */
-$('#hosts').innerHTML = CONFIG.hosts.map(x => `<div class="row reveal"><span class="role">${esc(x.role)}</span><span class="who">${esc(x.who)}</span></div>`).join('');
-$('#contactBtn').href = `tel:${CONFIG.contactPhone}`;
+/* 4. 식순 */
+$('#timeline').innerHTML = CONFIG.program.map(p =>
+  `<li class="${p.key ? 'key' : ''}"><span class="t">${esc(p.t)}</span><span class="w">${esc(p.w)}${p.d ? `<small>${esc(p.d)}</small>` : ''}</span></li>`).join('');
+$('#dinnerNote').innerHTML = CONFIG.dinnerNote;
 
-/* 갤러리 */
-const SAMPLE_TONES = ['#c9a98c','#a98f7a','#d6bfa8','#8f7866','#bda38b','#e0cdb9','#9c826c','#c4ad96','#b3957c','#d9c6b1','#a38b76','#cbb49d'];
-const photos = CONFIG.gallery.length ? CONFIG.gallery : SAMPLE_TONES;
-const isSample = !CONFIG.gallery.length;
+/* 5. 후리스 */
+$('#fleeceImgs').innerHTML = CONFIG.fleeceImages.map(f => `
+  <figure><div class="img">${f.src
+    ? `<img src="${esc(f.src)}" alt="기념 후리스 ${esc(f.cap)}" loading="lazy">`
+    : `<svg width="70%" viewBox="0 0 100 100" aria-label="후리스 이미지 준비 중"><path d="M30 12 L42 8 Q50 16 58 8 L70 12 L86 22 L96 82 L84 84 L74 42 L74 92 L26 92 L26 42 L16 84 L4 82 L14 22 Z" fill="var(--accent)" opacity=".85"/><line x1="50" y1="14" x2="50" y2="92" stroke="#e6cc95" stroke-width="1.5" ${f.cap === 'BACK' ? 'opacity="0"' : ''}/><text x="50" y="${f.cap === 'BACK' ? 50 : 36}" text-anchor="middle" font-family="Cormorant Garamond" font-size="${f.cap === 'BACK' ? 14 : 7}" fill="#e6cc95">${f.cap === 'BACK' ? '50' : ''}</text></svg>`}
+  </div><figcaption>${esc(f.cap)}</figcaption></figure>`).join('');
+$('#fleeceDesc').innerHTML = br(CONFIG.fleeceDesc);
+$('#sizeTable').innerHTML =
+  `<thead><tr>${CONFIG.sizeColumns.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>` +
+  `<tbody>${CONFIG.sizeRows.map(r => `<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+$('#sizeCap').textContent = CONFIG.sizeCaption;
+
+/* 6. 발전기금 */
+$('#fundText').innerHTML = br(CONFIG.fundText);
+$('#fundCard').innerHTML = CONFIG.fundAccounts.map(a =>
+  `<div class="acct"><div><small>${esc(a.bank)}</small><div class="num">${esc(a.num)}</div><small>${esc(a.name)}</small></div>
+   <button class="btn" data-copy="${esc(a.bank + ' ' + a.num)}">계좌 복사</button></div>`).join('');
+setLink($('#fundLink'), CONFIG.fundLink);
+
+/* 7. 카카오톡 채널 */
+$('#kakaoName').textContent = CONFIG.kakaoName;
+$('#kakaoDesc').textContent = CONFIG.kakaoDesc;
+setLink($('#kakaoLink'), CONFIG.kakaoLink);
+
+/* 8. 추억의 앨범 */
+const SAMPLE_TONES = ['#8a9bb0','#a39a88','#6f7f94','#b5a58c','#7d8a9c','#9c8e78','#5f7088','#b0a390','#8795a8','#a8987e','#72839a','#998a74'];
+const photos = CONFIG.gallery.length ? CONFIG.gallery.map(g => typeof g === 'string' ? { src: g } : g) : SAMPLE_TONES.map(c => ({ tone: c }));
 const SHOW = 9;
-const tileHtml = (p, i) => isSample
-  ? `<div style="background:${p};width:100%;height:100%;display:flex;align-items:center;justify-content:center">${i+1}</div>`
-  : `<img src="${p}" alt="" loading="lazy">`;
+const tileHtml = (p, i, big) => p.tone
+  ? `<div style="background:${p.tone};width:100%;height:100%;display:flex;align-items:center;justify-content:center">${i+1}</div>`
+  : `<img src="${esc(p.src)}" alt="${esc(p.cap || '추억의 사진')}" loading="lazy">${p.cap && !big ? `<span class="cap">${esc(p.cap)}</span>` : ''}`;
 $('#gallery').innerHTML = photos.map((p, i) => `<div class="g ${i >= SHOW ? 'hidden' : ''}" data-i="${i}">${tileHtml(p, i)}</div>`).join('');
 if (photos.length <= SHOW) $('#moreBtn').remove();
 else $('#moreBtn').onclick = e => { document.querySelectorAll('.g.hidden').forEach(g => g.classList.remove('hidden')); e.target.remove(); };
@@ -546,8 +670,9 @@ else $('#moreBtn').onclick = e => { document.querySelectorAll('.g.hidden').forEa
 let lbIdx = 0;
 function openLb(i) {
   lbIdx = (i + photos.length) % photos.length;
-  $('#lbStage').innerHTML = tileHtml(photos[lbIdx], lbIdx);
-  $('#lbCount').textContent = `${lbIdx + 1} / ${photos.length}`;
+  const p = photos[lbIdx];
+  $('#lbStage').innerHTML = tileHtml(p, lbIdx, true);
+  $('#lbCount').textContent = `${lbIdx + 1} / ${photos.length}${p.cap ? ' · ' + p.cap : ''}`;
   $('#lightbox').classList.add('open');
 }
 $('#gallery').onclick = e => { const g = e.target.closest('.g'); if (g) openLb(+g.dataset.i); };
@@ -571,14 +696,7 @@ $('#kakaoMap').href = `https://map.kakao.com/link/search/${q}`;
 $('#tmap').href = `https://tmap.life/search?name=${q}`;
 $('#transport').innerHTML = CONFIG.transport.map(x => `<dt>${esc(x.t)}</dt><dd>${esc(x.d)}</dd>`).join('');
 
-/* 안내 아코디언 */
-$('#accordions').innerHTML = CONFIG.notices.map(n => {
-  const body = n.accounts
-    ? n.accounts.map(a => `<div class="acct"><div>${esc(a.bank)} ${esc(a.num)}<small>${esc(a.name)}</small></div><button class="btn" data-copy="${esc(a.bank + ' ' + a.num)}">복사</button></div>`).join('')
-    : n.html;
-  return `<details class="acc reveal"><summary>${esc(n.title)}</summary><div class="body">${body}</div></details>`;
-}).join('');
-
+/* 복사 */
 async function copy(text, msg) {
   try { await navigator.clipboard.writeText(text); }
   catch { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
@@ -586,38 +704,27 @@ async function copy(text, msg) {
 }
 document.addEventListener('click', e => { const b = e.target.closest('[data-copy]'); if (b) copy(b.dataset.copy, '계좌번호가 복사되었습니다'); });
 
-/* 방명록 (현재는 이 브라우저에만 저장 — 공유 저장소 연결 필요) */
-const GB_KEY = 'homecoming-guestbook';
-function loadMsgs() { try { return JSON.parse(localStorage.getItem(GB_KEY)) || []; } catch { return []; } }
-function renderMsgs() {
-  const list = loadMsgs();
-  $('#messages').innerHTML = list.length
-    ? list.slice().reverse().map(m => `<div class="msg"><p>${esc(m.text)}</p><div class="meta"><span>From ${esc(m.name)}</span><span>${m.at}</span></div></div>`).join('')
-    : '<p style="color:var(--muted);font-size:14px">첫 번째 메시지를 남겨주세요 ✉️</p>';
-}
-$('#gbForm').onsubmit = e => {
-  e.preventDefault();
-  const n = new Date();
-  const list = loadMsgs();
-  list.push({ name: $('#gbName').value.trim(), text: $('#gbText').value.trim(),
-    at: `${n.getFullYear()}.${pad(n.getMonth()+1)}.${pad(n.getDate())} ${pad(n.getHours())}:${pad(n.getMinutes())}` });
-  try { localStorage.setItem(GB_KEY, JSON.stringify(list)); } catch {}
-  e.target.reset(); renderMsgs(); toast('메시지가 등록되었습니다');
-};
-renderMsgs();
-
 /* 참석 여부 (RSVP) */
 (() => {
   const modal = $('#rsvpModal'), form = $('#rsvpForm'), err = $('#rsvpErr'), submit = $('#rsvpSubmit');
   if (CONFIG.rsvpDeadline) {
     const d = new Date(CONFIG.rsvpDeadline + 'T00:00:00');
-    $('#rsvpDeadline').textContent = `${d.getMonth()+1}월 ${d.getDate()}일(${DAYS_KO[d.getDay()]})까지 알려주세요`;
+    $('#rsvpDeadline').textContent = `${d.getMonth()+1}월 ${d.getDate()}일(${DAYS_KO[d.getDay()]})까지 응답 부탁드립니다`;
   }
   const thisYear = new Date().getFullYear();
   let opts = '<option value="" disabled selected>입학 연도를 선택하세요</option>';
   for (let y = thisYear; y >= CONFIG.rsvpYearFrom; y--) opts += `<option value="${y}">${y}년 (${String(y).slice(2)}학번)</option>`;
   $('#rv-year').innerHTML = opts;
   $('#consentText').textContent = CONFIG.rsvpConsent;
+
+  const seg = $('#sizeSeg');
+  seg.style.setProperty('--n', Math.min(CONFIG.sizes.length, 6));
+  seg.innerHTML = CONFIG.sizes.map((s, i) =>
+    `<div><input type="radio" name="size" id="sz-${i}" value="${esc(s)}"><label for="sz-${i}">${esc(s)}</label></div>`).join('');
+
+  // 불참이면 후리스 사이즈 숨김
+  const syncSize = () => { $('#sizeField').hidden = form.attend.value !== '참석'; };
+  form.addEventListener('change', e => { if (e.target.name === 'attend') syncSize(); });
 
   // 연락처 자동 하이픈
   $('#rv-phone').addEventListener('input', e => {
@@ -626,36 +733,42 @@ renderMsgs();
   });
 
   const open = () => {
-    form.hidden = false; $('#rsvpDone').hidden = true; err.textContent = '';
+    form.hidden = false; $('#rsvpDone').hidden = true; err.textContent = ''; syncSize();
     modal.classList.add('open'); document.body.style.overflow = 'hidden';
     setTimeout(() => $('#rv-name').focus(), 350);
   };
-  const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; $('#rsvpOpen').focus(); };
+  const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
   $('#rsvpOpen').onclick = open;
-  $('#rsvpClose').onclick = close;
-  $('#rsvpDoneClose').onclick = close;
+  $('#rsvpClose').onclick = () => { close(); $('#rsvpOpen').focus(); };
+  $('#rsvpDoneClose').onclick = () => { close(); $('#rsvpOpen').focus(); };
+  $('#sizeGuideLink').onclick = e => { e.preventDefault(); close(); $('#fleece').scrollIntoView({ behavior: 'smooth' }); };
   modal.addEventListener('click', e => { if (e.target === modal) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
 
-  const LABELS = { name: '성명', year: '학번', org: '소속', phone: '연락처', email: '이메일' };
+  const LABELS = { name: '성명', year: '학번', phone: '연락처' };
   const josa = w => (w.charCodeAt(w.length - 1) - 0xAC00) % 28 ? '을' : '를';
+  const fail = (msg, el) => { err.textContent = msg; el && el.focus(); };
+
   form.onsubmit = async e => {
     e.preventDefault();
     err.textContent = '';
-    for (const el of form.querySelectorAll('input[required], select[required]')) {
-      if (el.type !== 'checkbox' && el.value.trim() === '') { el.value = ''; }
+    for (const el of form.querySelectorAll('#rv-name, #rv-year, #rv-phone')) {
+      if (el.value.trim() === '') el.value = '';
       if (!el.checkValidity()) {
-        err.textContent = el.type === 'checkbox' ? '개인정보 수집·이용에 동의해 주세요.'
-          : el.validity.valueMissing ? `${LABELS[el.name]}${josa(LABELS[el.name])} ${el.tagName === 'SELECT' ? '선택' : '입력'}해 주세요.`
-          : `${LABELS[el.name]} 형식을 확인해 주세요.`;
-        el.focus(); return;
+        return fail(el.validity.valueMissing
+          ? `${LABELS[el.name]}${josa(LABELS[el.name])} ${el.tagName === 'SELECT' ? '선택' : '입력'}해 주세요.`
+          : `${LABELS[el.name]} 형식을 확인해 주세요.`, el);
       }
     }
+    const attending = form.attend.value === '참석';
+    if (attending && !form.size.value) return fail('후리스 사이즈를 선택해 주세요.', seg.querySelector('input'));
+    if (!$('#rv-consent').checked) return fail('개인정보 수집·이용에 동의해 주세요.', $('#rv-consent'));
+
     const fd = new FormData(form);
     if (fd.get('website')) return;   // 스팸 봇 차단용 숨김 필드
     const data = {
       attend: fd.get('attend'), name: fd.get('name').trim(), year: fd.get('year'),
-      org: fd.get('org').trim(), phone: fd.get('phone').trim(), email: fd.get('email').trim(),
+      phone: fd.get('phone').trim(), size: attending ? fd.get('size') : '',
       userAgent: navigator.userAgent.slice(0, 120),
     };
 
@@ -672,12 +785,12 @@ renderMsgs();
       }
       form.reset();
       form.hidden = true; $('#rsvpDone').hidden = false;
-      $('#rsvpDoneMsg').innerHTML = (data.attend === '참석'
-        ? `${esc(data.name)}님, 참석 응답 감사합니다!<br>${when.getMonth()+1}월 ${when.getDate()}일에 반갑게 만나요.`
-        : `${esc(data.name)}님, 응답 감사합니다.<br>다음 자리에서 꼭 만나요!`)
+      $('#rsvpDoneMsg').innerHTML = (attending
+        ? `${esc(data.name)} 동문님, 참석 응답 감사합니다!<br>${when.getMonth()+1}월 ${when.getDate()}일에 반갑게 뵙겠습니다.`
+        : `${esc(data.name)} 동문님, 응답 감사합니다.<br>다음 자리에서 꼭 뵙기를 바랍니다.`)
         + (CONFIG.rsvpEndpoint ? '' : '<br><small style="color:var(--muted)">(테스트 모드 — 실제로 저장되지 않았습니다)</small>');
     } catch {
-      err.textContent = '제출에 실패했습니다. 잠시 후 다시 시도하거나 문의하기로 연락해 주세요.';
+      err.textContent = '제출에 실패했습니다. 잠시 후 다시 시도하거나 동문회 카카오톡 채널로 문의해 주세요.';
     } finally {
       submit.disabled = false; submit.textContent = '제출하기';
     }
@@ -690,37 +803,11 @@ $('#shareBtn').onclick = async () => {
   if (navigator.share) { try { await navigator.share({ title: document.title, url: location.href }); } catch {} }
   else copy(location.href, '초대장 주소가 복사되었습니다');
 };
-$('#footer').textContent = `${CONFIG.title.toUpperCase()} · ${when.getFullYear()}`;
-
-/* BGM */
-if (CONFIG.bgm) {
-  const a = $('#bgm'), b = $('#bgmBtn');
-  a.src = CONFIG.bgm; b.classList.add('show');
-  b.onclick = () => { a.paused ? a.play() : a.pause(); };
-  a.onplay = () => b.classList.add('playing');
-  a.onpause = () => b.classList.remove('playing');
-}
+$('#footer').textContent = `${CONFIG.univ} ${CONFIG.dept} 총동문회`;
 
 /* 스크롤 등장 효과 */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-/* 꽃잎 */
-(function petals() {
-  const box = $('#petals');
-  const spawn = () => {
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.style.left = Math.random() * 100 + 'vw';
-    p.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
-    p.style.animationDuration = 7 + Math.random() * 6 + 's';
-    p.style.transform = `scale(${.6 + Math.random() * .8})`;
-    box.appendChild(p);
-    setTimeout(() => p.remove(), 14000);
-  };
-  for (let i = 0; i < 6; i++) setTimeout(spawn, i * 400);
-  setInterval(spawn, 1400);
-})();
 </script>
 </body>
 </html>
