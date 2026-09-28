@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>홈커밍 데이 초대장</title>
+<meta property="og:title" content="홈커밍 데이에 초대합니다">
+<meta property="og:description" content="2026년 11월 14일 토요일 오후 6시">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f3ec;
+    --paper: #fffdf9;
+    --ink: #3a332c;
+    --muted: #8c8278;
+    --line: #e6ddd0;
+    --accent: #9c6b4e;
+    --accent-soft: #efe2d6;
+    --sun: #c0584a;
+    --sat: #4a6fa5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #e9e3da;
+    color: var(--ink);
+    font-family: 'Gowun Batang', serif;
+    line-height: 1.8;
+    word-break: keep-all;
+  }
+  .wrap {
+    max-width: 430px;
+    margin: 0 auto;
+    background: var(--bg);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  section { padding: 72px 28px; text-align: center; }
+  .eng {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: .28em;
+    color: var(--accent);
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .divider { width: 1px; height: 40px; background: var(--line); margin: 0 auto; }
+
+  /* ---------- 등장 애니메이션 ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  /* ---------- 꽃잎 ---------- */
+  #petals { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+  .petal {
+    position: absolute; top: -20px; width: 10px; height: 8px;
+    background: #e8b8a8; border-radius: 80% 0 80% 0; opacity: .7;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    to { transform: translate(var(--dx), 110vh) rotate(540deg); opacity: 0; }
+  }
+
+  /* ---------- 커버 ---------- */
+  .cover { padding: 56px 28px 64px; }
+  .cover .names {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 17px; margin-bottom: 36px; padding: 0 4px;
+  }
+  .cover .names .and { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--muted); }
+  .cover .photo {
+    aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(60,40,20,.12);
+    background: linear-gradient(160deg, #d9c3ae, #a88a70 60%, #6f5846);
+    display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .cover .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .cover .photo .ph {
+    color: rgba(255,255,255,.9); font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; line-height: 1.1; letter-spacing: .05em;
+  }
+  .cover .photo .ph small { display: block; font-size: 15px; letter-spacing: .4em; margin-top: 14px; }
+  .cover .when { margin-top: 36px; font-size: 18px; letter-spacing: .06em; }
+  .cover .where { color: var(--muted); font-size: 14px; }
+
+  /* ---------- 인사말 ---------- */
+  .greeting p { font-size: 15px; line-height: 2.2; }
+  .greeting p + p { margin-top: 28px; }
+  .greeting .sign { margin-top: 40px; color: var(--muted); font-size: 14px; }
+
+  /* ---------- 캘린더 ---------- */
+  .calendar-sec { background: var(--paper); }
+  .date-big { font-size: 17px; }
+  .date-eng { font-family: 'Cormorant Garamond', serif; color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+  .cal { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 6px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 10px; font-size: 14px; }
+  .cal-grid .h { color: var(--muted); font-size: 13px; }
+  .cal-grid .sun { color: var(--sun); }
+  .cal-grid .sat { color: var(--sat); }
+  .cal-grid .d { width: 34px; height: 34px; line-height: 34px; margin: 0 auto; border-radius: 50%; }
+  .cal-grid .d.today { background: var(--accent); color: #fff; }
+  .countdown { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
+  .countdown .box { min-width: 58px; }
+  .countdown .num {
+    background: var(--accent-soft); border-radius: 8px; font-size: 22px; padding: 6px 0;
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+  }
+  .countdown .lbl { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .15em; color: var(--muted); margin-top: 6px; }
+  .countdown .colon { font-size: 22px; padding-top: 6px; color: var(--muted); }
+  .dday-msg { margin-top: 24px; font-size: 15px; }
+  .dday-msg b { color: var(--accent); }
+
+  /* ---------- 주최 ---------- */
+  .hosts .row { display: flex; justify-content: center; gap: 12px; align-items: baseline; font-size: 15px; }
+  .hosts .row + .row { margin-top: 10px; }
+  .hosts .role { color: var(--muted); font-size: 13px; min-width: 64px; text-align: right; }
+  .hosts .who { min-width: 140px; text-align: left; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+    font-family: inherit; font-size: 14px; padding: 12px 22px; border-radius: 999px; cursor: pointer;
+    text-decoration: none; transition: background .2s;
+  }
+  .btn:active { background: var(--accent-soft); }
+  .btn.full { width: 100%; border-radius: 10px; }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .hosts .btn { margin-top: 32px; }
+
+  /* ---------- 갤러리 ---------- */
+  .gallery-sec { background: var(--paper); padding-left: 16px; padding-right: 16px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .gallery .g {
+    aspect-ratio: 1; border-radius: 2px; overflow: hidden; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.85);
+    font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  }
+  .gallery .g img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery .g.hidden { display: none; }
+  .more-btn { margin-top: 20px; }
+
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(20,16,12,.94); z-index: 50;
+    display: none; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox .stage { width: 100%; max-width: 430px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
+  .lightbox .stage > * { width: 100%; height: 100%; object-fit: contain; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 40px; }
+  .lightbox .count { color: #ccc; font-size: 13px; margin-top: 14px; font-family: 'Cormorant Garamond', serif; letter-spacing: .1em; }
+  .lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 28px; padding: 16px; cursor: pointer; }
+  .lightbox .close { top: 8px; right: 8px; }
+  .lightbox .prev { left: 0; top: 50%; transform: translateY(-50%); }
+  .lightbox .next { right: 0; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- 오시는 길 ---------- */
+  .place-name { font-size: 17px; }
+  .place-addr { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+  .map {
+    width: 100%; aspect-ratio: 4/3; border: 0; border-radius: 8px; background: var(--accent-soft);
+  }
+  .map-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+  .map-links .btn { padding: 10px 0; border-radius: 8px; font-size: 13px; }
+  .transport { text-align: left; margin-top: 36px; }
+  .transport dt { font-family: 'Cormorant Garamond', serif; letter-spacing: .15em; color: var(--accent); font-size: 15px; margin-top: 20px; }
+  .transport dd { font-size: 14px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+
+  /* ---------- 아코디언 ---------- */
+  .acc { text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); margin-top: 12px; overflow: hidden; }
+  .acc summary { list-style: none; padding: 16px 20px; cursor: pointer; display: flex; justify-content: space-between; font-size: 15px; }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary::after { content: '⌄'; color: var(--muted); transition: transform .3s; }
+  .acc[open] summary::after { transform: rotate(180deg); }
+  .acc .body { padding: 0 20px 16px; font-size: 14px; }
+  .acc .acct { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); gap: 10px; }
+  .acc .acct small { color: var(--muted); display: block; }
+  .acc .acct .btn { padding: 6px 14px; font-size: 12px; flex-shrink: 0; }
+
+  /* ---------- 방명록 ---------- */
+  .guestbook { background: var(--paper); }
+  .msg { text-align: left; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; background: var(--bg); margin-bottom: 10px; }
+  .msg p { font-size: 14px; white-space: pre-wrap; }
+  .msg .meta { display: flex; justify-content: space-between; margin-top: 10px; font-size: 12px; color: var(--muted); }
+  .gb-form { display: grid; gap: 8px; margin-top: 20px; }
+  .gb-form input, .gb-form textarea {
+    font-family: inherit; font-size: 14px; border: 1px solid var(--line); border-radius: 8px;
+    padding: 12px 14px; background: var(--bg); color: var(--ink); width: 100%;
+  }
+  .gb-form textarea { min-height: 90px; resize: vertical; }
+
+  /* ---------- 참석 여부 (RSVP) ---------- */
+  .rsvp-sec p { font-size: 15px; line-height: 2; margin-bottom: 28px; }
+  .rsvp-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
+  .modal {
+    position: fixed; inset: 0; z-index: 70; background: rgba(30,24,18,.5);
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  .modal.open { display: flex; }
+  .sheet {
+    width: 100%; max-width: 430px; max-height: 92vh; overflow-y: auto;
+    background: var(--paper); border-radius: 18px 18px 0 0; padding: 28px 24px calc(24px + env(safe-area-inset-bottom));
+    animation: up .35s ease;
+  }
+  @keyframes up { from { transform: translateY(100%); } }
+  .sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .sheet-head h3 { font-size: 18px; font-weight: 700; }
+  .sheet-head button { background: none; border: 0; font-size: 22px; color: var(--muted); cursor: pointer; padding: 4px 8px; }
+  .field { margin-bottom: 16px; text-align: left; }
+  .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .field label b { color: var(--sun); font-weight: 400; }
+  .field input, .field select {
+    width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--bg);
+    -webkit-appearance: none; appearance: none;
+  }
+  .field select {
+    background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+    background-position: calc(100% - 20px) 55%, calc(100% - 15px) 55%;
+    background-size: 5px 5px; background-repeat: no-repeat;
+  }
+  .field input:focus, .field select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  .field input:user-invalid { border-color: var(--sun); }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg label {
+    display: block; text-align: center; margin: 0; padding: 12px 0; font-size: 15px; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px; background: var(--bg); cursor: pointer;
+  }
+  .seg input:checked + label { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .seg input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .consent { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--muted); text-align: left; margin: 4px 0 18px; }
+  .consent input { margin-top: 5px; accent-color: var(--accent); }
+  .hp { position: absolute; left: -9999px; }
+  .form-err { color: var(--sun); font-size: 13px; margin-bottom: 10px; min-height: 1em; }
+  .done { text-align: center; padding: 24px 0 8px; }
+  .done .ic { font-size: 40px; }
+  .done p { margin: 12px 0 24px; font-size: 15px; line-height: 1.9; }
+
+  /* ---------- 공유 ---------- */
+  .share { display: grid; gap: 10px; }
+  footer { text-align: center; padding: 24px 0 48px; font-size: 12px; color: var(--muted); font-family: 'Cormorant Garamond', serif; letter-spacing: .15em; }
+
+  /* ---------- 토스트 / BGM ---------- */
+  .toast {
+    position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%) translateY(20px);
+    background: rgba(40,32,24,.88); color: #fff; font-size: 13px; padding: 10px 18px;
+    border-radius: 999px; opacity: 0; transition: .3s; z-index: 60; pointer-events: none; white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%); }
+  .bgm {
+    position: fixed; top: 14px; right: max(14px, calc(50% - 215px + 14px)); z-index: 40;
+    width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(58,51,44,.85); color: #fff;
+    font-size: 16px; cursor: pointer; display: none;
+  }
+  .bgm.show { display: block; }
+  .bgm.playing { animation: spin 4s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    #petals { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="petals"></div>
+<button class="bgm" id="bgmBtn" aria-label="배경음악">♪</button>
+<audio id="bgm" loop></audio>
+
+<main class="wrap">
+  <!-- 커버 -->
+  <section class="cover">
+    <div class="names reveal"><span id="c-left"></span><span class="and">and</span><span id="c-right"></span></div>
+    <div class="photo reveal" id="c-photo"></div>
+    <div class="when reveal" id="c-when"></div>
+    <div class="where reveal" id="c-where"></div>
+  </section>
+
+  <!-- 인사말 -->
+  <section class="greeting">
+    <div class="eng reveal">INVITATION</div>
+    <div id="greeting"></div>
+    <div class="sign reveal" id="sign"></div>
+  </section>
+
+  <!-- 날짜 -->
+  <section class="calendar-sec">
+    <div class="eng reveal">THE DAY</div>
+    <div class="date-big reveal" id="date-ko"></div>
+    <div class="date-eng reveal" id="date-en"></div>
+    <div class="cal reveal"><div class="cal-grid" id="cal"></div></div>
+    <div class="countdown reveal" id="countdown"></div>
+    <div class="dday-msg reveal" id="dday-msg"></div>
+  </section>
+
+  <!-- 주최 -->
+  <section class="hosts">
+    <div class="eng reveal">HOSTED BY</div>
+    <div id="hosts"></div>
+    <a class="btn reveal" id="contactBtn">📞 문의하기</a>
+  </section>
+
+  <!-- 갤러리 -->
+  <section class="gallery-sec">
+    <div class="eng reveal">GALLERY</div>
+    <div class="gallery reveal" id="gallery"></div>
+    <button class="btn more-btn" id="moreBtn">더 보기</button>
+  </section>
+
+  <!-- 오시는 길 -->
+  <section class="location">
+    <div class="eng reveal">LOCATION</div>
+    <div class="place-name reveal" id="place-name"></div>
+    <div class="place-addr reveal" id="place-addr"></div>
+    <iframe class="map reveal" id="map" loading="lazy" title="지도"></iframe>
+    <div class="map-links reveal">
+      <a class="btn" id="naverMap" target="_blank" rel="noopener">네이버지도</a>
+      <a class="btn" id="kakaoMap" target="_blank" rel="noopener">카카오맵</a>
+      <a class="btn" id="tmap" target="_blank" rel="noopener">티맵</a>
+    </div>
+    <dl class="transport reveal" id="transport"></dl>
+  </section>
+
+  <!-- 회비 / 안내 -->
+  <section class="info" style="padding-top:0">
+    <div class="eng reveal">NOTICE</div>
+    <div id="accordions"></div>
+  </section>
+
+  <!-- 참석 여부 -->
+  <section class="rsvp-sec">
+    <div class="eng reveal">RSVP</div>
+    <p class="reveal">원활한 행사 준비를 위해<br>참석 여부를 알려주세요.</p>
+    <button class="btn full primary reveal" id="rsvpOpen">참석 여부 전달하기</button>
+    <div class="deadline reveal" id="rsvpDeadline"></div>
+  </section>
+
+  <!-- 방명록 -->
+  <section class="guestbook">
+    <div class="eng reveal">MESSAGE</div>
+    <div id="messages"></div>
+    <form class="gb-form reveal" id="gbForm">
+      <input id="gbName" placeholder="이름 (예: 23기 홍길동)" maxlength="20" required>
+      <textarea id="gbText" placeholder="반가운 한마디를 남겨주세요" maxlength="300" required></textarea>
+      <button class="btn full primary" type="submit">메시지 남기기</button>
+    </form>
+  </section>
+
+  <!-- 공유 -->
+  <section>
+    <div class="share">
+      <button class="btn full" id="shareBtn">초대장 공유하기</button>
+      <button class="btn full" id="copyBtn">초대장 주소 복사하기</button>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" aria-label="닫기">✕</button>
+  <button class="prev" aria-label="이전">‹</button>
+  <div class="stage" id="lbStage"></div>
+  <div class="count" id="lbCount"></div>
+  <button class="next" aria-label="다음">›</button>
+</div>
+<div class="modal" id="rsvpModal" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h3 id="rsvpTitle">참석 여부 전달</h3>
+      <button type="button" id="rsvpClose" aria-label="닫기">✕</button>
+    </div>
+    <form id="rsvpForm" novalidate>
+      <div class="field">
+        <label>참석 여부 <b>*</b></label>
+        <div class="seg">
+          <div><input type="radio" name="attend" id="at-y" value="참석" checked><label for="at-y">참석할게요</label></div>
+          <div><input type="radio" name="attend" id="at-n" value="불참"><label for="at-n">어려워요</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="rv-name">성명 <b>*</b></label>
+        <input id="rv-name" name="name" required maxlength="30" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="rv-year">학번 <b>*</b></label>
+        <select id="rv-year" name="year" required></select>
+      </div>
+      <div class="field">
+        <label for="rv-org">소속 <b>*</b></label>
+        <input id="rv-org" name="org" required maxlength="50" placeholder="회사 / 학교 / 기관명" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="rv-phone">연락처 <b>*</b></label>
+        <input id="rv-phone" name="phone" type="tel" inputmode="numeric" required maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?\d{3,4}-?\d{4}">
+      </div>
+      <div class="field">
+        <label for="rv-email">이메일 <b>*</b></label>
+        <input id="rv-email" name="email" type="email" required maxlength="80" placeholder="example@email.com" autocomplete="email">
+      </div>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent">
+        <input type="checkbox" id="rv-consent" required>
+        <span id="consentText"></span>
+      </label>
+      <div class="form-err" id="rsvpErr" role="alert"></div>
+      <button class="btn full primary" type="submit" id="rsvpSubmit">제출하기</button>
+    </form>
+    <div class="done" id="rsvpDone" hidden>
+      <div class="ic">💌</div>
+      <p id="rsvpDoneMsg"></p>
+      <button class="btn full" type="button" id="rsvpDoneClose">닫기</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   ✏️  여기 내용만 바꾸면 초대장이 완성됩니다
+   ========================================================= */
+const CONFIG = {
+  title: '홈커밍 데이',
+  coverLeft: '○○고등학교',
+  coverRight: '홈커밍 데이',
+  coverPhoto: '',                 // 예: 'images/cover.jpg' (비우면 기본 그라데이션)
+  date: '2026-11-14T18:00:00',    // 행사 시작 시각
+  placeName: '○○호텔 2F 그랜드볼룸',
+  address: '서울 중구 세종대로 110',
+  mapQuery: '서울시청',            // 지도 검색어 (장소명 또는 주소)
+
+  greeting: [
+    '교복을 입고 함께 웃던 그 시절,\n같은 교정을 걸었던 우리가\n다시 한자리에 모이려 합니다.',
+    '바쁜 일상 속 잠시 쉬어가며\n그리운 얼굴들과\n반가운 인사를 나누었으면 합니다.',
+    '오랜만에 만나는 자리,\n꼭 함께해 주세요.'
+  ],
+  sign: '○○고등학교 총동문회 드림',
+
+  hosts: [
+    { role: '주최', who: '○○고 총동문회' },
+    { role: '준비위원장', who: '홍길동 (23기)' },
+    { role: '총무', who: '김철수 (25기)' },
+  ],
+  contactPhone: '010-0000-0000',
+
+  gallery: [],   // 예: ['images/1.jpg', 'images/2.jpg', ...] (비우면 샘플 타일 12개)
+
+  transport: [
+    { t: 'SUBWAY', d: '1·2호선 시청역 5번 출구 도보 3분' },
+    { t: 'BUS',    d: '간선 401, 402, 472 · 지선 1711' },
+    { t: 'PARKING', d: '건물 지하주차장 3시간 무료 (프런트 등록)' },
+  ],
+
+  notices: [
+    { title: '회비 안내', html: '1인 50,000원 (식사 및 기념품 포함)' },
+    { title: '회비 입금 계좌', accounts: [
+        { bank: '국민은행', num: '000000-00-000000', name: '총무 김철수' },
+    ]},
+    { title: '프로그램', html: '18:00 입장 및 등록<br>18:30 개회 · 은사님 인사<br>19:00 만찬 및 기수별 테이블<br>20:30 경품 추첨 · 단체 사진' },
+    { title: '드레스 코드', html: '편한 복장 환영! 학교 로고가 들어간 옷이면 더 좋아요 😊' },
+  ],
+
+  bgm: '',   // 예: 'music/bgm.mp3' (비우면 버튼 숨김)
+
+  // 참석 여부 응답 — Google Apps Script 웹 앱 URL (설정 방법은 rsvp/Code.gs 상단 참고)
+  // 비워두면 테스트 모드: 제출해도 저장되지 않습니다.
+  rsvpEndpoint: 'https://script.google.com/macros/s/AKfycbx-flpJonWOsKOGqiFE1lfXarZMO22EtuqP__03UG85k-3QP7ujqwivN0jkTklZql6a/exec',
+  rsvpDeadline: '2026-11-07',   // 응답 마감일 (비우면 표시 안 함)
+  rsvpYearFrom: 1970,           // 학번 선택 시작 연도
+  rsvpConsent: '참석 확인 및 행사 안내를 위해 성명·학번·소속·연락처·이메일을 수집하며, 행사 종료 후 3개월 내 파기합니다. 이에 동의합니다.',
+};
+/* ========================================================= */
+
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2, '0');
+const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const when = new Date(CONFIG.date);
+const DAYS_KO = ['일','월','화','수','목','금','토'];
+const DAYS_EN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const h = when.getHours(), ampmKo = h < 12 ? '오전' : '오후', h12 = h % 12 || 12;
+const timeKo = `${ampmKo} ${h12}시${when.getMinutes() ? ' ' + when.getMinutes() + '분' : ''}`;
+
+function toast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+/* 커버 */
+document.title = `${CONFIG.title}에 초대합니다`;
+$('#c-left').textContent = CONFIG.coverLeft;
+$('#c-right').textContent = CONFIG.coverRight;
+$('#c-photo').innerHTML = CONFIG.coverPhoto
+  ? `<img src="${CONFIG.coverPhoto}" alt="">`
+  : `<div class="ph">Home<br>Coming<small>${when.getFullYear()}</small></div>`;
+$('#c-when').textContent = `${when.getFullYear()}. ${pad(when.getMonth()+1)}. ${pad(when.getDate())}. ${DAYS_KO[when.getDay()]} ${timeKo}`;
+$('#c-where').textContent = CONFIG.placeName;
+
+/* 인사말 */
+$('#greeting').innerHTML = CONFIG.greeting.map(p => `<p class="reveal">${esc(p).replace(/\n/g,'<br>')}</p>`).join('');
+$('#sign').textContent = CONFIG.sign;
+
+/* 캘린더 */
+$('#date-ko').textContent = `${when.getFullYear()}년 ${when.getMonth()+1}월 ${when.getDate()}일 ${DAYS_KO[when.getDay()]}요일 | ${timeKo}`;
+$('#date-en').textContent = `${DAYS_EN[when.getDay()]}, ${MONTHS_EN[when.getMonth()]} ${when.getDate()}, ${when.getFullYear()} | ${h < 12 ? 'AM' : 'PM'} ${h12}:${pad(when.getMinutes())}`;
+(() => {
+  const y = when.getFullYear(), m = when.getMonth();
+  const first = new Date(y, m, 1).getDay(), last = new Date(y, m + 1, 0).getDate();
+  let html = DAYS_KO.map((d, i) => `<div class="h ${i===0?'sun':i===6?'sat':''}">${d}</div>`).join('');
+  for (let i = 0; i < first; i++) html += '<div></div>';
+  for (let d = 1; d <= last; d++) {
+    const dow = (first + d - 1) % 7;
+    const cls = [dow===0?'sun':dow===6?'sat':'', d===when.getDate()?'today':''].join(' ');
+    html += `<div><div class="d ${cls}">${d}</div></div>`;
+  }
+  $('#cal').innerHTML = html;
+})();
+
+function tick() {
+  const diff = when - new Date();
+  const abs = Math.abs(diff);
+  const d = Math.floor(abs / 864e5), hh = Math.floor(abs / 36e5) % 24, mm = Math.floor(abs / 6e4) % 60, ss = Math.floor(abs / 1e3) % 60;
+  const box = (n, l) => `<div class="box"><div class="num">${n}</div><div class="lbl">${l}</div></div>`;
+  $('#countdown').innerHTML = box(d,'DAYS') + '<div class="colon">:</div>' + box(pad(hh),'HOURS') + '<div class="colon">:</div>' + box(pad(mm),'MIN') + '<div class="colon">:</div>' + box(pad(ss),'SEC');
+  $('#dday-msg').innerHTML = diff > 0
+    ? `${CONFIG.title}까지 <b>${d + 1}일</b> 남았습니다`
+    : `${CONFIG.title}가 <b>${d}일</b> 지났습니다`;
+}
+tick(); setInterval(tick, 1000);
+
+/* 주최 */
+$('#hosts').innerHTML = CONFIG.hosts.map(x => `<div class="row reveal"><span class="role">${esc(x.role)}</span><span class="who">${esc(x.who)}</span></div>`).join('');
+$('#contactBtn').href = `tel:${CONFIG.contactPhone}`;
+
+/* 갤러리 */
+const SAMPLE_TONES = ['#c9a98c','#a98f7a','#d6bfa8','#8f7866','#bda38b','#e0cdb9','#9c826c','#c4ad96','#b3957c','#d9c6b1','#a38b76','#cbb49d'];
+const photos = CONFIG.gallery.length ? CONFIG.gallery : SAMPLE_TONES;
+const isSample = !CONFIG.gallery.length;
+const SHOW = 9;
+const tileHtml = (p, i) => isSample
+  ? `<div style="background:${p};width:100%;height:100%;display:flex;align-items:center;justify-content:center">${i+1}</div>`
+  : `<img src="${p}" alt="" loading="lazy">`;
+$('#gallery').innerHTML = photos.map((p, i) => `<div class="g ${i >= SHOW ? 'hidden' : ''}" data-i="${i}">${tileHtml(p, i)}</div>`).join('');
+if (photos.length <= SHOW) $('#moreBtn').remove();
+else $('#moreBtn').onclick = e => { document.querySelectorAll('.g.hidden').forEach(g => g.classList.remove('hidden')); e.target.remove(); };
+
+let lbIdx = 0;
+function openLb(i) {
+  lbIdx = (i + photos.length) % photos.length;
+  $('#lbStage').innerHTML = tileHtml(photos[lbIdx], lbIdx);
+  $('#lbCount').textContent = `${lbIdx + 1} / ${photos.length}`;
+  $('#lightbox').classList.add('open');
+}
+$('#gallery').onclick = e => { const g = e.target.closest('.g'); if (g) openLb(+g.dataset.i); };
+$('#lightbox .close').onclick = () => $('#lightbox').classList.remove('open');
+$('#lightbox .prev').onclick = () => openLb(lbIdx - 1);
+$('#lightbox .next').onclick = () => openLb(lbIdx + 1);
+let tx = 0;
+$('#lightbox').addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+$('#lightbox').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) openLb(lbIdx + (dx < 0 ? 1 : -1));
+});
+
+/* 오시는 길 */
+$('#place-name').textContent = CONFIG.placeName;
+$('#place-addr').textContent = CONFIG.address;
+const q = encodeURIComponent(CONFIG.mapQuery || CONFIG.address);
+$('#map').src = `https://maps.google.com/maps?q=${q}&z=16&output=embed`;
+$('#naverMap').href = `https://map.naver.com/p/search/${q}`;
+$('#kakaoMap').href = `https://map.kakao.com/link/search/${q}`;
+$('#tmap').href = `https://tmap.life/search?name=${q}`;
+$('#transport').innerHTML = CONFIG.transport.map(x => `<dt>${esc(x.t)}</dt><dd>${esc(x.d)}</dd>`).join('');
+
+/* 안내 아코디언 */
+$('#accordions').innerHTML = CONFIG.notices.map(n => {
+  const body = n.accounts
+    ? n.accounts.map(a => `<div class="acct"><div>${esc(a.bank)} ${esc(a.num)}<small>${esc(a.name)}</small></div><button class="btn" data-copy="${esc(a.bank + ' ' + a.num)}">복사</button></div>`).join('')
+    : n.html;
+  return `<details class="acc reveal"><summary>${esc(n.title)}</summary><div class="body">${body}</div></details>`;
+}).join('');
+
+async function copy(text, msg) {
+  try { await navigator.clipboard.writeText(text); }
+  catch { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+  toast(msg);
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-copy]'); if (b) copy(b.dataset.copy, '계좌번호가 복사되었습니다'); });
+
+/* 방명록 (현재는 이 브라우저에만 저장 — 공유 저장소 연결 필요) */
+const GB_KEY = 'homecoming-guestbook';
+function loadMsgs() { try { return JSON.parse(localStorage.getItem(GB_KEY)) || []; } catch { return []; } }
+function renderMsgs() {
+  const list = loadMsgs();
+  $('#messages').innerHTML = list.length
+    ? list.slice().reverse().map(m => `<div class="msg"><p>${esc(m.text)}</p><div class="meta"><span>From ${esc(m.name)}</span><span>${m.at}</span></div></div>`).join('')
+    : '<p style="color:var(--muted);font-size:14px">첫 번째 메시지를 남겨주세요 ✉️</p>';
+}
+$('#gbForm').onsubmit = e => {
+  e.preventDefault();
+  const n = new Date();
+  const list = loadMsgs();
+  list.push({ name: $('#gbName').value.trim(), text: $('#gbText').value.trim(),
+    at: `${n.getFullYear()}.${pad(n.getMonth()+1)}.${pad(n.getDate())} ${pad(n.getHours())}:${pad(n.getMinutes())}` });
+  try { localStorage.setItem(GB_KEY, JSON.stringify(list)); } catch {}
+  e.target.reset(); renderMsgs(); toast('메시지가 등록되었습니다');
+};
+renderMsgs();
+
+/* 참석 여부 (RSVP) */
+(() => {
+  const modal = $('#rsvpModal'), form = $('#rsvpForm'), err = $('#rsvpErr'), submit = $('#rsvpSubmit');
+  if (CONFIG.rsvpDeadline) {
+    const d = new Date(CONFIG.rsvpDeadline + 'T00:00:00');
+    $('#rsvpDeadline').textContent = `${d.getMonth()+1}월 ${d.getDate()}일(${DAYS_KO[d.getDay()]})까지 알려주세요`;
+  }
+  const thisYear = new Date().getFullYear();
+  let opts = '<option value="" disabled selected>입학 연도를 선택하세요</option>';
+  for (let y = thisYear; y >= CONFIG.rsvpYearFrom; y--) opts += `<option value="${y}">${y}년 (${String(y).slice(2)}학번)</option>`;
+  $('#rv-year').innerHTML = opts;
+  $('#consentText').textContent = CONFIG.rsvpConsent;
+
+  // 연락처 자동 하이픈
+  $('#rv-phone').addEventListener('input', e => {
+    const v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    e.target.value = v.length < 4 ? v : v.length < 8 ? `${v.slice(0,3)}-${v.slice(3)}` : `${v.slice(0,3)}-${v.slice(3, v.length - 4)}-${v.slice(-4)}`;
+  });
+
+  const open = () => {
+    form.hidden = false; $('#rsvpDone').hidden = true; err.textContent = '';
+    modal.classList.add('open'); document.body.style.overflow = 'hidden';
+    setTimeout(() => $('#rv-name').focus(), 350);
+  };
+  const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; $('#rsvpOpen').focus(); };
+  $('#rsvpOpen').onclick = open;
+  $('#rsvpClose').onclick = close;
+  $('#rsvpDoneClose').onclick = close;
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+
+  const LABELS = { name: '성명', year: '학번', org: '소속', phone: '연락처', email: '이메일' };
+  const josa = w => (w.charCodeAt(w.length - 1) - 0xAC00) % 28 ? '을' : '를';
+  form.onsubmit = async e => {
+    e.preventDefault();
+    err.textContent = '';
+    for (const el of form.querySelectorAll('input[required], select[required]')) {
+      if (el.type !== 'checkbox' && el.value.trim() === '') { el.value = ''; }
+      if (!el.checkValidity()) {
+        err.textContent = el.type === 'checkbox' ? '개인정보 수집·이용에 동의해 주세요.'
+          : el.validity.valueMissing ? `${LABELS[el.name]}${josa(LABELS[el.name])} ${el.tagName === 'SELECT' ? '선택' : '입력'}해 주세요.`
+          : `${LABELS[el.name]} 형식을 확인해 주세요.`;
+        el.focus(); return;
+      }
+    }
+    const fd = new FormData(form);
+    if (fd.get('website')) return;   // 스팸 봇 차단용 숨김 필드
+    const data = {
+      attend: fd.get('attend'), name: fd.get('name').trim(), year: fd.get('year'),
+      org: fd.get('org').trim(), phone: fd.get('phone').trim(), email: fd.get('email').trim(),
+      userAgent: navigator.userAgent.slice(0, 120),
+    };
+
+    submit.disabled = true; submit.textContent = '제출 중…';
+    try {
+      if (CONFIG.rsvpEndpoint) {
+        // text/plain 으로 보내야 브라우저가 사전 요청(CORS preflight) 없이 전송합니다
+        const res = await fetch(CONFIG.rsvpEndpoint, { method: 'POST', body: JSON.stringify(data) });
+        const out = await res.json();
+        if (!out.ok) throw new Error(out.error || 'fail');
+      } else {
+        console.info('[RSVP 테스트 모드] 저장되지 않음:', data);
+        await new Promise(r => setTimeout(r, 500));
+      }
+      form.reset();
+      form.hidden = true; $('#rsvpDone').hidden = false;
+      $('#rsvpDoneMsg').innerHTML = (data.attend === '참석'
+        ? `${esc(data.name)}님, 참석 응답 감사합니다!<br>${when.getMonth()+1}월 ${when.getDate()}일에 반갑게 만나요.`
+        : `${esc(data.name)}님, 응답 감사합니다.<br>다음 자리에서 꼭 만나요!`)
+        + (CONFIG.rsvpEndpoint ? '' : '<br><small style="color:var(--muted)">(테스트 모드 — 실제로 저장되지 않았습니다)</small>');
+    } catch {
+      err.textContent = '제출에 실패했습니다. 잠시 후 다시 시도하거나 문의하기로 연락해 주세요.';
+    } finally {
+      submit.disabled = false; submit.textContent = '제출하기';
+    }
+  };
+})();
+
+/* 공유 */
+$('#copyBtn').onclick = () => copy(location.href, '초대장 주소가 복사되었습니다');
+$('#shareBtn').onclick = async () => {
+  if (navigator.share) { try { await navigator.share({ title: document.title, url: location.href }); } catch {} }
+  else copy(location.href, '초대장 주소가 복사되었습니다');
+};
+$('#footer').textContent = `${CONFIG.title.toUpperCase()} · ${when.getFullYear()}`;
+
+/* BGM */
+if (CONFIG.bgm) {
+  const a = $('#bgm'), b = $('#bgmBtn');
+  a.src = CONFIG.bgm; b.classList.add('show');
+  b.onclick = () => { a.paused ? a.play() : a.pause(); };
+  a.onplay = () => b.classList.add('playing');
+  a.onpause = () => b.classList.remove('playing');
+}
+
+/* 스크롤 등장 효과 */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* 꽃잎 */
+(function petals() {
+  const box = $('#petals');
+  const spawn = () => {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.setProperty('--dx', (Math.random() * 120 - 60) + 'px');
+    p.style.animationDuration = 7 + Math.random() * 6 + 's';
+    p.style.transform = `scale(${.6 + Math.random() * .8})`;
+    box.appendChild(p);
+    setTimeout(() => p.remove(), 14000);
+  };
+  for (let i = 0; i < 6; i++) setTimeout(spawn, i * 400);
+  setInterval(spawn, 1400);
+})();
+</script>
+</body>
+</html>
