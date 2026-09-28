@@ -6,31 +6,39 @@
 <title>페르시아어·이란학과 창립 50주년 홈커밍데이</title>
 <meta name="description" content="한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에 동문 여러분을 모십니다.">
 <meta property="og:title" content="페르시아어·이란학과 창립 50주년 홈커밍데이">
-<meta property="og:description" content="한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에 동문 여러분을 모십니다.">
+<meta property="og:description" content="11월 13일(금) 19시 · 서울 중구 프레스센터 20F">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ringkyu.github.io/home-coming-invitation/">
+<meta property="og:image" content="https://ringkyu.github.io/home-coming-invitation/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="848">
+<meta name="theme-color" content="#332d2b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preload" as="image" href="images/keyvisual-black.webp">
 <style>
   :root {
-    --bg: #f6f2ea;
-    --paper: #fffdf8;
-    --ink: #2b2a33;
-    --muted: #7f7a72;
-    --line: #e3dccf;
-    --accent: #1f4e79;        /* 라피스 블루 */
-    --accent-deep: #14324f;
-    --accent-soft: #e4ebf2;
-    --gold: #b8914f;
-    --gold-soft: #f3eadb;
-    --sun: #c0584a;
-    --sat: #3f6ea5;
+    /* 키비주얼(블랙 버전)에서 추출한 톤 */
+    --bg: #332d2b;           /* 차콜 */
+    --bg-deep: #2a2523;
+    --card: #3d3633;
+    --ink: #f3ede4;
+    --muted: #a99f93;
+    --line: rgba(202,172,107,.22);
+    --gold: #caac6b;
+    --gold-deep: #9c8155;
+    --gold-grad: linear-gradient(100deg, #7a6548 0%, #caac6b 55%, #d9bf86 100%);
+    --sun: #e0907f;
+    --sat: #93b1d6;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
   body {
-    background: #e7e2d8;
+    background: #1f1b1a;
     color: var(--ink);
-    font-family: 'Gowun Batang', serif;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
     line-height: 1.8;
     word-break: keep-all;
   }
@@ -42,110 +50,109 @@
     overflow: hidden;
     position: relative;
   }
-  section { padding: 72px 28px; text-align: center; }
-  section.alt { background: var(--paper); }
+  section { padding: 76px 28px; text-align: center; position: relative; }
+  section.alt { background: var(--bg-deep); }
+  section > * { position: relative; }
   .eng {
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: .28em;
-    color: var(--gold);
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif; font-weight: 600;
+    letter-spacing: .32em; color: var(--gold); font-size: 12px;
+    margin-bottom: 10px; padding-left: .32em;
   }
-  .sec-title { font-size: 20px; font-weight: 700; margin-bottom: 28px; }
-  .lead { font-size: 15px; line-height: 2; }
+  .sec-title { font-size: 22px; font-weight: 700; margin-bottom: 32px; letter-spacing: -.01em; }
+  .lead { font-size: 15px; line-height: 2; font-weight: 300; }
   .note {
-    background: var(--gold-soft); border-radius: 10px; padding: 14px 16px;
-    font-size: 13.5px; line-height: 1.8; text-align: left; margin-top: 20px;
+    background: var(--card); border-left: 2px solid var(--gold); border-radius: 4px 10px 10px 4px;
+    padding: 14px 16px; font-size: 13.5px; line-height: 1.8; text-align: left; margin-top: 24px; font-weight: 300;
   }
-  .note b { color: var(--accent-deep); }
+  .note b { color: var(--gold); font-weight: 600; }
+
+  /* ---------- 장식: 동심원 아크 · 도트 그리드 · 골드 원 (키비주얼 모티프) ---------- */
+  .deco-arcs::before {
+    content: ''; position: absolute; width: 220px; height: 220px; pointer-events: none;
+    top: -110px; right: -110px; border-radius: 50%;
+    background: repeating-radial-gradient(circle, transparent 0 9px, rgba(202,172,107,.28) 9px 10px);
+    -webkit-mask: radial-gradient(circle, transparent 38%, #000 39%);
+            mask: radial-gradient(circle, transparent 38%, #000 39%);
+  }
+  .deco-arcs.left::before { right: auto; left: -110px; top: auto; bottom: -110px; }
+  .deco-dots::after {
+    content: ''; position: absolute; width: 84px; height: 56px; pointer-events: none;
+    right: 20px; bottom: 28px; opacity: .55;
+    background: radial-gradient(circle, var(--gold) 1px, transparent 1.5px) 0 0 / 8px 8px;
+  }
+  .deco-moon::before {
+    content: ''; position: absolute; width: 260px; height: 260px; pointer-events: none;
+    left: -150px; top: -150px; border-radius: 50%;
+    background: linear-gradient(135deg, transparent 20%, rgba(202,172,107,.35) 100%);
+  }
 
   /* ---------- 등장 애니메이션 ---------- */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
   .reveal.on { opacity: 1; transform: none; }
 
-  /* ---------- 1·2. 헤드라인 + 키비주얼 ---------- */
-  .cover { padding: 56px 24px 64px; }
-  .cover .headline { font-size: 15px; line-height: 1.9; margin-bottom: 28px; }
-  .cover .headline strong { display: block; font-size: 19px; color: var(--accent-deep); }
-  .kv {
-    position: relative; aspect-ratio: 3 / 4; border-radius: 6px; overflow: hidden;
-    box-shadow: 0 12px 32px rgba(20,50,79,.22);
-    background: var(--accent-deep);
-    color: #fff;
-  }
-  .kv img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .kv .pattern { position: absolute; inset: 0; opacity: .16; }
-  .kv .frame { position: absolute; inset: 14px; border: 1px solid rgba(214,182,122,.55); border-radius: 3px; }
-  .kv .inner {
-    position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; padding: 28px;
-  }
-  .kv .univ { font-size: 12px; letter-spacing: .18em; color: #d9bf8c; }
-  .kv .fifty {
-    font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 108px; line-height: 1;
-    color: #e6cc95; margin: 10px 0 0;
-    text-shadow: 0 2px 18px rgba(0,0,0,.25);
-  }
-  .kv .th { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: .5em; color: #e6cc95; margin-left: .5em; }
-  .kv .dept { font-size: 20px; margin-top: 18px; }
-  .kv .hc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: #f1e3c4; }
-  .kv .rule { width: 40px; height: 1px; background: #d9bf8c; margin: 20px auto; }
-  .kv .dt { font-size: 15px; letter-spacing: .04em; }
-  .kv .pl { font-size: 13px; color: rgba(255,255,255,.78); }
+  /* ---------- 1·2. 키비주얼 + 헤드라인 ---------- */
+  .cover { padding: 0 0 64px; }
+  .kv { position: relative; background: var(--bg); color: #fff; }
+  .kv img { width: 100%; height: auto; display: block; aspect-ratio: 1415 / 2000; }
+  .kv.fallback { aspect-ratio: 3 / 4; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+  .kv.fallback .fifty { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 96px; line-height: 1; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kv.fallback .hc { font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: .2em; color: var(--gold); margin-top: 8px; }
+  .cover .headline { font-size: 15px; line-height: 1.9; margin: 44px 28px 0; font-weight: 300; }
+  .cover .headline strong { display: block; font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
 
   /* ---------- 3. 인사말 ---------- */
-  .greeting p { font-size: 15px; line-height: 2.1; }
+  .greeting p { font-size: 15px; line-height: 2.1; font-weight: 300; }
   .greeting p + p { margin-top: 24px; }
-  .greeting .sign { margin-top: 36px; font-size: 14px; color: var(--muted); }
-  .greeting .sign b { color: var(--ink); font-size: 16px; margin-left: 6px; }
+  .greeting .sign { margin-top: 40px; font-size: 13px; color: var(--muted); }
+  .greeting .sign b { display: block; color: var(--ink); font-size: 17px; font-weight: 700; margin-top: 2px; letter-spacing: .2em; }
 
   /* ---------- 캘린더 ---------- */
-  .date-big { font-size: 17px; }
-  .date-eng { font-family: 'Cormorant Garamond', serif; color: var(--muted); font-size: 15px; margin-bottom: 28px; }
+  .date-big { font-size: 18px; font-weight: 600; }
+  .date-eng { font-family: 'Montserrat', sans-serif; font-weight: 300; color: var(--muted); font-size: 12.5px; letter-spacing: .08em; margin-bottom: 30px; }
   .cal { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 6px; }
-  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 10px; font-size: 14px; }
-  .cal-grid .h { color: var(--muted); font-size: 13px; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 10px; font-size: 14px; font-family: 'Montserrat', 'Pretendard', sans-serif; }
+  .cal-grid .h { color: var(--muted); font-size: 12px; font-family: 'Pretendard', sans-serif; }
   .cal-grid .sun { color: var(--sun); }
   .cal-grid .sat { color: var(--sat); }
   .cal-grid .d { width: 34px; height: 34px; line-height: 34px; margin: 0 auto; border-radius: 50%; }
-  .cal-grid .d.today { background: var(--accent); color: #fff; }
-  .countdown { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
-  .countdown .box { min-width: 58px; }
+  .cal-grid .d.today { background: var(--gold-grad); color: var(--bg-deep); font-weight: 700; box-shadow: 0 0 0 4px rgba(202,172,107,.18); }
+  .countdown { display: flex; justify-content: center; gap: 8px; margin-top: 34px; }
+  .countdown .box { min-width: 60px; }
   .countdown .num {
-    background: var(--accent-soft); border-radius: 8px; font-size: 22px; padding: 6px 0;
-    font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--accent-deep);
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-size: 22px; padding: 8px 0;
+    font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--gold);
   }
-  .countdown .lbl { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: .15em; color: var(--muted); margin-top: 6px; }
-  .countdown .colon { font-size: 22px; padding-top: 6px; color: var(--muted); }
-  .dday-msg { margin-top: 24px; font-size: 15px; }
-  .dday-msg b { color: var(--accent); }
+  .countdown .lbl { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .18em; color: var(--muted); margin-top: 6px; }
+  .countdown .colon { font-size: 20px; padding-top: 8px; color: var(--gold-deep); }
+  .dday-msg { margin-top: 26px; font-size: 15px; font-weight: 300; }
+  .dday-msg b { color: var(--gold); font-weight: 700; }
 
   /* ---------- 4. 식순 타임라인 ---------- */
   .timeline { list-style: none; text-align: left; position: relative; margin: 0 auto; max-width: 320px; }
-  .timeline::before { content: ''; position: absolute; left: 62px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+  .timeline::before { content: ''; position: absolute; left: 62px; top: 10px; bottom: 10px; width: 1px; background: var(--line); }
   .timeline li { display: grid; grid-template-columns: 52px 1fr; gap: 22px; padding: 10px 0; position: relative; }
   .timeline li::before {
     content: ''; position: absolute; left: 58px; top: 19px; width: 9px; height: 9px; border-radius: 50%;
-    background: var(--paper); border: 2px solid var(--gold);
+    background: var(--bg-deep); border: 1.5px solid var(--gold);
   }
-  .timeline li.key::before { background: var(--gold); }
-  .timeline .t { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; color: var(--accent); text-align: right; }
-  .timeline .w { font-size: 15px; }
-  .timeline .w small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+  .timeline li.key::before { background: var(--gold); box-shadow: 0 0 0 3px rgba(202,172,107,.2); }
+  .timeline .t { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; color: var(--gold); text-align: right; padding-top: 1px; }
+  .timeline .w { font-size: 15px; font-weight: 500; }
+  .timeline .w small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.6; font-weight: 300; }
 
   /* ---------- 버튼 ---------- */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+    border: 1px solid var(--line); background: transparent; color: var(--ink);
     font-family: inherit; font-size: 14px; padding: 12px 22px; border-radius: 999px; cursor: pointer;
-    text-decoration: none; transition: background .2s, opacity .2s;
+    text-decoration: none; transition: background .2s, opacity .2s, filter .2s;
   }
-  .btn:active { background: var(--accent-soft); }
-  .btn.full { width: 100%; border-radius: 10px; padding: 14px 22px; }
-  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .btn.primary:active { background: var(--accent-deep); }
-  .btn.kakao { background: #fee500; border-color: #fee500; color: #191919; }
-  .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+  .btn:active { background: rgba(202,172,107,.12); }
+  .btn.full { width: 100%; border-radius: 10px; padding: 15px 22px; }
+  .btn.primary { background: var(--gold-grad); color: #231f1d; border: 0; font-weight: 700; }
+  .btn.primary:active { filter: brightness(.9); }
+  .btn.kakao { background: #fee500; border-color: #fee500; color: #191919; font-weight: 600; }
+  .btn[aria-disabled="true"] { opacity: .4; pointer-events: none; }
 
   /* ---------- RSVP ---------- */
   .rsvp-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
@@ -155,129 +162,120 @@
   .fleece-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .fleece-imgs figure { margin: 0; }
   .fleece-imgs .img {
-    aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--accent-soft);
+    aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--card); border: 1px solid var(--line);
     display: flex; align-items: center; justify-content: center;
   }
   .fleece-imgs img { width: 100%; height: 100%; object-fit: cover; }
-  .fleece-imgs figcaption { font-family: 'Cormorant Garamond', serif; letter-spacing: .2em; font-size: 12px; color: var(--muted); margin-top: 6px; }
-  .fleece-desc { font-size: 14px; margin: 20px 0 24px; }
+  .fleece-imgs figcaption { font-family: 'Montserrat', sans-serif; letter-spacing: .25em; font-size: 10.5px; color: var(--muted); margin-top: 8px; }
+  .fleece-desc { font-size: 14px; margin: 22px 0 26px; font-weight: 300; }
   .size-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .size-table th, .size-table td { border-bottom: 1px solid var(--line); padding: 9px 2px; }
-  .size-table thead th { color: var(--accent-deep); font-weight: 700; border-bottom: 1.5px solid var(--accent); }
-  .size-table tbody th { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 15px; }
+  .size-table th, .size-table td { border-bottom: 1px solid var(--line); padding: 9px 2px; font-weight: 300; }
+  .size-table thead th { color: var(--gold); font-weight: 600; border-bottom: 1px solid var(--gold); font-size: 12px; }
+  .size-table tbody th { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; }
   .size-table td { font-variant-numeric: tabular-nums; }
-  .size-cap { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: left; }
+  .size-cap { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: left; font-weight: 300; }
 
   /* ---------- 6. 발전기금 ---------- */
-  .fund-card {
-    background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: left;
-    margin-top: 24px;
-  }
+  .fund-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; text-align: left; margin-top: 26px; }
   .fund-card .acct { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .fund-card .acct small { display: block; color: var(--muted); font-size: 12.5px; }
-  .fund-card .acct .num { font-size: 15px; font-variant-numeric: tabular-nums; }
-  .fund-card .btn { padding: 7px 14px; font-size: 12.5px; flex-shrink: 0; }
+  .fund-card .acct .num { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .fund-card .btn { padding: 7px 14px; font-size: 12.5px; flex-shrink: 0; color: var(--gold); border-color: var(--gold-deep); }
   .fund-sec .btn.full { margin-top: 12px; }
 
   /* ---------- 7. 카카오톡 채널 ---------- */
   .kakao-card {
     display: flex; align-items: center; gap: 14px; text-align: left;
-    background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 18px;
-    margin-bottom: 14px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px;
   }
-  .kakao-card .logo {
-    width: 48px; height: 48px; border-radius: 14px; background: #fee500; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .kakao-card b { display: block; font-size: 15px; }
-  .kakao-card span { font-size: 13px; color: var(--muted); }
+  .kakao-card .logo { width: 48px; height: 48px; border-radius: 14px; background: #fee500; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .kakao-card b { display: block; font-size: 15px; font-weight: 600; }
+  .kakao-card span { font-size: 13px; color: var(--muted); font-weight: 300; }
 
   /* ---------- 8. 갤러리 ---------- */
   .gallery-sec { padding-left: 16px; padding-right: 16px; }
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
   .gallery .g {
     aspect-ratio: 1; border-radius: 2px; overflow: hidden; cursor: pointer; position: relative;
-    display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.85);
-    font-family: 'Cormorant Garamond', serif; font-size: 20px;
+    display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7);
+    font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 300;
   }
-  .gallery .g img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.15); }
+  .gallery .g img { width: 100%; height: 100%; object-fit: cover; filter: sepia(.12); }
   .gallery .g .cap {
     position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 6px 5px; font-size: 11px;
-    font-family: 'Gowun Batang', serif; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.55));
+    font-family: 'Pretendard', sans-serif; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.6));
   }
   .gallery .g.hidden { display: none; }
-  .more-btn { margin-top: 20px; }
+  .more-btn { margin-top: 22px; }
 
-  .lightbox {
-    position: fixed; inset: 0; background: rgba(12,16,22,.95); z-index: 50;
-    display: none; align-items: center; justify-content: center; flex-direction: column;
-  }
+  .lightbox { position: fixed; inset: 0; background: rgba(20,17,16,.96); z-index: 50; display: none; align-items: center; justify-content: center; flex-direction: column; }
   .lightbox.open { display: flex; }
   .lightbox .stage { width: 100%; max-width: 430px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
-  .lightbox .stage > * { width: 100%; height: 100%; object-fit: contain; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 40px; }
-  .lightbox .count { color: #ccc; font-size: 13px; margin-top: 14px; }
+  .lightbox .stage > * { width: 100%; height: 100%; object-fit: contain; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 40px; }
+  .lightbox .count { color: #bbb; font-size: 13px; margin-top: 14px; }
   .lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 28px; padding: 16px; cursor: pointer; }
   .lightbox .close { top: 8px; right: 8px; }
   .lightbox .prev { left: 0; top: 50%; transform: translateY(-50%); }
   .lightbox .next { right: 0; top: 50%; transform: translateY(-50%); }
 
   /* ---------- 오시는 길 ---------- */
-  .place-name { font-size: 17px; }
-  .place-addr { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  .map { width: 100%; aspect-ratio: 4/3; border: 0; border-radius: 8px; background: var(--accent-soft); }
+  .place-name { font-size: 18px; font-weight: 600; }
+  .place-addr { color: var(--muted); font-size: 14px; margin-bottom: 24px; font-weight: 300; }
+  .map { width: 100%; aspect-ratio: 4/3; border: 0; border-radius: 8px; background: var(--card); filter: grayscale(.3) contrast(.95); }
   .map-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
   .map-links .btn { padding: 10px 0; border-radius: 8px; font-size: 13px; }
   .transport { text-align: left; margin-top: 36px; }
-  .transport dt { font-family: 'Cormorant Garamond', serif; letter-spacing: .15em; color: var(--gold); font-size: 15px; margin-top: 20px; }
-  .transport dd { font-size: 14px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .transport dt { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: .2em; color: var(--gold); font-size: 11.5px; margin-top: 22px; }
+  .transport dd { font-size: 14px; border-bottom: 1px solid var(--line); padding: 4px 0 16px; font-weight: 300; }
 
   /* ---------- 공유 ---------- */
   .share { display: grid; gap: 10px; }
-  footer { text-align: center; padding: 24px 0 48px; font-size: 12px; color: var(--muted); }
+  footer { text-align: center; padding: 28px 0 52px; font-size: 11.5px; color: var(--muted); background: var(--bg-deep); letter-spacing: .02em; }
 
   /* ---------- 모달 ---------- */
-  .modal {
-    position: fixed; inset: 0; z-index: 70; background: rgba(15,22,32,.55);
-    display: none; align-items: flex-end; justify-content: center;
-  }
+  .modal { position: fixed; inset: 0; z-index: 70; background: rgba(10,8,8,.6); display: none; align-items: flex-end; justify-content: center; }
   .modal.open { display: flex; }
   .sheet {
     width: 100%; max-width: 430px; max-height: 92vh; overflow-y: auto;
-    background: var(--paper); border-radius: 18px 18px 0 0; padding: 28px 24px calc(24px + env(safe-area-inset-bottom));
+    background: var(--bg-deep); border-top: 1px solid var(--line); border-radius: 18px 18px 0 0;
+    padding: 28px 24px calc(24px + env(safe-area-inset-bottom));
     animation: up .35s ease;
   }
   @keyframes up { from { transform: translateY(100%); } }
   .sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .sheet-head h3 { font-size: 18px; font-weight: 700; }
+  .sheet-head h3 { font-size: 19px; font-weight: 700; }
   .sheet-head button { background: none; border: 0; font-size: 22px; color: var(--muted); cursor: pointer; padding: 4px 8px; }
-  .sheet-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .sheet-sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; font-weight: 300; }
   .field { margin-bottom: 16px; text-align: left; }
   .field > label, .field > .lbl { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-  .field b.req { color: var(--sun); font-weight: 400; }
+  .field b.req { color: var(--gold); font-weight: 400; }
   .field input, .field select {
     width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
-    border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; background: var(--bg);
-    -webkit-appearance: none; appearance: none;
+    border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 12px 14px; background: var(--card);
+    -webkit-appearance: none; appearance: none; color-scheme: dark;
   }
+  .field input::placeholder { color: #7d746b; }
   .field select {
-    background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+    background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
     background-position: calc(100% - 20px) 55%, calc(100% - 15px) 55%;
     background-size: 5px 5px; background-repeat: no-repeat;
   }
-  .field input:focus, .field select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  .field select:invalid { color: #7d746b; }
+  .field select option { color: var(--ink); background: var(--card); }
+  .field input:focus, .field select:focus { outline: 2px solid rgba(202,172,107,.3); border-color: var(--gold); }
   .field input:user-invalid { border-color: var(--sun); }
   .seg { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); gap: 6px; }
   .seg input { position: absolute; opacity: 0; pointer-events: none; }
   .seg label {
     display: block; text-align: center; margin: 0; padding: 11px 0; font-size: 14px; color: var(--ink);
-    border: 1px solid var(--line); border-radius: 8px; background: var(--bg); cursor: pointer;
+    border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: var(--card); cursor: pointer;
   }
-  .seg input:checked + label { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .seg input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .seg input:checked + label { background: var(--gold-grad); border-color: transparent; color: #231f1d; font-weight: 700; }
+  .seg input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: 2px; }
   .field .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
-  .field .hint a { color: var(--accent); }
-  .consent { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--muted); text-align: left; margin: 4px 0 18px; }
-  .consent input { margin-top: 5px; accent-color: var(--accent); }
+  .field .hint a { color: var(--gold); }
+  .consent { display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; color: var(--muted); text-align: left; margin: 4px 0 18px; font-weight: 300; }
+  .consent input { margin-top: 5px; accent-color: var(--gold); }
   .hp { position: absolute; left: -9999px; }
   .form-err { color: var(--sun); font-size: 13px; margin-bottom: 10px; min-height: 1em; }
   .done { text-align: center; padding: 24px 0 8px; }
@@ -286,7 +284,7 @@
 
   .toast {
     position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%) translateY(20px);
-    background: rgba(20,30,45,.9); color: #fff; font-size: 13px; padding: 10px 18px;
+    background: rgba(202,172,107,.95); color: #231f1d; font-size: 13px; font-weight: 600; padding: 10px 18px;
     border-radius: 999px; opacity: 0; transition: .3s; z-index: 80; pointer-events: none; white-space: nowrap;
   }
   .toast.show { opacity: 1; transform: translateX(-50%); }
@@ -294,33 +292,38 @@
   /* ---------- 인트로 (헤드라인 써지는 애니메이션) ---------- */
   .intro {
     position: fixed; inset: 0; z-index: 100;
-    background: radial-gradient(ellipse at 50% 40%, #1b3450 0%, #0d1826 70%, #080f18 100%);
+    background: radial-gradient(ellipse at 50% 42%, #3d3532 0%, #2a2523 55%, #1a1716 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 32px; text-align: center; cursor: pointer;
+    padding: 32px; text-align: center; cursor: pointer; overflow: hidden;
     transition: opacity 1.2s ease, visibility 1.2s;
   }
   .intro.hide { opacity: 0; visibility: hidden; }
-  .intro .star { width: 28px; height: 28px; margin-bottom: 28px; opacity: 0; animation: introFade 1.4s ease .2s forwards; }
-  .intro .text { color: #efe3c8; font-size: 19px; line-height: 2.1; max-width: 340px; }
+  .intro .mark {
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 44px; line-height: 1;
+    background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 26px; opacity: 0; animation: introFade 1.4s ease .2s forwards;
+  }
+  .intro .text { color: var(--ink); font-size: 19px; line-height: 2.1; max-width: 340px; font-weight: 300; position: relative; }
   .intro .text .ch {
     display: inline-block; opacity: 0; filter: blur(6px);
     clip-path: inset(0 100% 0 0);
     animation: write .5s cubic-bezier(.3,.6,.4,1) forwards;
   }
-  .intro .text .em { color: #e6cc95; font-weight: 700; }
-  .intro .line {
-    width: 0; height: 1px; background: linear-gradient(90deg, transparent, #d9bf8c, transparent);
-    margin-top: 30px; transition: width 1.2s ease;
-  }
-  .intro .line.on { width: 120px; }
+  .intro .text .em { color: var(--gold); font-weight: 700; }
+  .intro .line { width: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin-top: 30px; transition: width 1.2s ease; }
+  .intro .line.on { width: 140px; }
   .intro .skip {
     position: absolute; bottom: calc(28px + env(safe-area-inset-bottom)); left: 0; right: 0;
-    font-size: 12px; color: rgba(239,227,200,.45); letter-spacing: .1em;
+    font-size: 12px; color: rgba(243,237,228,.38); letter-spacing: .08em;
     opacity: 0; animation: introFade 1s ease 1.5s forwards;
   }
-  @keyframes write {
-    to { opacity: 1; filter: blur(0); clip-path: inset(0 0 0 0); }
+  .intro::before, .intro::after {
+    content: ''; position: absolute; border-radius: 50%; pointer-events: none;
+    background: linear-gradient(135deg, transparent 25%, rgba(202,172,107,.4) 100%);
   }
+  .intro::before { width: 320px; height: 320px; left: -180px; top: -180px; }
+  .intro::after { width: 280px; height: 280px; right: -150px; bottom: -140px; transform: rotate(180deg); }
+  @keyframes write { to { opacity: 1; filter: blur(0); clip-path: inset(0 0 0 0); } }
   @keyframes introFade { to { opacity: 1; } }
   body.intro-lock { overflow: hidden; }
 
@@ -332,23 +335,20 @@
 </head>
 <body class="intro-lock">
 <div class="intro" id="intro" role="dialog" aria-label="인트로">
-  <svg class="star" viewBox="0 0 40 40" aria-hidden="true">
-    <path d="M20 2 L25 15 L38 20 L25 25 L20 38 L15 25 L2 20 L15 15 Z" fill="none" stroke="#d9bf8c" stroke-width="1.2"/>
-    <rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)" fill="none" stroke="#d9bf8c" stroke-width=".8"/>
-  </svg>
+  <div class="mark" aria-hidden="true">50</div>
   <p class="text" id="introText"></p>
   <div class="line" id="introLine"></div>
   <div class="skip">화면을 누르면 바로 시작합니다</div>
 </div>
 <main class="wrap">
   <!-- 1·2. 헤드라인 + 키비주얼 -->
-  <section class="cover">
+  <section class="cover deco-dots">
+    <div class="kv" id="kv"></div>
     <p class="headline reveal" id="headline"></p>
-    <div class="kv reveal" id="kv"></div>
   </section>
 
   <!-- 3. 동문회장 인사말 -->
-  <section class="greeting alt">
+  <section class="greeting alt deco-arcs">
     <div class="eng reveal">GREETING</div>
     <div class="sec-title reveal">동문회장 인사말</div>
     <div id="greeting"></div>
@@ -356,7 +356,7 @@
   </section>
 
   <!-- 캘린더 · D-day -->
-  <section>
+  <section class="deco-moon">
     <div class="eng reveal">THE DAY</div>
     <div class="date-big reveal" id="date-ko"></div>
     <div class="date-eng reveal" id="date-en"></div>
@@ -366,7 +366,7 @@
   </section>
 
   <!-- 4. 식순 + 참석 여부 -->
-  <section class="alt rsvp-sec">
+  <section class="alt rsvp-sec deco-dots">
     <div class="eng reveal">PROGRAM</div>
     <div class="sec-title reveal">행사 식순</div>
     <ol class="timeline reveal" id="timeline"></ol>
@@ -376,7 +376,7 @@
   </section>
 
   <!-- 5. 후리스 -->
-  <section id="fleece">
+  <section id="fleece" class="deco-arcs left">
     <div class="eng reveal">GIFT</div>
     <div class="sec-title reveal">기념 후리스 안내</div>
     <div class="fleece-imgs reveal" id="fleeceImgs"></div>
@@ -386,7 +386,7 @@
   </section>
 
   <!-- 6. 발전기금 -->
-  <section class="alt fund-sec">
+  <section class="alt fund-sec deco-arcs">
     <div class="eng reveal">FUND</div>
     <div class="sec-title reveal">발전기금 안내</div>
     <div class="lead reveal" id="fundText"></div>
@@ -395,7 +395,7 @@
   </section>
 
   <!-- 7. 카카오톡 채널 -->
-  <section>
+  <section class="deco-dots">
     <div class="eng reveal">CHANNEL</div>
     <div class="sec-title reveal">동문회 카카오톡 채널</div>
     <div class="kakao-card reveal">
@@ -416,7 +416,7 @@
   </section>
 
   <!-- 오시는 길 -->
-  <section class="location">
+  <section class="location deco-moon">
     <div class="eng reveal">LOCATION</div>
     <div class="sec-title reveal">오시는 길</div>
     <div class="place-name reveal" id="place-name"></div>
@@ -510,11 +510,11 @@ const CONFIG = {
   headline: '한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에\n동문 여러분을 모십니다.',
 
   // 2. 키비주얼 — 디자인된 이미지가 있으면 경로를 넣으세요 (비우면 기본 디자인)
-  keyVisual: '',                    // 예: 'images/keyvisual.jpg'
-  date: '2026-11-14T18:00:00',      // 행사 시작 시각
-  placeName: '○○호텔 ○층 ○○홀',
-  address: '서울 ○○구 ○○로 00',
-  mapQuery: '서울시청',              // 지도 검색어 (장소명 또는 주소)
+  keyVisual: 'images/keyvisual-black.webp',
+  date: '2026-11-13T19:00:00',      // 행사 시작 시각
+  placeName: '한국프레스센터 20층',
+  address: '서울 중구 세종대로 124',
+  mapQuery: '한국프레스센터',        // 지도 검색어 (장소명 또는 주소)
 
   // 3. 동문회장 인사말
   greeting: [
@@ -527,12 +527,12 @@ const CONFIG = {
 
   // 4. 식순 (key: true 는 강조 표시)
   program: [
-    { t: '17:30', w: '등록 및 기념품 수령', d: '후리스는 등록 데스크에서 받아가세요' },
-    { t: '18:00', w: '개회 및 내빈 소개', key: true },
-    { t: '18:15', w: '동문회장 인사 · 축사', d: '은사님 말씀' },
-    { t: '18:40', w: '50년의 발자취', d: '추억 영상 상영 · 공로패 전달' },
-    { t: '19:00', w: '연회식 코스 만찬', key: true, d: '기수별 테이블' },
-    { t: '20:30', w: '단체 사진 및 폐회' },
+    { t: '18:30', w: '등록 및 기념품 수령', d: '후리스는 등록 데스크에서 받아가세요' },
+    { t: '19:00', w: '개회 및 내빈 소개', key: true },
+    { t: '19:15', w: '동문회장 인사 · 축사', d: '은사님 말씀' },
+    { t: '19:40', w: '50년의 발자취', d: '추억 영상 상영 · 공로패 전달' },
+    { t: '20:00', w: '연회식 코스 만찬', key: true, d: '기수별 테이블' },
+    { t: '21:30', w: '단체 사진 및 폐회' },
   ],
   dinnerNote: '<b>연회식 코스 만찬</b>으로 진행되어 <b>사전 인원 파악이 꼭 필요합니다.</b><br>참석 여부와 후리스 사이즈를 기한 내 알려주세요.',
 
@@ -576,9 +576,9 @@ const CONFIG = {
   gallery: [],
 
   transport: [
-    { t: 'SUBWAY', d: '○호선 ○○역 ○번 출구 도보 5분' },
-    { t: 'BUS',    d: '○○○, ○○○ 번' },
-    { t: 'PARKING', d: '건물 지하주차장 이용 (주차 지원 여부 확인 중)' },
+    { t: 'SUBWAY', d: '1·2호선 시청역 · 5호선 광화문역 인근 (출구 번호 확인 중)' },
+    { t: 'BUS',    d: '시청·광화문 방면 정류장 (노선 확인 중)' },
+    { t: 'PARKING', d: '프레스센터 주차장 (주차 지원 여부 확인 중)' },
   ],
 };
 /* ========================================================= */
@@ -649,29 +649,9 @@ function setLink(el, url) {
     $('#kv').innerHTML = `<img src="${esc(CONFIG.keyVisual)}" alt="${esc(CONFIG.dept)} 창립 ${CONFIG.anniversary}주년 홈커밍데이 · ${dateTxt} · ${esc(CONFIG.placeName)}">`;
     return;
   }
-  // 페르시아 타일풍 8각 별 패턴
-  const star = 'M20 2 L25 15 L38 20 L25 25 L20 38 L15 25 L2 20 L15 15 Z';
-  $('#kv').innerHTML = `
-    <svg class="pattern" width="100%" height="100%" aria-hidden="true">
-      <defs><pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="${star}" fill="none" stroke="#e6cc95" stroke-width="1"/>
-        <rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)" fill="none" stroke="#e6cc95" stroke-width=".7"/>
-        <circle cx="0" cy="0" r="3" fill="#e6cc95"/><circle cx="40" cy="0" r="3" fill="#e6cc95"/>
-        <circle cx="0" cy="40" r="3" fill="#e6cc95"/><circle cx="40" cy="40" r="3" fill="#e6cc95"/>
-      </pattern></defs>
-      <rect width="100%" height="100%" fill="url(#tile)"/>
-    </svg>
-    <div class="frame"></div>
-    <div class="inner">
-      <div class="univ">${esc(CONFIG.univ)}</div>
-      <div class="fifty">${CONFIG.anniversary}</div>
-      <div class="th">TH ANNIVERSARY</div>
-      <div class="dept">${esc(CONFIG.dept)}</div>
-      <div class="hc">Homecoming Day</div>
-      <div class="rule"></div>
-      <div class="dt">${dateTxt}</div>
-      <div class="pl">${esc(CONFIG.placeName)}</div>
-    </div>`;
+  // 키비주얼 이미지가 없을 때의 대체 화면
+  $('#kv').classList.add('fallback');
+  $('#kv').innerHTML = `<div class="fifty">${CONFIG.anniversary}</div><div class="hc">HOMECOMING DAY</div>`;
 })();
 
 /* 3. 인사말 */
@@ -715,7 +695,7 @@ $('#dinnerNote').innerHTML = CONFIG.dinnerNote;
 $('#fleeceImgs').innerHTML = CONFIG.fleeceImages.map(f => `
   <figure><div class="img">${f.src
     ? `<img src="${esc(f.src)}" alt="기념 후리스 ${esc(f.cap)}" loading="lazy">`
-    : `<svg width="70%" viewBox="0 0 100 100" aria-label="후리스 이미지 준비 중"><path d="M30 12 L42 8 Q50 16 58 8 L70 12 L86 22 L96 82 L84 84 L74 42 L74 92 L26 92 L26 42 L16 84 L4 82 L14 22 Z" fill="var(--accent)" opacity=".85"/><line x1="50" y1="14" x2="50" y2="92" stroke="#e6cc95" stroke-width="1.5" ${f.cap === 'BACK' ? 'opacity="0"' : ''}/><text x="50" y="${f.cap === 'BACK' ? 50 : 36}" text-anchor="middle" font-family="Cormorant Garamond" font-size="${f.cap === 'BACK' ? 14 : 7}" fill="#e6cc95">${f.cap === 'BACK' ? '50' : ''}</text></svg>`}
+    : `<svg width="70%" viewBox="0 0 100 100" aria-label="후리스 이미지 준비 중"><path d="M30 12 L42 8 Q50 16 58 8 L70 12 L86 22 L96 82 L84 84 L74 42 L74 92 L26 92 L26 42 L16 84 L4 82 L14 22 Z" fill="#2a2523" stroke="#caac6b" stroke-width="1.2" stroke-linejoin="round"/><line x1="50" y1="14" x2="50" y2="92" stroke="#caac6b" stroke-width="1" ${f.cap === 'BACK' ? 'opacity="0"' : ''}/><text x="50" y="${f.cap === 'BACK' ? 52 : 36}" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="${f.cap === 'BACK' ? 16 : 7}" fill="#caac6b">${f.cap === 'BACK' ? '50' : ''}</text></svg>`}
   </div><figcaption>${esc(f.cap)}</figcaption></figure>`).join('');
 $('#fleeceDesc').innerHTML = br(CONFIG.fleeceDesc);
 $('#sizeTable').innerHTML =
@@ -736,7 +716,7 @@ $('#kakaoDesc').textContent = CONFIG.kakaoDesc;
 setLink($('#kakaoLink'), CONFIG.kakaoLink);
 
 /* 8. 추억의 앨범 */
-const SAMPLE_TONES = ['#8a9bb0','#a39a88','#6f7f94','#b5a58c','#7d8a9c','#9c8e78','#5f7088','#b0a390','#8795a8','#a8987e','#72839a','#998a74'];
+const SAMPLE_TONES = ['#4a413c','#5c5046','#3f3834','#6b5d4c','#4f4540','#57493d','#443b36','#62564a','#4b423c','#5a4d41','#40383a','#665748'];
 const photos = CONFIG.gallery.length ? CONFIG.gallery.map(g => typeof g === 'string' ? { src: g } : g) : SAMPLE_TONES.map(c => ({ tone: c }));
 const SHOW = 9;
 const tileHtml = (p, i, big) => p.tone
