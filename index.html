@@ -108,11 +108,6 @@
   .when-where dd { word-break: keep-all; }
   .when-where dd small { display: block; color: var(--muted); font-size: 12.5px; }
 
-  /* ---------- 2. 참여하기 ---------- */
-  .join-sec { padding-top: 56px; padding-bottom: 56px; }
-  .join-lead { font-size: 15px; line-height: 1.9; font-weight: 300; margin-bottom: 22px; }
-  .join-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
-
   /* ---------- 3. 인사말 ---------- */
   .greeting p { font-size: 15px; line-height: 2.1; font-weight: 300; word-break: keep-all; text-wrap: pretty; }
   .greeting #greeting > * + * { margin-top: 24px; }
@@ -134,12 +129,15 @@
   .timeline li { display: grid; grid-template-columns: 92px 1fr; gap: 34px; padding: 10px 0; position: relative; }
   .timeline li::before {
     content: ''; position: absolute; left: 105px; top: 18px; width: 9px; height: 9px; border-radius: 50%;
-    background: var(--bg-deep); border: 1.5px solid var(--gold);
+    background: var(--bg); border: 1.5px solid var(--gold);
   }
   .timeline li.key::before { background: var(--gold); box-shadow: 0 0 0 3px rgba(202,172,107,.2); }
   .timeline .t { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; color: var(--gold); text-align: right; padding-top: 2px; white-space: nowrap; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
   .timeline .w { font-size: 15px; font-weight: 500; word-break: keep-all; }
   .timeline .w small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.6; font-weight: 300; }
+
+  .program-sec .btn.full { margin-top: 24px; }
+  .program-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
 
   /* ---------- 버튼 ---------- */
   .btn {
@@ -340,22 +338,15 @@
   <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="m16 9 6 6M22 9l-6 6"/></svg>
 </button>
 <main class="wrap">
-  <!-- 1. 첫 화면: 키비주얼 + 초대 글귀 + 일시·장소 -->
+  <!-- 1·2. 메인 포스터 + 초대 글귀 + 일시·장소 -->
   <section class="cover deco-dots">
     <div class="kv" id="kv"></div>
     <p class="headline reveal" id="headline"></p>
     <dl class="when-where reveal" id="whenWhere"></dl>
   </section>
 
-  <!-- 2. 참여하기 -->
-  <section class="alt join-sec">
-    <p class="join-lead reveal" id="joinLead"></p>
-    <a class="btn full primary reveal" id="rsvpLink" target="_blank" rel="noopener">참여하기</a>
-    <div class="deadline reveal" id="rsvpDeadline"></div>
-  </section>
-
   <!-- 3. 모시는 글 -->
-  <section class="greeting deco-arcs">
+  <section class="greeting alt deco-arcs">
     <div class="eng reveal">GREETING</div>
     <div class="sec-title reveal">모시는 글</div>
     <div id="greeting"></div>
@@ -363,16 +354,18 @@
     <p class="contact reveal" id="contact"></p>
   </section>
 
-  <!-- 4. 식순 -->
-  <section class="alt deco-dots">
+  <!-- 4. 식순 + 참석 여부 응답 -->
+  <section class="program-sec deco-dots">
     <div class="eng reveal">PROGRAM</div>
     <div class="sec-title reveal">행사 식순</div>
     <ol class="timeline reveal" id="timeline"></ol>
     <div class="note reveal" id="dinnerNote"></div>
+    <a class="btn full primary reveal" id="rsvpLink" target="_blank" rel="noopener">참석 여부 응답하기</a>
+    <div class="deadline reveal" id="rsvpDeadline"></div>
   </section>
 
   <!-- 5. 동문 발전기금 -->
-  <section class="fund-sec deco-arcs left">
+  <section class="fund-sec alt deco-arcs left">
     <div class="eng reveal">FUND</div>
     <div class="sec-title reveal">동문 발전기금 안내</div>
     <p class="lead reveal" id="fundText"></p>
@@ -381,7 +374,7 @@
   </section>
 
   <!-- 6. 오시는 길 -->
-  <section class="location alt deco-moon">
+  <section class="location deco-moon">
     <div class="eng reveal">LOCATION</div>
     <div class="sec-title reveal">오시는 길</div>
     <div class="place-name reveal" id="place-name"></div>
@@ -396,7 +389,7 @@
   </section>
 
   <!-- 7. 추억의 앨범 -->
-  <section class="gallery-sec">
+  <section class="gallery-sec alt">
     <div class="eng reveal">MEMORIES</div>
     <div class="sec-title reveal">추억의 앨범</div>
     <div class="gallery reveal" id="gallery"></div>
@@ -404,7 +397,7 @@
   </section>
 
   <!-- 8. 메시지 남기기 (방명록) -->
-  <section class="alt guestbook deco-arcs">
+  <section class="guestbook deco-arcs">
     <div class="eng reveal">MESSAGE</div>
     <div class="sec-title reveal">축하 메시지 남기기</div>
     <p class="lead reveal" id="gbLead"></p>
@@ -427,7 +420,7 @@
   </section>
 
   <!-- 9. 카카오톡 채널 -->
-  <section class="deco-dots">
+  <section class="alt deco-dots">
     <div class="eng reveal">CHANNEL</div>
     <div class="sec-title reveal">동문회 카카오톡 채널</div>
     <div class="kakao-card reveal">
@@ -438,7 +431,7 @@
   </section>
 
   <!-- 10. 공유 -->
-  <section class="alt" style="padding-top:48px;padding-bottom:48px">
+  <section style="padding-top:48px;padding-bottom:48px">
     <div class="share">
       <button class="btn full kakao" id="shareBtn">카카오톡으로 공유하기</button>
       <button class="btn full" id="copyBtn">초대장 주소 복사하기</button>
@@ -482,9 +475,6 @@ const CONFIG = {
   address: '서울시 중구 세종대로 124',
   mapQuery: '한국프레스센터',        // 지도 검색어 (장소명 또는 주소)
 
-  // 2. 참여하기 버튼 위 안내 문구
-  joinLead: '코스 만찬 준비를 위해\n참석 여부를 꼭 알려주세요.',
-
   // 3. 모시는 글 — 문자열은 문단, { info } 는 일시·장소 표, { note } 는 작은 안내문
   greeting: [
     '존경하는 동문 여러분, 안녕하십니까.',
@@ -516,7 +506,7 @@ const CONFIG = {
   fundNote: '※ 약정해 주신 기부금은 「연말정산 세액공제」 대상입니다.',
   donateLink: 'https://brr.kr/ty97ne',   // 기부금 온라인 약정 페이지
 
-  // 참석 응답 — 구글 폼 (참여하기 버튼)
+  // 참석 응답 — 구글 폼 (식순 아래 '참석 여부 응답하기' 버튼)
   rsvpLink: 'https://forms.gle/SWfNVSHZbwE51rf96',
   rsvpDeadline: '2026-10-31',       // 응답 마감일 (비우면 표시 안 함)
 
@@ -665,8 +655,7 @@ function setLink(el, url) {
   $('#kv').innerHTML = `<div class="fifty">${CONFIG.anniversary}</div><div class="hc">HOMECOMING DAY</div>`;
 })();
 
-/* 2. 참여하기 — 구글 폼으로 연결 */
-$('#joinLead').innerHTML = br(CONFIG.joinLead);
+/* 참석 여부 응답 — 구글 폼으로 연결 */
 setLink($('#rsvpLink'), CONFIG.rsvpLink);
 if (CONFIG.rsvpDeadline) {
   const d = new Date(CONFIG.rsvpDeadline + 'T00:00:00');
