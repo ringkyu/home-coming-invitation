@@ -521,7 +521,8 @@ const CONFIG = {
   kakaoLink: 'https://pf.kakao.com/_HxjpGX',
 
   // 10. 카카오톡 공유 — Kakao Developers 의 JavaScript 키 (비우면 휴대폰 공유창으로 대체)
-  kakaoJsKey: '',
+  kakaoJsKey: '0e49cb0fcf6037a309c8293bbea9e297',
+  kakaoTemplateId: 137719,          // Kakao Developers 메시지 템플릿 ID (비우면 기본 카드로 보냄)
 
   // 7. 추억의 앨범 — 예: ['images/1985.jpg', { src: 'images/1990.jpg', cap: '1990 축제' }]
   // 같은 폴더에 '이름_t.jpg' 썸네일이 있으면 목록에서는 썸네일을 씁니다
@@ -851,16 +852,18 @@ async function copy(text, msg) {
 
 /* 10. 공유 — 카카오톡 공유(키가 있을 때) → 휴대폰 공유창 → 주소 복사 순으로 시도 */
 const meta = n => (document.querySelector(`meta[property="${n}"]`) || {}).content || '';
+// SDK 는 페이지가 열릴 때 미리 불러둠 (버튼을 누른 뒤 불러오면 팝업이 차단될 수 있음)
+const kakaoReady = !CONFIG.kakaoJsKey ? Promise.reject() : new Promise((ok, no) => {
+  const sc = document.createElement('script');
+  sc.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
+  sc.crossOrigin = 'anonymous'; sc.async = true; sc.onerror = no;
+  sc.onload = () => { try { if (!Kakao.isInitialized()) Kakao.init(CONFIG.kakaoJsKey); ok(); } catch (e) { no(e); } };
+  document.head.appendChild(sc);
+});
+kakaoReady.catch(() => {});
 async function shareKakao() {
-  if (!window.Kakao) {
-    await new Promise((ok, no) => {
-      const sc = document.createElement('script');
-      sc.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
-      sc.crossOrigin = 'anonymous'; sc.onload = ok; sc.onerror = no;
-      document.head.appendChild(sc);
-    });
-  }
-  if (!Kakao.isInitialized()) Kakao.init(CONFIG.kakaoJsKey);
+  await kakaoReady;
+  if (CONFIG.kakaoTemplateId) return Kakao.Share.sendCustom({ templateId: Number(CONFIG.kakaoTemplateId) });
   const link = { mobileWebUrl: location.href, webUrl: location.href };
   Kakao.Share.sendDefault({
     objectType: 'feed',
