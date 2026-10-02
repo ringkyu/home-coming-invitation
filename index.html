@@ -183,7 +183,6 @@
     position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 6px 5px; font-size: 11px;
     font-family: 'Pretendard', sans-serif; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.6));
   }
-  .gallery .g.hidden { display: none; }
   .more-btn { margin-top: 22px; }
 
   .lightbox {
@@ -394,7 +393,6 @@
     <div class="eng reveal">MEMORIES</div>
     <div class="sec-title reveal">추억의 앨범</div>
     <div class="gallery reveal" id="gallery"></div>
-    <button class="btn more-btn" id="moreBtn">더 보기</button>
   </section>
 
   <!-- 8. 메시지 남기기 (방명록) -->
@@ -691,16 +689,13 @@ setLink($('#kakaoLink'), CONFIG.kakaoLink);
 /* 7. 추억의 앨범 */
 const SAMPLE_TONES = ['#4a413c','#5c5046','#3f3834','#6b5d4c','#4f4540','#57493d','#443b36','#62564a','#4b423c','#5a4d41','#40383a','#665748'];
 const photos = CONFIG.gallery.length ? CONFIG.gallery.map(g => typeof g === 'string' ? { src: g } : g) : SAMPLE_TONES.map(c => ({ tone: c }));
-const SHOW = 9;
 const thumbOf = src => src.replace(/(\.\w+)$/, '_t$1');
 const tileHtml = (p, i, big) => p.tone
   ? `<div style="background:${p.tone};width:100%;height:100%;display:flex;align-items:center;justify-content:center">${i+1}</div>`
   : big
     ? `<img data-src="${esc(p.src)}" alt="${esc(p.cap || '추억의 사진')}">`
     : `<img src="${esc(p.thumb || thumbOf(p.src))}" onerror="this.onerror=null;this.src='${esc(p.src)}'" alt="${esc(p.cap || '추억의 사진')}" loading="lazy">${p.cap ? `<span class="cap">${esc(p.cap)}</span>` : ''}`;
-$('#gallery').innerHTML = photos.map((p, i) => `<div class="g ${i >= SHOW ? 'hidden' : ''}" data-i="${i}">${tileHtml(p, i)}</div>`).join('');
-if (photos.length <= SHOW) $('#moreBtn').remove();
-else $('#moreBtn').onclick = e => { document.querySelectorAll('.g.hidden').forEach(g => g.classList.remove('hidden')); e.target.remove(); };
+$('#gallery').innerHTML = photos.map((p, i) => `<div class="g" data-i="${i}">${tileHtml(p, i)}</div>`).join('');
 
 /* 사진 크게 보기 — 좌우로 밀어서 이전/다음 사진 */
 const lb = $('#lightbox'), track = $('#lbTrack'), stage = $('#lbStage');
@@ -804,7 +799,8 @@ async function copy(text, msg) {
   const PAGE = 5;
   let items = [], shown = PAGE;
   $('#gbLead').innerHTML = br(CONFIG.gbLead);
-  const fmt = t => { const d = new Date(t); return isNaN(d) ? '' : `${d.getFullYear()}. ${d.getMonth()+1}. ${d.getDate()}.`; };
+  // 서버가 "… GMT+0900 (한국 표준시)" 형식으로 줄 때 괄호 부분은 떼고 읽음 (Safari 대응)
+  const fmt = t => { const d = new Date(String(t).replace(/\s*\(.*\)\s*$/, '')); return isNaN(d) ? '' : `${d.getFullYear()}. ${d.getMonth()+1}. ${d.getDate()}.`; };
   const render = () => {
     list.innerHTML = items.length
       ? items.slice(0, shown).map(m =>
