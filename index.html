@@ -208,15 +208,30 @@
   .gallery .g.hidden { display: none; }
   .more-btn { margin-top: 22px; }
 
-  .lightbox { position: fixed; inset: 0; background: rgba(20,17,16,.96); z-index: 50; display: none; align-items: center; justify-content: center; flex-direction: column; }
+  .lightbox {
+    position: fixed; inset: 0; z-index: 120; background: #141110;
+    display: none; flex-direction: column; justify-content: center; overflow: hidden;
+    touch-action: none; user-select: none; -webkit-user-select: none;
+  }
   .lightbox.open { display: flex; }
-  .lightbox .stage { width: 100%; max-width: 430px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
-  .lightbox .stage > * { width: 100%; height: 100%; object-fit: contain; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 40px; }
-  .lightbox .count { color: #bbb; font-size: 13px; margin-top: 14px; }
-  .lightbox button { position: absolute; background: none; border: 0; color: #fff; font-size: 28px; padding: 16px; cursor: pointer; }
-  .lightbox .close { top: 8px; right: 8px; }
-  .lightbox .prev { left: 0; top: 50%; transform: translateY(-50%); }
-  .lightbox .next { right: 0; top: 50%; transform: translateY(-50%); }
+  .lightbox .stage { width: 100%; overflow: hidden; cursor: grab; }
+  .lightbox .stage.dragging { cursor: grabbing; }
+  .lightbox .track { display: flex; will-change: transform; }
+  .lightbox .track.anim { transition: transform .35s cubic-bezier(.25,.8,.3,1); }
+  .lightbox .slide {
+    flex: 0 0 100%; height: calc(100dvh - 120px); padding: 0 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-family: 'Montserrat', sans-serif; font-size: 40px;
+  }
+  .lightbox .slide img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 2px; pointer-events: none; -webkit-user-drag: none; }
+  .lightbox .slide > div { width: min(100%, 406px); aspect-ratio: 3/4; }
+  .lightbox .count { color: #bbb; font-size: 13px; margin-top: 14px; text-align: center; font-variant-numeric: tabular-nums; }
+  .lightbox button { position: absolute; z-index: 1; background: none; border: 0; color: #fff; font-size: 28px; padding: 16px; cursor: pointer; }
+  .lightbox button[hidden] { display: none; }
+  .lightbox .close { top: calc(4px + env(safe-area-inset-top)); right: 4px; }
+  .lightbox .prev { left: max(0px, calc(50% - 300px)); top: 50%; transform: translateY(-50%); }
+  .lightbox .next { right: max(0px, calc(50% - 300px)); top: 50%; transform: translateY(-50%); }
+  body.lb-lock { overflow: hidden; }
 
   /* ---------- 오시는 길 ---------- */
   .place-name { font-size: 18px; font-weight: 600; }
@@ -464,10 +479,10 @@
   <footer id="footer"></footer>
 </main>
 
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
   <button class="close" aria-label="닫기">✕</button>
-  <button class="prev" aria-label="이전">‹</button>
-  <div class="stage" id="lbStage"></div>
+  <button class="prev" aria-label="이전 사진">‹</button>
+  <div class="stage" id="lbStage"><div class="track" id="lbTrack"></div></div>
   <div class="count" id="lbCount"></div>
   <button class="next" aria-label="다음">›</button>
 </div>
@@ -601,7 +616,13 @@ const CONFIG = {
   kakaoLink: '',                    // 예: 'https://pf.kakao.com/_xxxxxx' (비우면 버튼 비활성)
 
   // 8. 추억의 앨범 — 예: ['images/1985.jpg', { src: 'images/1990.jpg', cap: '1990 축제' }]
-  gallery: [],
+  // 같은 폴더에 '이름_t.jpg' 썸네일이 있으면 목록에서는 썸네일을 씁니다
+  gallery: [
+    'images/gallery/01.jpg', 'images/gallery/02.jpg', 'images/gallery/03.jpg',
+    'images/gallery/04.jpg', 'images/gallery/05.jpg', 'images/gallery/06.jpg',
+    'images/gallery/07.jpg', 'images/gallery/08.jpg', 'images/gallery/09.jpg',
+    'images/gallery/10.jpg', 'images/gallery/11.jpg', 'images/gallery/12.jpg',
+  ],
 
   transport: [
     { t: 'SUBWAY', d: '1·2호선 시청역 · 5호선 광화문역 인근 (출구 번호 확인 중)' },
@@ -663,7 +684,7 @@ function setLink(el, url) {
     document.body.classList.remove('intro-lock');
     setTimeout(() => intro.remove(), 1300);
   };
-  setTimeout(() => $('#introLine').classList.add('on'), total);
+  setTimeout(() => $('#introLine')?.classList.add('on'), total);
   setTimeout(finish, total + 1800);
   intro.addEventListener('click', finish);
 })();
@@ -786,31 +807,89 @@ setLink($('#kakaoLink'), CONFIG.kakaoLink);
 const SAMPLE_TONES = ['#4a413c','#5c5046','#3f3834','#6b5d4c','#4f4540','#57493d','#443b36','#62564a','#4b423c','#5a4d41','#40383a','#665748'];
 const photos = CONFIG.gallery.length ? CONFIG.gallery.map(g => typeof g === 'string' ? { src: g } : g) : SAMPLE_TONES.map(c => ({ tone: c }));
 const SHOW = 9;
+const thumbOf = src => src.replace(/(\.\w+)$/, '_t$1');
 const tileHtml = (p, i, big) => p.tone
   ? `<div style="background:${p.tone};width:100%;height:100%;display:flex;align-items:center;justify-content:center">${i+1}</div>`
-  : `<img src="${esc(p.src)}" alt="${esc(p.cap || '추억의 사진')}" loading="lazy">${p.cap && !big ? `<span class="cap">${esc(p.cap)}</span>` : ''}`;
+  : big
+    ? `<img data-src="${esc(p.src)}" alt="${esc(p.cap || '추억의 사진')}">`
+    : `<img src="${esc(p.thumb || thumbOf(p.src))}" onerror="this.onerror=null;this.src='${esc(p.src)}'" alt="${esc(p.cap || '추억의 사진')}" loading="lazy">${p.cap ? `<span class="cap">${esc(p.cap)}</span>` : ''}`;
 $('#gallery').innerHTML = photos.map((p, i) => `<div class="g ${i >= SHOW ? 'hidden' : ''}" data-i="${i}">${tileHtml(p, i)}</div>`).join('');
 if (photos.length <= SHOW) $('#moreBtn').remove();
 else $('#moreBtn').onclick = e => { document.querySelectorAll('.g.hidden').forEach(g => g.classList.remove('hidden')); e.target.remove(); };
 
+/* 사진 크게 보기 — 좌우로 밀어서 이전/다음 사진 */
+const lb = $('#lightbox'), track = $('#lbTrack'), stage = $('#lbStage');
+track.innerHTML = photos.map((p, i) => `<div class="slide">${tileHtml(p, i, true)}</div>`).join('');
+const slides = [...track.children];
 let lbIdx = 0;
-function openLb(i) {
-  lbIdx = (i + photos.length) % photos.length;
+const moveTo = (x, anim) => {
+  track.classList.toggle('anim', anim);
+  track.style.transform = `translateX(calc(${-lbIdx * 100}% + ${x}px))`;
+};
+function showLb(i, anim = true) {
+  lbIdx = Math.max(0, Math.min(photos.length - 1, i));
+  // 현재 사진과 양옆 사진만 불러옴
+  [lbIdx - 1, lbIdx, lbIdx + 1].forEach(k => {
+    const img = slides[k] && slides[k].querySelector('img[data-src]');
+    if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+  });
   const p = photos[lbIdx];
-  $('#lbStage').innerHTML = tileHtml(p, lbIdx, true);
   $('#lbCount').textContent = `${lbIdx + 1} / ${photos.length}${p.cap ? ' · ' + p.cap : ''}`;
-  $('#lightbox').classList.add('open');
+  $('#lightbox .prev').hidden = lbIdx === 0;
+  $('#lightbox .next').hidden = lbIdx === photos.length - 1;
+  moveTo(0, anim);
+}
+function openLb(i) {
+  lb.classList.add('open');
+  document.body.classList.add('lb-lock');
+  showLb(i, false);
+}
+function closeLb() {
+  lb.classList.remove('open');
+  document.body.classList.remove('lb-lock');
 }
 $('#gallery').onclick = e => { const g = e.target.closest('.g'); if (g) openLb(+g.dataset.i); };
-$('#lightbox .close').onclick = () => $('#lightbox').classList.remove('open');
-$('#lightbox .prev').onclick = () => openLb(lbIdx - 1);
-$('#lightbox .next').onclick = () => openLb(lbIdx + 1);
-let tx = 0;
-$('#lightbox').addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
-$('#lightbox').addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - tx;
-  if (Math.abs(dx) > 50) openLb(lbIdx + (dx < 0 ? 1 : -1));
+$('#lightbox .close').onclick = closeLb;
+lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbCount') closeLb(); });
+$('#lightbox .prev').onclick = () => showLb(lbIdx - 1);
+$('#lightbox .next').onclick = () => showLb(lbIdx + 1);
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  else if (e.key === 'ArrowLeft') showLb(lbIdx - 1);
+  else if (e.key === 'ArrowRight') showLb(lbIdx + 1);
 });
+
+// 손가락(마우스)을 따라 사진이 움직이고, 충분히 밀면 넘어감
+let drag = null;
+const onPhoto = e => {
+  const el = slides[lbIdx].firstElementChild;
+  if (!el) return false;
+  const r = el.getBoundingClientRect();
+  return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+};
+stage.addEventListener('pointerdown', e => {
+  drag = { x: e.clientX, y: e.clientY, dx: 0, t: Date.now() };
+  stage.setPointerCapture(e.pointerId);
+  stage.classList.add('dragging');
+});
+stage.addEventListener('pointermove', e => {
+  if (!drag) return;
+  drag.dx = e.clientX - drag.x;
+  const atEdge = (drag.dx > 0 && lbIdx === 0) || (drag.dx < 0 && lbIdx === photos.length - 1);
+  moveTo(atEdge ? drag.dx / 3 : drag.dx, false);   // 처음/마지막 사진에서는 살짝만 밀림
+});
+const endDrag = e => {
+  if (!drag) return;
+  const { dx, y, t } = drag; drag = null;
+  stage.classList.remove('dragging');
+  const fast = Math.abs(dx) > 20 && Date.now() - t < 250;
+  if (Math.abs(dx) > stage.clientWidth * 0.18 || fast) showLb(lbIdx + (dx < 0 ? 1 : -1));
+  else if (Math.abs(dx) < 6 && Math.abs(e.clientY - y) < 6 && !onPhoto(e)) closeLb();  // 사진 바깥을 탭하면 닫기
+  else showLb(lbIdx);
+};
+stage.addEventListener('pointerup', endDrag);
+stage.addEventListener('pointercancel', endDrag);
 
 /* 오시는 길 */
 $('#place-name').textContent = CONFIG.placeName;
