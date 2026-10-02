@@ -17,11 +17,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="preload" as="image" href="images/keyvisual-black.webp">
+<link rel="preload" as="image" href="images/keyvisual-black.webp?v=2">
 <style>
   :root {
     /* 키비주얼(블랙 버전)에서 추출한 톤 */
     --bg: #332d2b;           /* 차콜 */
+    --poster: #221a16;       /* 메인 포스터 배경색 (첫 화면이 포스터와 이어지도록) */
     --bg-deep: #2a2523;
     --card: #3d3633;
     --ink: #f3ede4;
@@ -91,8 +92,8 @@
   .reveal.on { opacity: 1; transform: none; }
 
   /* ---------- 1·2. 키비주얼 + 헤드라인 ---------- */
-  .cover { padding: 0 0 64px; }
-  .kv { position: relative; background: var(--bg); color: #fff; }
+  .cover { padding: 0 0 64px; background: var(--poster); }
+  .kv { position: relative; background: var(--poster); color: #fff; }
   .kv img { width: 100%; height: auto; display: block; aspect-ratio: 1415 / 2000; }
   .kv.fallback { aspect-ratio: 3 / 4; display: flex; align-items: center; justify-content: center; flex-direction: column; }
   .kv.fallback .fifty { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 96px; line-height: 1; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -469,7 +470,7 @@ const CONFIG = {
   bgm: ['audio/song1.m4a', 'audio/song2.m4a', 'audio/song3.m4a'],
 
   // 2. 키비주얼 — 디자인된 이미지가 있으면 경로를 넣으세요 (비우면 기본 디자인)
-  keyVisual: 'images/keyvisual-black.webp',
+  keyVisual: 'images/keyvisual-black.webp?v=2',
   date: '2026-11-13T19:00:00',      // 행사 시작 시각
   placeName: '한국프레스센터 20층 프레스클럽',
   address: '서울시 중구 세종대로 124',
