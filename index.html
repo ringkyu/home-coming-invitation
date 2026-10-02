@@ -99,6 +99,19 @@
   .kv.fallback .hc { font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: .2em; color: var(--gold); margin-top: 8px; }
   .cover .headline { font-size: 15px; line-height: 1.9; margin: 44px 28px 0; font-weight: 300; }
   .cover .headline strong { display: block; font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+  .when-where {
+    display: inline-grid; grid-template-columns: auto 1fr; gap: 10px 14px; margin-top: 30px; text-align: left;
+    padding: 16px 22px; border: 1px solid var(--line); border-radius: 10px; background: rgba(42,37,35,.6);
+    font-size: 14.5px; line-height: 1.6; font-weight: 300;
+  }
+  .when-where dt { color: var(--gold); font-weight: 600; }
+  .when-where dd { word-break: keep-all; }
+  .when-where dd small { display: block; color: var(--muted); font-size: 12.5px; }
+
+  /* ---------- 2. 참여하기 ---------- */
+  .join-sec { padding-top: 56px; padding-bottom: 56px; }
+  .join-lead { font-size: 15px; line-height: 1.9; font-weight: 300; margin-bottom: 22px; }
+  .join-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
 
   /* ---------- 3. 인사말 ---------- */
   .greeting p { font-size: 15px; line-height: 2.1; font-weight: 300; word-break: keep-all; text-wrap: pretty; }
@@ -112,42 +125,20 @@
   .greeting .g-info dd { word-break: keep-all; }
   .greeting .g-note { font-size: 13px; color: var(--muted); }
   .greeting .sign { margin-top: 40px; font-size: 15px; color: var(--ink); font-weight: 600; letter-spacing: .02em; word-break: keep-all; }
-  .greeting .btn.full { margin-top: 36px; }
-  .greeting .contact { margin-top: 18px; font-size: 12.5px; line-height: 1.8; color: var(--muted); word-break: keep-all; }
+  .greeting .contact { margin-top: 28px; font-size: 12.5px; line-height: 1.8; color: var(--muted); word-break: keep-all; }
   .greeting .contact a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-deep); }
 
-  /* ---------- 캘린더 ---------- */
-  .date-big { font-size: 18px; font-weight: 600; }
-  .date-eng { font-family: 'Montserrat', sans-serif; font-weight: 300; color: var(--muted); font-size: 12.5px; letter-spacing: .08em; margin-bottom: 30px; }
-  .cal { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 6px; }
-  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 10px; font-size: 14px; font-family: 'Montserrat', 'Pretendard', sans-serif; }
-  .cal-grid .h { color: var(--muted); font-size: 12px; font-family: 'Pretendard', sans-serif; }
-  .cal-grid .sun { color: var(--sun); }
-  .cal-grid .sat { color: var(--sat); }
-  .cal-grid .d { width: 34px; height: 34px; line-height: 34px; margin: 0 auto; border-radius: 50%; }
-  .cal-grid .d.today { background: var(--gold-grad); color: var(--bg-deep); font-weight: 700; box-shadow: 0 0 0 4px rgba(202,172,107,.18); }
-  .countdown { display: flex; justify-content: center; gap: 8px; margin-top: 34px; }
-  .countdown .box { min-width: 60px; }
-  .countdown .num {
-    background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-size: 22px; padding: 8px 0;
-    font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--gold);
-  }
-  .countdown .lbl { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .18em; color: var(--muted); margin-top: 6px; }
-  .countdown .colon { font-size: 20px; padding-top: 8px; color: var(--gold-deep); }
-  .dday-msg { margin-top: 26px; font-size: 15px; font-weight: 300; }
-  .dday-msg b { color: var(--gold); font-weight: 700; }
-
   /* ---------- 4. 식순 타임라인 ---------- */
-  .timeline { list-style: none; text-align: left; position: relative; margin: 0 auto; max-width: 320px; }
-  .timeline::before { content: ''; position: absolute; left: 62px; top: 10px; bottom: 10px; width: 1px; background: var(--line); }
-  .timeline li { display: grid; grid-template-columns: 52px 1fr; gap: 22px; padding: 10px 0; position: relative; }
+  .timeline { list-style: none; text-align: left; position: relative; margin: 0 auto; max-width: 340px; }
+  .timeline::before { content: ''; position: absolute; left: 109px; top: 10px; bottom: 10px; width: 1px; background: var(--line); }
+  .timeline li { display: grid; grid-template-columns: 92px 1fr; gap: 34px; padding: 10px 0; position: relative; }
   .timeline li::before {
-    content: ''; position: absolute; left: 58px; top: 19px; width: 9px; height: 9px; border-radius: 50%;
+    content: ''; position: absolute; left: 105px; top: 18px; width: 9px; height: 9px; border-radius: 50%;
     background: var(--bg-deep); border: 1.5px solid var(--gold);
   }
   .timeline li.key::before { background: var(--gold); box-shadow: 0 0 0 3px rgba(202,172,107,.2); }
-  .timeline .t { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px; color: var(--gold); text-align: right; padding-top: 1px; }
-  .timeline .w { font-size: 15px; font-weight: 500; }
+  .timeline .t { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; color: var(--gold); text-align: right; padding-top: 2px; white-space: nowrap; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+  .timeline .w { font-size: 15px; font-weight: 500; word-break: keep-all; }
   .timeline .w small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.6; font-weight: 300; }
 
   /* ---------- 버튼 ---------- */
@@ -163,27 +154,12 @@
   .btn.primary:active { filter: brightness(.9); }
   .btn.kakao { background: #fee500; border-color: #fee500; color: #191919; font-weight: 600; }
   .btn[aria-disabled="true"] { opacity: .4; pointer-events: none; }
+  .btn[hidden] { display: none; }
 
-  /* ---------- RSVP ---------- */
-  .rsvp-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
-  .rsvp-sec .btn.full { margin-top: 24px; }
+  /* ---------- 5. 동문 발전기금 ---------- */
+  .fund-note { font-size: 13px; color: var(--muted); margin-top: 14px; word-break: keep-all; }
+  .fund-sec .btn.full { margin-top: 28px; }
 
-  /* ---------- 5. 후리스 ---------- */
-  .fleece-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .fleece-imgs figure { margin: 0; }
-  .fleece-imgs .img {
-    aspect-ratio: 1; border-radius: 8px; overflow: hidden; background: var(--card); border: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .fleece-imgs img { width: 100%; height: 100%; object-fit: cover; }
-  .fleece-imgs figcaption { font-family: 'Montserrat', sans-serif; letter-spacing: .25em; font-size: 10.5px; color: var(--muted); margin-top: 8px; }
-  .fleece-desc { font-size: 14px; margin: 22px 0 26px; font-weight: 300; }
-  .size-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .size-table th, .size-table td { border-bottom: 1px solid var(--line); padding: 9px 2px; font-weight: 300; }
-  .size-table thead th { color: var(--gold); font-weight: 600; border-bottom: 1px solid var(--gold); font-size: 12px; }
-  .size-table tbody th { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; }
-  .size-table td { font-variant-numeric: tabular-nums; }
-  .size-cap { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: left; font-weight: 300; }
 
 
   /* ---------- 7. 카카오톡 채널 ---------- */
@@ -191,7 +167,7 @@
     display: flex; align-items: center; gap: 14px; text-align: left;
     background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px;
   }
-  .kakao-card .logo { width: 48px; height: 48px; border-radius: 14px; background: #fee500; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .kakao-card .logo { width: 48px; height: 48px; border-radius: 14px; background: #fff; flex-shrink: 0; object-fit: cover; }
   .kakao-card b { display: block; font-size: 15px; font-weight: 600; }
   .kakao-card span { font-size: 13px; color: var(--muted); font-weight: 300; }
 
@@ -244,61 +220,42 @@
   .map-links .btn { padding: 10px 0; border-radius: 8px; font-size: 13px; }
   .transport { text-align: left; margin-top: 36px; }
   .transport dt { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: .2em; color: var(--gold); font-size: 11.5px; margin-top: 22px; }
-  .transport dd { font-size: 14px; border-bottom: 1px solid var(--line); padding: 4px 0 16px; font-weight: 300; }
+  .transport dd { font-size: 14px; line-height: 1.9; border-bottom: 1px solid var(--line); padding: 4px 0 16px; font-weight: 300; word-break: keep-all; }
+  .transport dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--gold-deep); }
+  .subway-line {
+    display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-right: 2px;
+    border-radius: 50%; color: #fff; font: 600 11px/1 'Montserrat', sans-serif; vertical-align: -3px;
+  }
+
+  /* ---------- 8. 메시지 남기기 ---------- */
+  .guestbook .lead { margin-bottom: 26px; }
+  .gb-form .field .hint { text-align: right; }
+  .gb-list { display: grid; gap: 10px; margin-top: 28px; text-align: left; }
+  .gb-item { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .gb-item .who { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 13px; }
+  .gb-item .who b { color: var(--gold); font-weight: 600; }
+  .gb-item .who time { color: var(--muted); font-size: 11.5px; font-family: 'Montserrat', sans-serif; flex-shrink: 0; }
+  .gb-item p { font-size: 14px; line-height: 1.75; font-weight: 300; margin-top: 6px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .gb-empty { color: var(--muted); font-size: 13px; text-align: center; padding: 8px 0; }
 
   /* ---------- 공유 ---------- */
   .share { display: grid; gap: 10px; }
   footer { text-align: center; padding: 28px 0 52px; font-size: 11.5px; color: var(--muted); background: var(--bg-deep); letter-spacing: .02em; }
 
-  /* ---------- 모달 ---------- */
-  .modal { position: fixed; inset: 0; z-index: 70; background: rgba(10,8,8,.6); display: none; align-items: flex-end; justify-content: center; }
-  .modal.open { display: flex; }
-  .sheet {
-    width: 100%; max-width: 430px; max-height: 92vh; overflow-y: auto;
-    background: var(--bg-deep); border-top: 1px solid var(--line); border-radius: 18px 18px 0 0;
-    padding: 28px 24px calc(24px + env(safe-area-inset-bottom));
-    animation: up .35s ease;
-  }
-  @keyframes up { from { transform: translateY(100%); } }
-  .sheet-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .sheet-head h3 { font-size: 19px; font-weight: 700; }
-  .sheet-head button { background: none; border: 0; font-size: 22px; color: var(--muted); cursor: pointer; padding: 4px 8px; }
-  .sheet-sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; font-weight: 300; }
+  /* ---------- 입력 폼 (방명록) ---------- */
   .field { margin-bottom: 16px; text-align: left; }
-  .field > label, .field > .lbl { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-  .field b.req { color: var(--gold); font-weight: 400; }
-  .field input, .field select {
+  .field > label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .field input, .field textarea {
     width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
     border: 1px solid rgba(255,255,255,.1); border-radius: 8px; padding: 12px 14px; background: var(--card);
     -webkit-appearance: none; appearance: none; color-scheme: dark;
   }
-  .field input::placeholder { color: #7d746b; }
-  .field select {
-    background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
-    background-position: calc(100% - 20px) 55%, calc(100% - 15px) 55%;
-    background-size: 5px 5px; background-repeat: no-repeat;
-  }
-  .field select:invalid { color: #7d746b; }
-  .field select option { color: var(--ink); background: var(--card); }
-  .field input:focus, .field select:focus { outline: 2px solid rgba(202,172,107,.3); border-color: var(--gold); }
-  .field input:user-invalid { border-color: var(--sun); }
-  .seg { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); gap: 6px; }
-  .seg input { position: absolute; opacity: 0; pointer-events: none; }
-  .seg label {
-    display: block; text-align: center; margin: 0; padding: 11px 0; font-size: 14px; color: var(--ink);
-    border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: var(--card); cursor: pointer;
-  }
-  .seg input:checked + label { background: var(--gold-grad); border-color: transparent; color: #231f1d; font-weight: 700; }
-  .seg input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .field input::placeholder, .field textarea::placeholder { color: #7d746b; }
+  .field textarea { resize: vertical; min-height: 104px; line-height: 1.7; }
+  .field input:focus, .field textarea:focus { outline: 2px solid rgba(202,172,107,.3); border-color: var(--gold); }
   .field .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
-  .field .hint a { color: var(--gold); }
-  .consent { display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; color: var(--muted); text-align: left; margin: 4px 0 18px; font-weight: 300; }
-  .consent input { margin-top: 5px; accent-color: var(--gold); }
   .hp { position: absolute; left: -9999px; }
   .form-err { color: var(--sun); font-size: 13px; margin-bottom: 10px; min-height: 1em; }
-  .done { text-align: center; padding: 24px 0 8px; }
-  .done .ic { font-size: 40px; }
-  .done p { margin: 12px 0 24px; font-size: 15px; line-height: 1.9; }
 
   .toast {
     position: fixed; left: 50%; bottom: 40px; transform: translateX(-50%) translateY(20px);
@@ -383,75 +340,48 @@
   <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/><path d="m16 9 6 6M22 9l-6 6"/></svg>
 </button>
 <main class="wrap">
-  <!-- 1·2. 헤드라인 + 키비주얼 -->
+  <!-- 1. 첫 화면: 키비주얼 + 초대 글귀 + 일시·장소 -->
   <section class="cover deco-dots">
     <div class="kv" id="kv"></div>
     <p class="headline reveal" id="headline"></p>
+    <dl class="when-where reveal" id="whenWhere"></dl>
   </section>
 
-  <!-- 3. 인사말 -->
-  <section class="greeting alt deco-arcs">
+  <!-- 2. 참여하기 -->
+  <section class="alt join-sec">
+    <p class="join-lead reveal" id="joinLead"></p>
+    <a class="btn full primary reveal" id="rsvpLink" target="_blank" rel="noopener">참여하기</a>
+    <div class="deadline reveal" id="rsvpDeadline"></div>
+  </section>
+
+  <!-- 3. 모시는 글 -->
+  <section class="greeting deco-arcs">
     <div class="eng reveal">GREETING</div>
-    <div class="sec-title reveal">인사말</div>
+    <div class="sec-title reveal">모시는 글</div>
     <div id="greeting"></div>
     <div class="sign reveal" id="sign"></div>
-    <a class="btn full primary reveal" id="donateLink" target="_blank" rel="noopener">기부금 온라인 약정하기</a>
     <p class="contact reveal" id="contact"></p>
   </section>
 
-  <!-- 캘린더 · D-day -->
-  <section class="deco-moon">
-    <div class="eng reveal">THE DAY</div>
-    <div class="date-big reveal" id="date-ko"></div>
-    <div class="date-eng reveal" id="date-en"></div>
-    <div class="cal reveal"><div class="cal-grid" id="cal"></div></div>
-    <div class="countdown reveal" id="countdown"></div>
-    <div class="dday-msg reveal" id="dday-msg"></div>
-  </section>
-
-  <!-- 4. 식순 + 참석 여부 -->
-  <section class="alt rsvp-sec deco-dots">
+  <!-- 4. 식순 -->
+  <section class="alt deco-dots">
     <div class="eng reveal">PROGRAM</div>
     <div class="sec-title reveal">행사 식순</div>
     <ol class="timeline reveal" id="timeline"></ol>
     <div class="note reveal" id="dinnerNote"></div>
-    <button class="btn full primary reveal" id="rsvpOpen">참석 여부 응답하기</button>
-    <div class="deadline reveal" id="rsvpDeadline"></div>
   </section>
 
-  <!-- 5. 후리스 -->
-  <section id="fleece" class="deco-arcs left">
-    <div class="eng reveal">GIFT</div>
-    <div class="sec-title reveal">기념 후리스 안내</div>
-    <div class="fleece-imgs reveal" id="fleeceImgs"></div>
-    <p class="fleece-desc reveal" id="fleeceDesc"></p>
-    <table class="size-table reveal" id="sizeTable"></table>
-    <p class="size-cap reveal" id="sizeCap"></p>
+  <!-- 5. 동문 발전기금 -->
+  <section class="fund-sec deco-arcs left">
+    <div class="eng reveal">FUND</div>
+    <div class="sec-title reveal">동문 발전기금 안내</div>
+    <p class="lead reveal" id="fundText"></p>
+    <p class="fund-note reveal" id="fundNote"></p>
+    <a class="btn full primary reveal" id="donateLink" target="_blank" rel="noopener">기부금 온라인 약정하기</a>
   </section>
 
-  <!-- 7. 카카오톡 채널 -->
-  <section class="deco-dots">
-    <div class="eng reveal">CHANNEL</div>
-    <div class="sec-title reveal">동문회 카카오톡 채널</div>
-    <div class="kakao-card reveal">
-      <div class="logo" aria-hidden="true">
-        <svg width="28" height="26" viewBox="0 0 28 26"><path fill="#3a1d1d" d="M14 0C6.3 0 0 4.9 0 11c0 3.9 2.6 7.3 6.5 9.3L5 26l6.3-4.2c.9.1 1.8.2 2.7.2 7.7 0 14-4.9 14-11S21.7 0 14 0z"/></svg>
-      </div>
-      <div><b id="kakaoName"></b><span id="kakaoDesc"></span></div>
-    </div>
-    <a class="btn full kakao reveal" id="kakaoLink" target="_blank" rel="noopener">채널 추가하기</a>
-  </section>
-
-  <!-- 8. 추억의 앨범 -->
-  <section class="gallery-sec alt">
-    <div class="eng reveal">MEMORIES</div>
-    <div class="sec-title reveal">추억의 앨범</div>
-    <div class="gallery reveal" id="gallery"></div>
-    <button class="btn more-btn" id="moreBtn">더 보기</button>
-  </section>
-
-  <!-- 오시는 길 -->
-  <section class="location deco-moon">
+  <!-- 6. 오시는 길 -->
+  <section class="location alt deco-moon">
     <div class="eng reveal">LOCATION</div>
     <div class="sec-title reveal">오시는 길</div>
     <div class="place-name reveal" id="place-name"></div>
@@ -465,10 +395,52 @@
     <dl class="transport reveal" id="transport"></dl>
   </section>
 
-  <!-- 공유 -->
+  <!-- 7. 추억의 앨범 -->
+  <section class="gallery-sec">
+    <div class="eng reveal">MEMORIES</div>
+    <div class="sec-title reveal">추억의 앨범</div>
+    <div class="gallery reveal" id="gallery"></div>
+    <button class="btn more-btn" id="moreBtn">더 보기</button>
+  </section>
+
+  <!-- 8. 메시지 남기기 (방명록) -->
+  <section class="alt guestbook deco-arcs">
+    <div class="eng reveal">MESSAGE</div>
+    <div class="sec-title reveal">축하 메시지 남기기</div>
+    <p class="lead reveal" id="gbLead"></p>
+    <form class="gb-form reveal" id="gbForm" novalidate>
+      <div class="field">
+        <label for="gb-name">이름 (학번)</label>
+        <input id="gb-name" name="name" maxlength="20" placeholder="예: 홍길동 (95)" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="gb-msg">메시지</label>
+        <textarea id="gb-msg" name="message" maxlength="300" rows="4" placeholder="학과와 동문들에게 축하와 안부를 전해주세요"></textarea>
+        <p class="hint"><span id="gbLen">0</span> / 300</p>
+      </div>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-err" id="gbErr" role="alert"></div>
+      <button class="btn full primary" type="submit" id="gbSubmit">메시지 남기기</button>
+    </form>
+    <div class="gb-list" id="gbList" aria-live="polite"></div>
+    <button class="btn more-btn" id="gbMore" hidden>더 보기</button>
+  </section>
+
+  <!-- 9. 카카오톡 채널 -->
+  <section class="deco-dots">
+    <div class="eng reveal">CHANNEL</div>
+    <div class="sec-title reveal">동문회 카카오톡 채널</div>
+    <div class="kakao-card reveal">
+      <img class="logo" src="images/kakao-channel.jpg" alt="" width="48" height="48">
+      <div><b id="kakaoName"></b><span id="kakaoDesc"></span></div>
+    </div>
+    <a class="btn full kakao reveal" id="kakaoLink" target="_blank" rel="noopener">채널 추가하기</a>
+  </section>
+
+  <!-- 10. 공유 -->
   <section class="alt" style="padding-top:48px;padding-bottom:48px">
     <div class="share">
-      <button class="btn full" id="shareBtn">초대장 공유하기</button>
+      <button class="btn full kakao" id="shareBtn">카카오톡으로 공유하기</button>
       <button class="btn full" id="copyBtn">초대장 주소 복사하기</button>
     </div>
   </section>
@@ -483,53 +455,6 @@
   <button class="next" aria-label="다음">›</button>
 </div>
 
-<div class="modal" id="rsvpModal" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle">
-  <div class="sheet">
-    <div class="sheet-head">
-      <h3 id="rsvpTitle">참석 여부 응답</h3>
-      <button type="button" id="rsvpClose" aria-label="닫기">✕</button>
-    </div>
-    <p class="sheet-sub">코스 만찬 준비를 위해 꼭 응답 부탁드립니다.</p>
-    <form id="rsvpForm" novalidate>
-      <div class="field">
-        <span class="lbl">참석 여부 <b class="req">*</b></span>
-        <div class="seg">
-          <div><input type="radio" name="attend" id="at-y" value="참석" checked><label for="at-y">참석합니다</label></div>
-          <div><input type="radio" name="attend" id="at-n" value="불참"><label for="at-n">불참합니다</label></div>
-        </div>
-      </div>
-      <div class="field">
-        <label for="rv-name">성명 <b class="req">*</b></label>
-        <input id="rv-name" name="name" required maxlength="30" autocomplete="name">
-      </div>
-      <div class="field">
-        <label for="rv-year">학번 <b class="req">*</b></label>
-        <select id="rv-year" name="year" required></select>
-      </div>
-      <div class="field">
-        <label for="rv-phone">연락처 <b class="req">*</b></label>
-        <input id="rv-phone" name="phone" type="tel" inputmode="numeric" required maxlength="13" placeholder="010-0000-0000" autocomplete="tel" pattern="01[0-9]-?\d{3,4}-?\d{4}">
-      </div>
-      <div class="field" id="sizeField">
-        <span class="lbl">기념 후리스 사이즈 <b class="req">*</b></span>
-        <div class="seg" id="sizeSeg"></div>
-        <p class="hint"><a href="#fleece" id="sizeGuideLink">사이즈 안내 보기</a></p>
-      </div>
-      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label class="consent">
-        <input type="checkbox" id="rv-consent" required>
-        <span id="consentText"></span>
-      </label>
-      <div class="form-err" id="rsvpErr" role="alert"></div>
-      <button class="btn full primary" type="submit" id="rsvpSubmit">제출하기</button>
-    </form>
-    <div class="done" id="rsvpDone" hidden>
-      <div class="ic">💌</div>
-      <p id="rsvpDoneMsg"></p>
-      <button class="btn full" type="button" id="rsvpDoneClose">닫기</button>
-    </div>
-  </div>
-</div>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -543,6 +468,8 @@ const CONFIG = {
   dept: '페르시아어·이란학과',
   anniversary: 50,
   headline: '한국외대 페르시아어·이란학과 창립 50주년 홈커밍데이에\n동문 여러분을 모십니다.',
+  // 인트로 화면에 한 글자씩 써지는 문구 (\n 위치에서 줄바꿈)
+  introText: '한국외대 페르시아어·이란학과\n창립 50주년 홈커밍데이에\n동문 여러분을 모십니다.',
 
   // 배경음악 — 접속할 때마다 이 중 한 곡을 골라 재생하고, 끝나면 다음 곡으로 넘어갑니다
   // (앞뒤 3초 페이드 인/아웃은 파일에 들어 있습니다)
@@ -551,11 +478,14 @@ const CONFIG = {
   // 2. 키비주얼 — 디자인된 이미지가 있으면 경로를 넣으세요 (비우면 기본 디자인)
   keyVisual: 'images/keyvisual-black.webp',
   date: '2026-11-13T19:00:00',      // 행사 시작 시각
-  placeName: '한국프레스센터 20층',
-  address: '서울 중구 세종대로 124',
+  placeName: '한국프레스센터 20층 프레스클럽',
+  address: '서울시 중구 세종대로 124',
   mapQuery: '한국프레스센터',        // 지도 검색어 (장소명 또는 주소)
 
-  // 3. 인사말 — 문자열은 문단, { info } 는 일시·장소 표, { note } 는 작은 안내문
+  // 2. 참여하기 버튼 위 안내 문구
+  joinLead: '코스 만찬 준비를 위해\n참석 여부를 꼭 알려주세요.',
+
+  // 3. 모시는 글 — 문자열은 문단, { info } 는 일시·장소 표, { note } 는 작은 안내문
   greeting: [
     '존경하는 동문 여러분, 안녕하십니까.',
     '1976년 첫 발걸음을 내디딘 한국외국어대학교 페르시아어·이란학과가 어느덧 창립 50주년을 맞이하였습니다. 반세기의 여정을 함께 빛내주신 동문 여러분을 「창립 50주년 홈커밍데이」에 정중히 모십니다.',
@@ -568,50 +498,43 @@ const CONFIG = {
     '감사합니다.',
   ],
   sign: '유달승(학과장) · 진영우(동문회장) 올림',
-  donateLink: 'https://brr.kr/ty97ne',   // 기부금 온라인 약정 페이지
   contact: '※ 문의사항은 학과사무실(02-2173-2303)로 언제든 연락 주시기 바랍니다.',
 
   // 4. 식순 (key: true 는 강조 표시)
   program: [
-    { t: '18:30', w: '등록 및 기념품 수령', d: '후리스는 등록 데스크에서 받아가세요' },
-    { t: '19:00', w: '개회 및 내빈 소개', key: true },
-    { t: '19:15', w: '동문회장 인사 · 축사', d: '은사님 말씀' },
-    { t: '19:40', w: '50년의 발자취', d: '추억 영상 상영 · 공로패 전달' },
-    { t: '20:00', w: '연회식 코스 만찬', key: true, d: '기수별 테이블' },
-    { t: '21:30', w: '단체 사진 및 폐회' },
+    { t: '19:00–19:30', w: '개회·축사·연혁·기념 영상', key: true },
+    { t: '19:30–19:45', w: '기금 전달·비전 선포·건배' },
+    { t: '19:45–20:00', w: '동문 소개·만찬 집중' },
+    { t: '20:00–20:30', w: '마술공연·경품추첨' },
+    { t: '20:30–20:40', w: '재학생·졸업생 합창 공연' },
+    { t: '20:40–21:00', w: '만찬진행 및 감사인사 진행', key: true },
   ],
   dinnerNote: '<b>연회식 코스 만찬</b>으로 진행되어 <b>사전 인원 파악이 꼭 필요합니다.</b><br>참석 여부와 후리스 사이즈를 기한 내 알려주세요.',
 
-  // 참석 응답 — Google Apps Script 웹 앱 URL (rsvp/Code.gs)
-  rsvpEndpoint: 'https://script.google.com/macros/s/AKfycbx-flpJonWOsKOGqiFE1lfXarZMO22EtuqP__03UG85k-3QP7ujqwivN0jkTklZql6a/exec',
+  // 5. 동문 발전기금
+  fundText: '후배들의 꿈과 학과의 새로운 50년을 위한\n동문 발전기금에 따뜻한 마음을 모아주세요.',
+  fundNote: '※ 약정해 주신 기부금은 「연말정산 세액공제」 대상입니다.',
+  donateLink: 'https://brr.kr/ty97ne',   // 기부금 온라인 약정 페이지
+
+  // 참석 응답 — 구글 폼 (참여하기 버튼)
+  rsvpLink: 'https://forms.gle/SWfNVSHZbwE51rf96',
   rsvpDeadline: '2026-10-31',       // 응답 마감일 (비우면 표시 안 함)
-  rsvpYearFrom: 1977,               // 학번 선택 시작 연도 (1회 입학 연도)
-  rsvpConsent: '참석 확인 및 기념품 준비를 위해 성명·학번·연락처를 수집하며, 행사 종료 후 3개월 내 파기합니다. 이에 동의합니다.',
 
-  // 5. 후리스
-  fleeceImages: [                   // 예: { src: 'images/fleece-front.jpg', cap: 'FRONT' }
-    { src: '', cap: 'FRONT' },
-    { src: '', cap: 'BACK' },
-  ],
-  fleeceDesc: '창립 50주년을 기념해 학과 엠블럼을 수놓은\n후리스 집업을 참석 동문 모두에게 드립니다.',
-  sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
-  sizeColumns: ['사이즈', '가슴단면', '총장', '소매길이', '권장 키'],
-  sizeRows: [                       // 단위 cm — 업체 실측표로 교체하세요
-    ['S',   '54', '66', '60', '~165'],
-    ['M',   '57', '69', '62', '165~172'],
-    ['L',   '60', '72', '64', '172~178'],
-    ['XL',  '63', '75', '66', '178~183'],
-    ['2XL', '66', '78', '68', '183~188'],
-    ['3XL', '69', '81', '70', '188~'],
-  ],
-  sizeCaption: '* 단위 cm, 측정 방법에 따라 1~2cm 오차가 있을 수 있습니다. 넉넉한 오버핏이라 평소 사이즈를 권장합니다.',
+  // 방명록 — Google Apps Script 웹 앱 URL (rsvp/Code.gs)
+  gbEndpoint: 'https://script.google.com/macros/s/AKfycbx-flpJonWOsKOGqiFE1lfXarZMO22EtuqP__03UG85k-3QP7ujqwivN0jkTklZql6a/exec',
 
-  // 7. 카카오톡 채널
-  kakaoName: '한국외대 페르시아어·이란학과 동문회',
-  kakaoDesc: '행사 소식과 동문 소식을 가장 빠르게 받아보세요',
-  kakaoLink: '',                    // 예: 'https://pf.kakao.com/_xxxxxx' (비우면 버튼 비활성)
+  // 8. 메시지 남기기
+  gbLead: '50주년을 맞은 학과와 반가운 동문들에게\n축하와 안부를 남겨주세요.',
 
-  // 8. 추억의 앨범 — 예: ['images/1985.jpg', { src: 'images/1990.jpg', cap: '1990 축제' }]
+  // 9. 카카오톡 채널
+  kakaoName: '한국외대 페르시아어 이란학과 총동문회',
+  kakaoDesc: '50주년 행사 소식과 동문 소식을 가장 빠르게 받아보세요',
+  kakaoLink: 'https://pf.kakao.com/_HxjpGX',
+
+  // 10. 카카오톡 공유 — Kakao Developers 의 JavaScript 키 (비우면 휴대폰 공유창으로 대체)
+  kakaoJsKey: '',
+
+  // 7. 추억의 앨범 — 예: ['images/1985.jpg', { src: 'images/1990.jpg', cap: '1990 축제' }]
   // 같은 폴더에 '이름_t.jpg' 썸네일이 있으면 목록에서는 썸네일을 씁니다
   gallery: [
     'images/gallery/01.jpg', 'images/gallery/02.jpg', 'images/gallery/03.jpg',
@@ -620,10 +543,13 @@ const CONFIG = {
     'images/gallery/10.jpg', 'images/gallery/11.jpg', 'images/gallery/12.jpg',
   ],
 
+  // 6. 오시는 길 — 교통·주차 안내
+  // {1} {2} {5} 처럼 쓰면 지하철 호선 표시로 바뀝니다
   transport: [
-    { t: 'SUBWAY', d: '1·2호선 시청역 · 5호선 광화문역 인근 (출구 번호 확인 중)' },
-    { t: 'BUS',    d: '시청·광화문 방면 정류장 (노선 확인 중)' },
-    { t: 'PARKING', d: '프레스센터 주차장 (주차 지원 여부 확인 중)' },
+    { t: 'SUBWAY',  d: '{1}{2}호선 시청역 4번 출구 (프레스센터 방향)\n{5}호선 광화문역 5번 출구 (시청 방향 도보 약 5분)' },
+    { t: 'BUS',     d: '서울파이낸스빌딩 하차 도보 2분' },
+    { t: 'PARKING', d: '프레스센터 주차장 230대 / 무료주차 3시간' },
+    { t: 'TEL',     d: '02-722-7653' },
   ],
 };
 /* ========================================================= */
@@ -634,11 +560,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 const br = s => esc(s).replace(/\n/g, '<br>');
 const when = new Date(CONFIG.date);
 const DAYS_KO = ['일','월','화','수','목','금','토'];
-const DAYS_EN = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-const MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const h = when.getHours(), ampmKo = h < 12 ? '오전' : '오후', h12 = h % 12 || 12;
 const timeKo = `${ampmKo} ${h12}시${when.getMinutes() ? ' ' + when.getMinutes() + '분' : ''}`;
-const EVENT = '홈커밍데이';
 
 function toast(msg) {
   const t = $('#toast'); t.textContent = msg; t.classList.add('show');
@@ -657,11 +580,12 @@ function setLink(el, url) {
   const HIGHLIGHT = /창립\s?\d+주년|홈커밍데이/g;
   // 강조 구간 표시
   const marks = [];
-  CONFIG.headline.replace(HIGHLIGHT, (m, i) => { marks.push([i, i + m.length]); return m; });
+  const TEXT = CONFIG.introText || CONFIG.headline;
+  TEXT.replace(HIGHLIGHT, (m, i) => { marks.push([i, i + m.length]); return m; });
   // 단어 단위로 묶어 줄바꿈이 단어 중간에서 일어나지 않게 함
   let delay = 700, html = '', word = '';
   const flush = () => { if (word) { html += `<span style="white-space:nowrap">${word}</span>`; word = ''; } };
-  [...CONFIG.headline].forEach((c, i) => {
+  [...TEXT].forEach((c, i) => {
     if (c === '\n') { flush(); html += '<br>'; delay += 350; return; }
     if (c === ' ') { flush(); html += ' '; delay += STEP / 2; return; }
     const em = marks.some(([a, b]) => i >= a && i < b);
@@ -670,7 +594,7 @@ function setLink(el, url) {
   });
   flush();
   box.innerHTML = html;
-  box.setAttribute('aria-label', CONFIG.headline.replace(/\n/g, ' '));
+  box.setAttribute('aria-label', TEXT.replace(/\n/g, ' '));
 
   const total = reduce ? 600 : delay + 500;
   let done = false;
@@ -724,11 +648,14 @@ function setLink(el, url) {
   });
 })();
 
-/* 1·2. 헤드라인 + 키비주얼 */
+/* 1. 첫 화면 — 키비주얼 + 초대 글귀 + 일시·장소 */
 (() => {
   const [first, ...rest] = CONFIG.headline.split('\n');
   $('#headline').innerHTML = `<strong>${esc(first)}</strong>${br(rest.join('\n'))}`;
   const dateTxt = `${when.getFullYear()}. ${pad(when.getMonth()+1)}. ${pad(when.getDate())}. ${DAYS_KO[when.getDay()]} ${timeKo}`;
+  $('#whenWhere').innerHTML =
+    `<dt>일시</dt><dd>${when.getFullYear()}. ${when.getMonth()+1}. ${when.getDate()}.(${DAYS_KO[when.getDay()]}) ${timeKo}</dd>` +
+    `<dt>장소</dt><dd>${esc(CONFIG.placeName)}<small>${esc(CONFIG.address)}</small></dd>`;
   if (CONFIG.keyVisual) {
     $('#kv').innerHTML = `<img src="${esc(CONFIG.keyVisual)}" alt="${esc(CONFIG.dept)} 창립 ${CONFIG.anniversary}주년 홈커밍데이 · ${dateTxt} · ${esc(CONFIG.placeName)}">`;
     return;
@@ -738,67 +665,40 @@ function setLink(el, url) {
   $('#kv').innerHTML = `<div class="fifty">${CONFIG.anniversary}</div><div class="hc">HOMECOMING DAY</div>`;
 })();
 
-/* 3. 인사말 */
+/* 2. 참여하기 — 구글 폼으로 연결 */
+$('#joinLead').innerHTML = br(CONFIG.joinLead);
+setLink($('#rsvpLink'), CONFIG.rsvpLink);
+if (CONFIG.rsvpDeadline) {
+  const d = new Date(CONFIG.rsvpDeadline + 'T00:00:00');
+  $('#rsvpDeadline').textContent = `${d.getMonth()+1}월 ${d.getDate()}일(${DAYS_KO[d.getDay()]})까지 응답 부탁드립니다`;
+}
+
+/* 3. 모시는 글 */
 $('#greeting').innerHTML = CONFIG.greeting.map(p =>
   p.info ? `<div><dl class="g-info reveal">${p.info.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${br(v)}</dd>`).join('')}</dl></div>`
   : p.note ? `<p class="g-note reveal">${br(p.note)}</p>`
   : `<p class="reveal">${br(p)}</p>`).join('');
 $('#sign').textContent = CONFIG.sign;
-setLink($('#donateLink'), CONFIG.donateLink);
 // 전화번호는 눌러서 바로 걸 수 있게
 $('#contact').innerHTML = esc(CONFIG.contact).replace(/(0\d{1,2}-\d{3,4}-\d{4})/g, n => `<a href="tel:${n.replace(/-/g, '')}">${n}</a>`);
-
-/* 캘린더 */
-$('#date-ko').textContent = `${when.getFullYear()}년 ${when.getMonth()+1}월 ${when.getDate()}일 ${DAYS_KO[when.getDay()]}요일 | ${timeKo}`;
-$('#date-en').textContent = `${DAYS_EN[when.getDay()]}, ${MONTHS_EN[when.getMonth()]} ${when.getDate()}, ${when.getFullYear()} | ${h < 12 ? 'AM' : 'PM'} ${h12}:${pad(when.getMinutes())}`;
-(() => {
-  const y = when.getFullYear(), m = when.getMonth();
-  const first = new Date(y, m, 1).getDay(), last = new Date(y, m + 1, 0).getDate();
-  let html = DAYS_KO.map((d, i) => `<div class="h ${i===0?'sun':i===6?'sat':''}">${d}</div>`).join('');
-  for (let i = 0; i < first; i++) html += '<div></div>';
-  for (let d = 1; d <= last; d++) {
-    const dow = (first + d - 1) % 7;
-    const cls = [dow===0?'sun':dow===6?'sat':'', d===when.getDate()?'today':''].join(' ');
-    html += `<div><div class="d ${cls}">${d}</div></div>`;
-  }
-  $('#cal').innerHTML = html;
-})();
-
-function tick() {
-  const diff = when - new Date();
-  const abs = Math.abs(diff);
-  const d = Math.floor(abs / 864e5), hh = Math.floor(abs / 36e5) % 24, mm = Math.floor(abs / 6e4) % 60, ss = Math.floor(abs / 1e3) % 60;
-  const box = (n, l) => `<div class="box"><div class="num">${n}</div><div class="lbl">${l}</div></div>`;
-  $('#countdown').innerHTML = box(d,'DAYS') + '<div class="colon">:</div>' + box(pad(hh),'HOURS') + '<div class="colon">:</div>' + box(pad(mm),'MIN') + '<div class="colon">:</div>' + box(pad(ss),'SEC');
-  $('#dday-msg').innerHTML = diff > 0
-    ? `창립 ${CONFIG.anniversary}주년 ${EVENT}까지 <b>${d + 1}일</b> 남았습니다`
-    : `창립 ${CONFIG.anniversary}주년 ${EVENT}가 <b>${d}일</b> 지났습니다`;
-}
-tick(); setInterval(tick, 1000);
 
 /* 4. 식순 */
 $('#timeline').innerHTML = CONFIG.program.map(p =>
   `<li class="${p.key ? 'key' : ''}"><span class="t">${esc(p.t)}</span><span class="w">${esc(p.w)}${p.d ? `<small>${esc(p.d)}</small>` : ''}</span></li>`).join('');
 $('#dinnerNote').innerHTML = CONFIG.dinnerNote;
 
-/* 5. 후리스 */
-$('#fleeceImgs').innerHTML = CONFIG.fleeceImages.map(f => `
-  <figure><div class="img">${f.src
-    ? `<img src="${esc(f.src)}" alt="기념 후리스 ${esc(f.cap)}" loading="lazy">`
-    : `<svg width="70%" viewBox="0 0 100 100" aria-label="후리스 이미지 준비 중"><path d="M30 12 L42 8 Q50 16 58 8 L70 12 L86 22 L96 82 L84 84 L74 42 L74 92 L26 92 L26 42 L16 84 L4 82 L14 22 Z" fill="#2a2523" stroke="#caac6b" stroke-width="1.2" stroke-linejoin="round"/><line x1="50" y1="14" x2="50" y2="92" stroke="#caac6b" stroke-width="1" ${f.cap === 'BACK' ? 'opacity="0"' : ''}/><text x="50" y="${f.cap === 'BACK' ? 52 : 36}" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="${f.cap === 'BACK' ? 16 : 7}" fill="#caac6b">${f.cap === 'BACK' ? '50' : ''}</text></svg>`}
-  </div><figcaption>${esc(f.cap)}</figcaption></figure>`).join('');
-$('#fleeceDesc').innerHTML = br(CONFIG.fleeceDesc);
-$('#sizeTable').innerHTML =
-  `<thead><tr>${CONFIG.sizeColumns.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>` +
-  `<tbody>${CONFIG.sizeRows.map(r => `<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
-$('#sizeCap').textContent = CONFIG.sizeCaption;
+/* 5. 동문 발전기금 */
+$('#fundText').innerHTML = br(CONFIG.fundText);
+$('#fundNote').textContent = CONFIG.fundNote;
+setLink($('#donateLink'), CONFIG.donateLink);
 
-/* 7. 카카오톡 채널 */
+
+/* 9. 카카오톡 채널 */
 $('#kakaoName').textContent = CONFIG.kakaoName;
 $('#kakaoDesc').textContent = CONFIG.kakaoDesc;
 setLink($('#kakaoLink'), CONFIG.kakaoLink);
 
-/* 8. 추억의 앨범 */
+/* 7. 추억의 앨범 */
 const SAMPLE_TONES = ['#4a413c','#5c5046','#3f3834','#6b5d4c','#4f4540','#57493d','#443b36','#62564a','#4b423c','#5a4d41','#40383a','#665748'];
 const photos = CONFIG.gallery.length ? CONFIG.gallery.map(g => typeof g === 'string' ? { src: g } : g) : SAMPLE_TONES.map(c => ({ tone: c }));
 const SHOW = 9;
@@ -894,7 +794,12 @@ $('#map').src = `https://maps.google.com/maps?q=${q}&z=16&output=embed`;
 $('#naverMap').href = `https://map.naver.com/p/search/${q}`;
 $('#kakaoMap').href = `https://map.kakao.com/link/search/${q}`;
 $('#tmap').href = `https://tmap.life/search?name=${q}`;
-$('#transport').innerHTML = CONFIG.transport.map(x => `<dt>${esc(x.t)}</dt><dd>${esc(x.d)}</dd>`).join('');
+const LINE_COLORS = { 1: '#0052a4', 2: '#00a84d', 3: '#ef7c1c', 4: '#00a5de', 5: '#996cac', 6: '#cd7c2f', 7: '#747f00', 8: '#e6186c', 9: '#bdb092' };
+$('#transport').innerHTML = CONFIG.transport.map(x => `<dt>${esc(x.t)}</dt><dd>${
+  br(x.d)
+    .replace(/\{(\d)\}/g, (_, n) => `<span class="subway-line" style="background:${LINE_COLORS[n] || '#888'}">${n}</span>`)
+    .replace(/(0\d{1,2}-\d{3,4}-\d{4})/g, n => `<a href="tel:${n.replace(/-/g, '')}">${n}</a>`)
+}</dd>`).join('');
 
 /* 복사 */
 async function copy(text, msg) {
@@ -903,102 +808,83 @@ async function copy(text, msg) {
   toast(msg);
 }
 
-/* 참석 여부 (RSVP) */
+/* 8. 메시지 남기기 (방명록) — rsvp/Code.gs 의 '방명록' 시트에 저장 */
 (() => {
-  const modal = $('#rsvpModal'), form = $('#rsvpForm'), err = $('#rsvpErr'), submit = $('#rsvpSubmit');
-  if (CONFIG.rsvpDeadline) {
-    const d = new Date(CONFIG.rsvpDeadline + 'T00:00:00');
-    $('#rsvpDeadline').textContent = `${d.getMonth()+1}월 ${d.getDate()}일(${DAYS_KO[d.getDay()]})까지 응답 부탁드립니다`;
-  }
-  const thisYear = new Date().getFullYear();
-  let opts = '<option value="" disabled selected>입학 연도를 선택하세요</option>';
-  for (let y = thisYear; y >= CONFIG.rsvpYearFrom; y--) opts += `<option value="${y}">${y}년 (${String(y).slice(2)}학번)</option>`;
-  $('#rv-year').innerHTML = opts;
-  $('#consentText').textContent = CONFIG.rsvpConsent;
-
-  const seg = $('#sizeSeg');
-  seg.style.setProperty('--n', Math.min(CONFIG.sizes.length, 6));
-  seg.innerHTML = CONFIG.sizes.map((s, i) =>
-    `<div><input type="radio" name="size" id="sz-${i}" value="${esc(s)}"><label for="sz-${i}">${esc(s)}</label></div>`).join('');
-
-  // 불참이면 후리스 사이즈 숨김
-  const syncSize = () => { $('#sizeField').hidden = form.attend.value !== '참석'; };
-  form.addEventListener('change', e => { if (e.target.name === 'attend') syncSize(); });
-
-  // 연락처 자동 하이픈
-  $('#rv-phone').addEventListener('input', e => {
-    const v = e.target.value.replace(/\D/g, '').slice(0, 11);
-    e.target.value = v.length < 4 ? v : v.length < 8 ? `${v.slice(0,3)}-${v.slice(3)}` : `${v.slice(0,3)}-${v.slice(3, v.length - 4)}-${v.slice(-4)}`;
-  });
-
-  const open = () => {
-    form.hidden = false; $('#rsvpDone').hidden = true; err.textContent = ''; syncSize();
-    modal.classList.add('open'); document.body.style.overflow = 'hidden';
-    setTimeout(() => $('#rv-name').focus(), 350);
+  const form = $('#gbForm'), list = $('#gbList'), err = $('#gbErr'), submit = $('#gbSubmit'), more = $('#gbMore');
+  const PAGE = 5;
+  let items = [], shown = PAGE;
+  $('#gbLead').innerHTML = br(CONFIG.gbLead);
+  const fmt = t => { const d = new Date(t); return isNaN(d) ? '' : `${d.getFullYear()}. ${d.getMonth()+1}. ${d.getDate()}.`; };
+  const render = () => {
+    list.innerHTML = items.length
+      ? items.slice(0, shown).map(m =>
+          `<div class="gb-item"><div class="who"><b>${esc(m.name)}</b><time>${fmt(m.time)}</time></div><p>${esc(m.message)}</p></div>`).join('')
+      : '<p class="gb-empty">첫 번째 축하 메시지를 남겨주세요.</p>';
+    more.hidden = items.length <= shown;
   };
-  const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; };
-  $('#rsvpOpen').onclick = open;
-  $('#rsvpClose').onclick = () => { close(); $('#rsvpOpen').focus(); };
-  $('#rsvpDoneClose').onclick = () => { close(); $('#rsvpOpen').focus(); };
-  $('#sizeGuideLink').onclick = e => { e.preventDefault(); close(); $('#fleece').scrollIntoView({ behavior: 'smooth' }); };
-  modal.addEventListener('click', e => { if (e.target === modal) close(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+  more.onclick = () => { shown += PAGE * 2; render(); };
+  $('#gb-msg').addEventListener('input', e => { $('#gbLen').textContent = e.target.value.length; });
 
-  const LABELS = { name: '성명', year: '학번', phone: '연락처' };
-  const josa = w => (w.charCodeAt(w.length - 1) - 0xAC00) % 28 ? '을' : '를';
-  const fail = (msg, el) => { err.textContent = msg; el && el.focus(); };
+  (async () => {
+    if (CONFIG.gbEndpoint) {
+      try {
+        const out = await (await fetch(`${CONFIG.gbEndpoint}?action=guestbook`)).json();
+        if (Array.isArray(out.entries)) items = out.entries;
+      } catch {}
+    }
+    render();
+  })();
 
   form.onsubmit = async e => {
     e.preventDefault();
     err.textContent = '';
-    for (const el of form.querySelectorAll('#rv-name, #rv-year, #rv-phone')) {
-      if (el.value.trim() === '') el.value = '';
-      if (!el.checkValidity()) {
-        return fail(el.validity.valueMissing
-          ? `${LABELS[el.name]}${josa(LABELS[el.name])} ${el.tagName === 'SELECT' ? '선택' : '입력'}해 주세요.`
-          : `${LABELS[el.name]} 형식을 확인해 주세요.`, el);
-      }
-    }
-    const attending = form.attend.value === '참석';
-    if (attending && !form.size.value) return fail('후리스 사이즈를 선택해 주세요.', seg.querySelector('input'));
-    if (!$('#rv-consent').checked) return fail('개인정보 수집·이용에 동의해 주세요.', $('#rv-consent'));
-
     const fd = new FormData(form);
     if (fd.get('website')) return;   // 스팸 봇 차단용 숨김 필드
-    const data = {
-      attend: fd.get('attend'), name: fd.get('name').trim(), year: fd.get('year'),
-      phone: fd.get('phone').trim(), size: attending ? fd.get('size') : '',
-      userAgent: navigator.userAgent.slice(0, 120),
-    };
+    const name = fd.get('name').trim(), message = fd.get('message').trim();
+    if (!name) { err.textContent = '이름을 입력해 주세요.'; return $('#gb-name').focus(); }
+    if (!message) { err.textContent = '메시지를 입력해 주세요.'; return $('#gb-msg').focus(); }
 
-    submit.disabled = true; submit.textContent = '제출 중…';
+    submit.disabled = true; submit.textContent = '등록 중…';
     try {
-      if (CONFIG.rsvpEndpoint) {
-        // text/plain 으로 보내야 브라우저가 사전 요청(CORS preflight) 없이 전송합니다
-        const res = await fetch(CONFIG.rsvpEndpoint, { method: 'POST', body: JSON.stringify(data) });
+      if (CONFIG.gbEndpoint) {
+        const res = await fetch(CONFIG.gbEndpoint, { method: 'POST', body: JSON.stringify({ type: 'guestbook', name, message }) });
         const out = await res.json();
         if (!out.ok) throw new Error(out.error || 'fail');
-      } else {
-        console.info('[RSVP 테스트 모드] 저장되지 않음:', data);
-        await new Promise(r => setTimeout(r, 500));
       }
-      form.reset();
-      form.hidden = true; $('#rsvpDone').hidden = false;
-      $('#rsvpDoneMsg').innerHTML = (attending
-        ? `${esc(data.name)} 동문님, 참석 응답 감사합니다!<br>${when.getMonth()+1}월 ${when.getDate()}일에 반갑게 뵙겠습니다.`
-        : `${esc(data.name)} 동문님, 응답 감사합니다.<br>다음 자리에서 꼭 뵙기를 바랍니다.`)
-        + (CONFIG.rsvpEndpoint ? '' : '<br><small style="color:var(--muted)">(테스트 모드 — 실제로 저장되지 않았습니다)</small>');
+      items.unshift({ name, message, time: new Date().toISOString() });
+      render();
+      form.reset(); $('#gbLen').textContent = '0';
+      toast('메시지가 등록되었습니다');
     } catch {
-      err.textContent = '제출에 실패했습니다. 잠시 후 다시 시도하거나 동문회 카카오톡 채널로 문의해 주세요.';
+      err.textContent = '등록에 실패했습니다. 잠시 후 다시 시도해 주세요.';
     } finally {
-      submit.disabled = false; submit.textContent = '제출하기';
+      submit.disabled = false; submit.textContent = '메시지 남기기';
     }
   };
 })();
 
-/* 공유 */
+/* 10. 공유 — 카카오톡 공유(키가 있을 때) → 휴대폰 공유창 → 주소 복사 순으로 시도 */
+const meta = n => (document.querySelector(`meta[property="${n}"]`) || {}).content || '';
+async function shareKakao() {
+  if (!window.Kakao) {
+    await new Promise((ok, no) => {
+      const sc = document.createElement('script');
+      sc.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
+      sc.crossOrigin = 'anonymous'; sc.onload = ok; sc.onerror = no;
+      document.head.appendChild(sc);
+    });
+  }
+  if (!Kakao.isInitialized()) Kakao.init(CONFIG.kakaoJsKey);
+  const link = { mobileWebUrl: location.href, webUrl: location.href };
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: { title: meta('og:title') || document.title, description: meta('og:description'), imageUrl: meta('og:image'), link },
+    buttons: [{ title: '초대장 보기', link }],
+  });
+}
 $('#copyBtn').onclick = () => copy(location.href, '초대장 주소가 복사되었습니다');
 $('#shareBtn').onclick = async () => {
+  if (CONFIG.kakaoJsKey) { try { return await shareKakao(); } catch {} }
   if (navigator.share) { try { await navigator.share({ title: document.title, url: location.href }); } catch {} }
   else copy(location.href, '초대장 주소가 복사되었습니다');
 };
