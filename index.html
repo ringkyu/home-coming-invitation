@@ -137,6 +137,7 @@
   .timeline .w { font-size: 15px; font-weight: 500; word-break: keep-all; }
   .timeline .w small { display: block; color: var(--muted); font-size: 12.5px; line-height: 1.6; font-weight: 300; }
 
+  .program-sec .program-note { color: var(--muted); font-size: 13px; margin-top: 18px; }
   .program-sec .btn.full { margin-top: 24px; }
   .program-sec .deadline { color: var(--muted); font-size: 13px; margin-top: 12px; }
 
@@ -158,10 +159,12 @@
   /* ---------- 5. 동문 발전기금 ---------- */
   .fund-note { font-size: 13px; color: var(--muted); margin-top: 14px; word-break: keep-all; }
   .fund-sec .btn.full { margin-top: 28px; }
+  .fund-sec .btn.full + .btn.full { margin-top: 10px; }
 
+  /* ---------- 6. 페르시아 위크 ---------- */
+  .pweek { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--line); }
 
-
-  /* ---------- 7. 카카오톡 채널 ---------- */
+  /* ---------- 카카오톡 채널 ---------- */
   .kakao-card {
     display: flex; align-items: center; gap: 14px; text-align: left;
     background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px;
@@ -170,7 +173,7 @@
   .kakao-card b { display: block; font-size: 15px; font-weight: 600; }
   .kakao-card span { font-size: 13px; color: var(--muted); font-weight: 300; }
 
-  /* ---------- 8. 갤러리 ---------- */
+  /* ---------- 7. 갤러리 ---------- */
   .gallery-sec { padding-left: 16px; padding-right: 16px; }
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
   .gallery .g {
@@ -183,6 +186,8 @@
     position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 6px 5px; font-size: 11px;
     font-family: 'Pretendard', sans-serif; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.6));
   }
+  .gallery-note { font-size: 12.5px; line-height: 1.8; color: var(--muted); margin-top: 18px; padding: 0 12px; word-break: keep-all; }
+  .gallery-note a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-deep); }
   .more-btn { margin-top: 22px; }
 
   .lightbox {
@@ -225,7 +230,7 @@
     border-radius: 50%; color: #fff; font: 600 11px/1 'Montserrat', sans-serif; vertical-align: -3px;
   }
 
-  /* ---------- 8. 메시지 남기기 ---------- */
+  /* ---------- 9. 메시지 남기기 ---------- */
   .guestbook .lead { margin-bottom: 26px; }
   .gb-form .field .hint { text-align: right; }
   .gb-list { display: grid; gap: 10px; margin-top: 28px; text-align: left; }
@@ -359,6 +364,7 @@
     <div class="eng reveal">PROGRAM</div>
     <div class="sec-title reveal">행사 식순</div>
     <ol class="timeline reveal" id="timeline"></ol>
+    <p class="program-note reveal" id="programNote"></p>
     <div class="note reveal" id="dinnerNote"></div>
     <a class="btn full primary reveal" id="rsvpLink" target="_blank" rel="noopener">참석 여부 응답하기</a>
     <div class="deadline reveal" id="rsvpDeadline"></div>
@@ -371,21 +377,14 @@
     <p class="lead reveal" id="fundText"></p>
     <p class="fund-note reveal" id="fundNote"></p>
     <a class="btn full primary reveal" id="donateLink" target="_blank" rel="noopener">기부금 온라인 약정하기</a>
+    <a class="btn full reveal" id="fundStatusLink" target="_blank" rel="noopener">발전기금 적립 현황 확인하기</a>
   </section>
 
-  <!-- 6. 오시는 길 -->
-  <section class="location deco-moon">
-    <div class="eng reveal">LOCATION</div>
-    <div class="sec-title reveal">오시는 길</div>
-    <div class="place-name reveal" id="place-name"></div>
-    <div class="place-addr reveal" id="place-addr"></div>
-    <iframe class="map reveal" id="map" loading="lazy" title="지도"></iframe>
-    <div class="map-links reveal">
-      <a class="btn" id="naverMap" target="_blank" rel="noopener">네이버지도</a>
-      <a class="btn" id="kakaoMap" target="_blank" rel="noopener">카카오맵</a>
-      <a class="btn" id="tmap" target="_blank" rel="noopener">티맵</a>
-    </div>
-    <dl class="transport reveal" id="transport"></dl>
+  <!-- 6. 페르시아 위크 소개 -->
+  <section class="pweek-sec deco-moon">
+    <div class="eng reveal">PERSIA WEEK</div>
+    <div class="sec-title reveal">페르시아 위크 소개</div>
+    <img class="pweek reveal" id="pweekImg" width="1415" height="2000" loading="lazy">
   </section>
 
   <!-- 7. 추억의 앨범 -->
@@ -393,10 +392,22 @@
     <div class="eng reveal">MEMORIES</div>
     <div class="sec-title reveal">추억의 앨범</div>
     <div class="gallery reveal" id="gallery"></div>
+    <p class="gallery-note reveal" id="galleryNote"></p>
   </section>
 
-  <!-- 8. 메시지 남기기 (방명록) -->
-  <section class="guestbook deco-arcs">
+  <!-- 8. 카카오톡 채널 -->
+  <section class="deco-dots">
+    <div class="eng reveal">CHANNEL</div>
+    <div class="sec-title reveal">동문회 카카오톡 채널</div>
+    <div class="kakao-card reveal">
+      <img class="logo" src="images/kakao-channel.jpg" alt="" width="48" height="48">
+      <div><b id="kakaoName"></b><span id="kakaoDesc"></span></div>
+    </div>
+    <a class="btn full kakao reveal" id="kakaoLink" target="_blank" rel="noopener">채널 추가하기</a>
+  </section>
+
+  <!-- 9. 메시지 남기기 (방명록) -->
+  <section class="guestbook alt deco-arcs">
     <div class="eng reveal">MESSAGE</div>
     <div class="sec-title reveal">축하 메시지 남기기</div>
     <p class="lead reveal" id="gbLead"></p>
@@ -418,18 +429,22 @@
     <button class="btn more-btn" id="gbMore" hidden>더 보기</button>
   </section>
 
-  <!-- 9. 카카오톡 채널 -->
-  <section class="alt deco-dots">
-    <div class="eng reveal">CHANNEL</div>
-    <div class="sec-title reveal">동문회 카카오톡 채널</div>
-    <div class="kakao-card reveal">
-      <img class="logo" src="images/kakao-channel.jpg" alt="" width="48" height="48">
-      <div><b id="kakaoName"></b><span id="kakaoDesc"></span></div>
+  <!-- 10. 오시는 길 -->
+  <section class="location">
+    <div class="eng reveal">LOCATION</div>
+    <div class="sec-title reveal">오시는 길</div>
+    <div class="place-name reveal" id="place-name"></div>
+    <div class="place-addr reveal" id="place-addr"></div>
+    <iframe class="map reveal" id="map" loading="lazy" title="지도"></iframe>
+    <div class="map-links reveal">
+      <a class="btn" id="naverMap" target="_blank" rel="noopener">네이버지도</a>
+      <a class="btn" id="kakaoMap" target="_blank" rel="noopener">카카오맵</a>
+      <a class="btn" id="tmap" target="_blank" rel="noopener">티맵</a>
     </div>
-    <a class="btn full kakao reveal" id="kakaoLink" target="_blank" rel="noopener">채널 추가하기</a>
+    <dl class="transport reveal" id="transport"></dl>
   </section>
 
-  <!-- 10. 공유 -->
+  <!-- 11. 공유 -->
   <section style="padding-top:48px;padding-bottom:48px">
     <div class="share">
       <button class="btn full kakao" id="shareBtn">카카오톡으로 공유하기</button>
@@ -498,12 +513,20 @@ const CONFIG = {
     { t: '20:30–21:00', w: '네트워킹' },
     { t: '21:00–', w: '2차 이동' },
   ],
+  programNote: '※ 상기 일정은 변동될 수 있습니다.',
   dinnerNote: '<b>연회식 코스 만찬</b>으로 진행되어 <b>사전 인원 파악이 꼭 필요합니다.</b><br>참석 여부와 후리스 사이즈를 기한 내 알려주세요.',
 
   // 5. 동문 발전기금
   fundText: '후배들의 꿈과 학과의 새로운 50년을 위한\n동문 발전기금에 따뜻한 마음을 모아주세요.',
   fundNote: '※ 약정해 주신 기부금은 「연말정산 세액공제」 대상입니다.',
   donateLink: 'https://brr.kr/ty97ne',   // 기부금 온라인 약정 페이지
+  fundStatusLink: 'https://pf.kakao.com/_HxjpGX/114158538',   // 발전기금 적립 현황 (카카오톡 채널 게시글)
+
+  // 6. 페르시아 위크 소개 — 포스터 이미지 (alt 는 이미지를 볼 수 없는 분들을 위한 설명)
+  persiaWeek: {
+    img: 'images/persia-week.webp',
+    alt: '창립 50주년 기념 페르시아 위크 일정 — 11월 9일(월) 페르시아어 말하기대회, 10일(화) 동문 토크콘서트, 11일(수) 페르시아어 번역대회, 12일(목) 동문 토크콘서트, 13일(금) 홈커밍데이(19시, 프레스센터 20F)',
+  },
 
   // 참석 응답 — 구글 폼 (식순 아래 '참석 여부 응답하기' 버튼)
   rsvpLink: 'https://forms.gle/SWfNVSHZbwE51rf96',
@@ -512,15 +535,15 @@ const CONFIG = {
   // 방명록 — Google Apps Script 웹 앱 URL (rsvp/Code.gs)
   gbEndpoint: 'https://script.google.com/macros/s/AKfycbx-flpJonWOsKOGqiFE1lfXarZMO22EtuqP__03UG85k-3QP7ujqwivN0jkTklZql6a/exec',
 
-  // 8. 메시지 남기기
+  // 9. 메시지 남기기
   gbLead: '50주년을 맞은 학과와 반가운 동문들에게\n축하와 안부를 남겨주세요.',
 
-  // 9. 카카오톡 채널
+  // 8. 카카오톡 채널
   kakaoName: '한국외대 페르시아어 이란학과 총동문회',
   kakaoDesc: '50주년 행사 소식과 동문 소식을 가장 빠르게 받아보세요',
   kakaoLink: 'https://pf.kakao.com/_HxjpGX',
 
-  // 10. 카카오톡 공유 — Kakao Developers 의 JavaScript 키 (비우면 휴대폰 공유창으로 대체)
+  // 11. 카카오톡 공유 — Kakao Developers 의 JavaScript 키 (비우면 휴대폰 공유창으로 대체)
   kakaoJsKey: '0e49cb0fcf6037a309c8293bbea9e297',
   kakaoTemplateId: 137719,          // Kakao Developers 메시지 템플릿 ID (비우면 기본 카드로 보냄)
 
@@ -533,7 +556,9 @@ const CONFIG = {
     'images/gallery/10.jpg', 'images/gallery/11.jpg', 'images/gallery/12.jpg',
   ],
 
-  // 6. 오시는 길 — 교통·주차 안내
+  galleryNote: '* 앨범에 사진 게재를 희망하시지 않을 경우 아래 연락처로 알려주시기 바랍니다.\n(학과사무실 : 02.2173.2303, hufsiran@gmail.com)',
+
+  // 10. 오시는 길 — 교통·주차 안내
   // {1} {2} {5} 처럼 쓰면 지하철 호선 표시로 바뀝니다
   transport: [
     { t: 'SUBWAY',  d: '{1}{2}호선 시청역 4번 출구 (프레스센터 방향)\n{5}호선 광화문역 5번 출구 (시청 방향 도보 약 5분)' },
@@ -674,15 +699,21 @@ $('#contact').innerHTML = esc(CONFIG.contact).replace(/(0\d{1,2}-\d{3,4}-\d{4})/
 /* 4. 식순 */
 $('#timeline').innerHTML = CONFIG.program.map(p =>
   `<li class="${p.key ? 'key' : ''}"><span class="t">${esc(p.t)}</span><span class="w">${esc(p.w)}${p.d ? `<small>${esc(p.d)}</small>` : ''}</span></li>`).join('');
+$('#programNote').textContent = CONFIG.programNote;
 $('#dinnerNote').innerHTML = CONFIG.dinnerNote;
 
 /* 5. 동문 발전기금 */
 $('#fundText').innerHTML = br(CONFIG.fundText);
 $('#fundNote').textContent = CONFIG.fundNote;
 setLink($('#donateLink'), CONFIG.donateLink);
+setLink($('#fundStatusLink'), CONFIG.fundStatusLink);
+
+/* 6. 페르시아 위크 소개 */
+$('#pweekImg').src = CONFIG.persiaWeek.img;
+$('#pweekImg').alt = CONFIG.persiaWeek.alt;
 
 
-/* 9. 카카오톡 채널 */
+/* 8. 카카오톡 채널 */
 $('#kakaoName').textContent = CONFIG.kakaoName;
 $('#kakaoDesc').textContent = CONFIG.kakaoDesc;
 setLink($('#kakaoLink'), CONFIG.kakaoLink);
@@ -697,6 +728,10 @@ const tileHtml = (p, i, big) => p.tone
     ? `<img data-src="${esc(p.src)}" alt="${esc(p.cap || '추억의 사진')}">`
     : `<img src="${esc(p.thumb || thumbOf(p.src))}" onerror="this.onerror=null;this.src='${esc(p.src)}'" alt="${esc(p.cap || '추억의 사진')}" loading="lazy">${p.cap ? `<span class="cap">${esc(p.cap)}</span>` : ''}`;
 $('#gallery').innerHTML = photos.map((p, i) => `<div class="g" data-i="${i}">${tileHtml(p, i)}</div>`).join('');
+// 전화번호·이메일은 눌러서 바로 연결되게
+$('#galleryNote').innerHTML = br(CONFIG.galleryNote)
+  .replace(/0\d{1,2}[.-]\d{3,4}[.-]\d{4}/g, n => `<a href="tel:${n.replace(/\D/g, '')}">${n}</a>`)
+  .replace(/[\w.+-]+@[\w-]+(\.[\w-]+)+/g, m => `<a href="mailto:${m}">${m}</a>`);
 
 /* 사진 크게 보기 — 좌우로 밀어서 이전/다음 사진 */
 const lb = $('#lightbox'), track = $('#lbTrack'), stage = $('#lbStage');
@@ -794,7 +829,7 @@ async function copy(text, msg) {
   toast(msg);
 }
 
-/* 8. 메시지 남기기 (방명록) — rsvp/Code.gs 의 '방명록' 시트에 저장 */
+/* 9. 메시지 남기기 (방명록) — rsvp/Code.gs 의 '방명록' 시트에 저장 */
 (() => {
   const form = $('#gbForm'), list = $('#gbList'), err = $('#gbErr'), submit = $('#gbSubmit'), more = $('#gbMore');
   const PAGE = 5;
@@ -850,7 +885,7 @@ async function copy(text, msg) {
   };
 })();
 
-/* 10. 공유 — 카카오톡 공유(키가 있을 때) → 휴대폰 공유창 → 주소 복사 순으로 시도 */
+/* 11. 공유 — 카카오톡 공유(키가 있을 때) → 휴대폰 공유창 → 주소 복사 순으로 시도 */
 const meta = n => (document.querySelector(`meta[property="${n}"]`) || {}).content || '';
 // SDK 는 페이지가 열릴 때 미리 불러둠 (버튼을 누른 뒤 불러오면 팝업이 차단될 수 있음)
 const kakaoReady = !CONFIG.kakaoJsKey ? Promise.reject() : new Promise((ok, no) => {
